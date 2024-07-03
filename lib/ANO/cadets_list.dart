@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ncc/ANO/cadets_all_details.dart.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -104,13 +105,13 @@ class _ccadet_detailsState extends State<ccadet_details> {
                 //title:Text(regg_no),
                 contentPadding: EdgeInsets.all(20),
 
-                title:Text(regg_no,style: TextStyle(color: Color.fromARGB(255, 25, 57, 238)),),
-                subtitle: Text(cadetname,style: TextStyle(color: Color.fromARGB(255, 25, 57, 238)),),
+                title:Text(regg_no,style:GoogleFonts.prompt(textStyle: TextStyle( fontFamily: 'Prompt',color: Color.fromARGB(255, 25, 57, 238)),),),
+                subtitle: Text(cadetname,style: TextStyle( fontFamily: 'Prompt',color: Color.fromARGB(255, 25, 57, 238)),),
                 //trailing: ImageFromFirebase(),
                 trailing: Container(
 
                   child:GestureDetector(
-                    child:Text('View Details',style: TextStyle(color: Color.fromARGB(255, 179, 41, 32),fontWeight: FontWeight.bold,fontSize: 13),),
+                    child:Text('View Details',style: GoogleFonts.prompt(textStyle:TextStyle(color: Color.fromARGB(255, 179, 41, 32),fontWeight: FontWeight.bold,fontSize: 13),),),
                     onTap:(){
                       Navigator.push(context,MaterialPageRoute(builder: (context) => ImageFromFirebase(cadetname:cadetname,regg_no: regg_no,dtrate:dtrate,grp:grp,btn:btn,accnum:accnum,accbrnch:accbrnch,phn:phn,adrs:adrs,ftname:ftname,ftphn:ftphn,ftocc:ftocc,mtname:mtname,mtphn:mtphn,mtocc:mtocc,adh:adh,bats:bats,bate:bate,clg:clg,deg:deg,dpt:dpt,bl:bl,com:com)));
                     },
