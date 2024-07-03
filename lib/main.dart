@@ -1,0 +1,271 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:ncc/ANO/ano_view_details.dart';
+import 'package:ncc/CADETS/cadet_view_events.dart';
+import 'package:ncc/cadet_fill_details.dart';
+import 'package:ncc/firebase_options.dart';
+import 'package:ncc/sign_in.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:page_transition/page_transition.dart';
+
+
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+
+
+void main() async
+{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+  runApp(ncc());
+}
+
+
+class ncc extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+       debugShowCheckedModeBanner: false,
+      home:AnimatedSplashScreen(nextScreen: Home() ,
+      splash:Text('UNITY AND DISCIPLINE',style:TextStyle(fontWeight: FontWeight.bold )),
+      duration: 3000,
+     // splashTransition: SplashTransition.rotationTransition,
+      backgroundColor: Colors.white,
+      pageTransitionType:PageTransitionType.leftToRight,
+     // home:Home(),
+     
+    ));
+    
+  }
+
+}
+class Home extends StatefulWidget{
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+
+
+   String login_email = ' ', login_pass = ' ';
+
+  TextEditingController login_emailcontroller = TextEditingController();
+  TextEditingController login_passcontroller = TextEditingController();
+
+  final login_formkey = GlobalKey<FormState>();
+
+  userlogin() async{
+
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_events()));
+
+      login_emailcontroller.clear();
+      login_passcontroller.clear();
+
+    }on FirebaseAuthException catch (e)
+      {
+        if(e.code == 'user-not-found'){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User found For That Email',style:TextStyle(fontSize: 20))));
+        }else if(e.code == 'wrong-password')
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password Provided By User',style:TextStyle(fontSize: 20))));
+
+
+        }
+
+
+      }
+  }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+
+    body:Container(
+      child:Form(key:login_formkey,
+     // color: Color.fromARGB(255, 252, 223, 180),
+
+      /*alignment: Alignment.center,
+      padding:EdgeInsets.all(32),
+      decoration: BoxDecoration(image:DecorationImage(image: NetworkImage(''),fit: BoxFit.cover)), */
+      child:Column(children: [
+
+      SizedBox(height:90),
+
+      Center(child:Image(image: AssetImage('assets/ncclogo-removebg-preview.png',),width:150,height:150)),
+
+      SizedBox(height: 70,),
+
+      Container(alignment: Alignment.center,
+      height: 70,
+      width:330,
+      padding: EdgeInsets.only(left:20),
+      //color: Colors.red,
+
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.red.shade500,
+      
+      ),
+      child:TextFormField(
+        controller: login_emailcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user email";
+                    }
+                    return null;
+                  },
+        decoration: InputDecoration(border: InputBorder.none,
+        hintText: '     Enter your email',
+        ),
+       
+        
+        
+      )
+      
+      ),
+
+      SizedBox(height: 30,),
+
+      Container(alignment: Alignment.center,
+      height: 70,
+      width:330,
+      padding: EdgeInsets.only(left:20),
+      //color: Colors.red,
+
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.red.shade500,
+      
+      ),
+      child:
+        TextFormField(
+         controller: login_passcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user password";
+                    }
+                    return null;
+                  },
+        decoration: InputDecoration(border: InputBorder.none,
+        hintText: '     Enter your password',
+        ),
+        
+        textAlign: TextAlign.start,
+        
+        
+      )
+      
+      ),
+      SizedBox(height: 20,),
+      GestureDetector(
+        child:Padding(padding:EdgeInsets.only(left:140),child:Row(children:[
+          Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.w500,fontSize: 10)),
+         // SizedBox(width:5),
+         // Text('click here to continue',style:TextStyle(fontWeight: FontWeight.bold,color: Color.fromARGB(255, 47, 19, 203,),))
+          ])
+      )
+
+
+      
+      ),
+      
+
+      SizedBox(height:30),
+
+
+      GestureDetector(
+              onTap:(){
+
+                 if(login_formkey.currentState!.validate())
+          {
+            setState(() {
+              login_email = login_emailcontroller.text.trim();
+              //username = namecontroller.text.trim();
+              login_pass = login_passcontroller.text.trim();
+
+            });
+          }
+
+          userlogin();
+          
+
+
+              },child:Container(alignment: Alignment.center,
+      height: 70,
+      width:330,
+      padding: EdgeInsets.all(10),
+      //color: Colors.red,
+
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        color: Color.fromARGB(255, 19, 4, 104),
+      
+      ),
+      child:
+        Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
+      
+      ),),
+      SizedBox(height:30),
+
+
+      
+
+      GestureDetector(
+        onTap:(){
+          Navigator.push(context,MaterialPageRoute(builder: (context) => ano_view_details()));
+        },
+        child:Padding(padding:EdgeInsets.only(left:80),child:Row(children:[
+          Text('ANO \'s ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold)),
+          SizedBox(width:5),
+          Text('click here to continue',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue))
+          ])
+      ),
+
+     
+
+
+
+
+      
+      ),
+
+      SizedBox(height: 10,),
+      
+      GestureDetector(child:Text("(Or)",style: TextStyle(color:const Color.fromARGB(255, 231, 174, 6)),)),
+
+      SizedBox(height:15),
+
+      GestureDetector(
+        onTap:(){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() ));
+
+          
+        },
+        child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline)))
+     
+
+      
+      ],),
+
+      
+    
+    
+    
+    )));
+  }
+}
