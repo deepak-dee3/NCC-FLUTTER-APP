@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ncc
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# NCC-FLUTTER-APP
+>>>>>>> 592e98a80a534378f31e3748a9a8bd5f9a260480
