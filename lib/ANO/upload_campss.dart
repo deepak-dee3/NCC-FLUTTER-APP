@@ -76,13 +76,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        // Handle back button press
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        return true; // Return true to allow back navigation
-      },
-      child:Scaffold(
+    return Scaffold(
       body: Container(
         child: Column(
           children: [
@@ -173,6 +167,6 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
           ],
         ),
       ),
-    ));
+    );
   }
 }

@@ -105,8 +105,8 @@ class _ccadet_detailsState extends State<ccadet_details> {
                 //title:Text(regg_no),
                 contentPadding: EdgeInsets.all(20),
 
-                title:Text(regg_no,style:GoogleFonts.prompt(textStyle: TextStyle( fontFamily: 'Prompt',color: Color.fromARGB(255, 25, 57, 238)),),),
-                subtitle: Text(cadetname,style: TextStyle( fontFamily: 'Prompt',color: Color.fromARGB(255, 25, 57, 238)),),
+                title:Text(regg_no,style:GoogleFonts.blackOpsOne(textStyle: TextStyle( fontFamily: 'Prompt',color: Colors.black),),),
+                subtitle: Text(cadetname,style: GoogleFonts.acme(textStyle:TextStyle( fontFamily: 'Prompt',color: Colors.black),),),
                 //trailing: ImageFromFirebase(),
                 trailing: Container(
 
