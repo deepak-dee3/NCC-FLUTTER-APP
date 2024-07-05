@@ -34,13 +34,8 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        // Handle back button press
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        return true; // Return true to allow back navigation
-      },
-      child:Scaffold(
+    return 
+      Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 210, 248),
       appBar: AppBar(
         title: Text(''),
@@ -119,6 +114,6 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
           }
         },
       ),
-    ));
+    );
   }
 }

@@ -23,11 +23,11 @@ void main() async
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
-  runApp(ncc());
+  runApp(NCC());
 }
 
 
-class ncc extends StatelessWidget{
+class NCC extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
+    return  Scaffold(
       resizeToAvoidBottomInset: false,
 
     body:Container(

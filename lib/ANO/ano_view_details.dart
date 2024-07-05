@@ -12,11 +12,12 @@ class ano_view_details extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     
-    return WillPopScope(
+    return 
+    WillPopScope(
       onWillPop: () async {
         // Handle back button press
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        return true; // Return true to allow back navigation
+        Navigator.pop(context);
+        return true;
       },
       child:Scaffold(
 

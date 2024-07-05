@@ -69,33 +69,39 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      body: SingleChildScrollView(child:Column(
-        children:[
-          SizedBox(height:100),
-        Center(child:Container(
-         // color: Colors.red,
-
-          //decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-          height: 200,
-          width: 300,
-        child: imageUrl.isEmpty
-            ? CircularProgressIndicator()
-            : Image.network(
-              //color: Colors.red,
-              width: 100,
-              height: 100,
-
-                imageUrl,
-                loadingBuilder: (context, child, progress) {
-                  return progress == null ? child : CircularProgressIndicator();
-                },
-                errorBuilder: (context, error, stackTrace) {
-                  return Text('Error loading image');
-                },
+      backgroundColor: Colors.blue.shade100,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 100),
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                height: 200,
+                width: 250,
+                child: imageUrl.isEmpty
+                    ? CircularProgressIndicator()
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          imageUrl,
+                          width: 300,
+                          height: 200,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, progress) {
+                            return progress == null
+                                ? child
+                                : CircularProgressIndicator();
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Text('Error loading image');
+                          },
+                        ),
+                      ),
               ),
-      ),
-    ),
+            ),
 
     SizedBox(height:40),
     Padding(padding: EdgeInsets.all(10),child:Text('NCC DETAILS',style: TextStyle(fontWeight: FontWeight.bold),)),
@@ -103,22 +109,27 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     SizedBox(height:20),
 
     Container(height:450,width:330,
-    decoration:BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(20)),
+    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
-      SizedBox(height: 13,),
+      SizedBox(height: 19,),
 
       Padding(padding: EdgeInsets.all(10),child:Container(
         
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.cadetname}' ,
+          decoration: InputDecoration(
+             hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
+            hintText:'    ${widget.regg_no.toUpperCase()}' ,
             border: InputBorder.none),
         ),
 
@@ -132,12 +143,16 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.cadetname}' ,
+          decoration: InputDecoration(hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
+            hintText:'    ${widget.cadetname.toUpperCase()}' ,
             border: InputBorder.none),
         ),
 
@@ -150,12 +165,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.dtrate}' ,
+          decoration: InputDecoration(hintText:'    ${widget.dtrate.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -168,12 +186,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.grp}' ,
+          decoration: InputDecoration(hintText:'    ${widget.grp.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -186,12 +207,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.btn}' ,
+          decoration: InputDecoration(hintText:'    ${widget.btn.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -212,7 +236,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     SizedBox(height:20),
 
     Container(height:700,width:330,
-    decoration:BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(20)),
+    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 17,),
@@ -226,12 +250,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.phn}' ,
+          decoration: InputDecoration(hintText:'    ${widget.phn}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -244,12 +271,17 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.adrs}' ,
+          decoration: InputDecoration(
+            hintStyle: TextStyle(
+          fontFamily: 'Lato',
+          color: Colors.white, 
+        ),
+            hintText:'    ${widget.adrs.toUpperCase()}' ,
             border: InputBorder.none),
         ),
 
@@ -262,12 +294,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.ftname}' ,
+          decoration: InputDecoration(hintText:'    ${widget.ftname.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -280,12 +315,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.ftphn}' ,
+          decoration: InputDecoration(hintText:'    ${widget.ftphn.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -298,12 +336,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.ftocc}' ,
+          decoration: InputDecoration(hintText:'    ${widget.ftocc.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -316,12 +357,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.mtname}' ,
+          decoration: InputDecoration(hintText:'    ${widget.mtname.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -334,12 +378,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.mtphn}' ,
+          decoration: InputDecoration(hintText:'    ${widget.mtphn.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -352,12 +399,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.mtocc}' ,
+          decoration: InputDecoration(hintText:'    ${widget.mtocc.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -379,7 +429,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     SizedBox(height:20),
 
     Container(height:350,width:330,
-    decoration:BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(20)),
+    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 13,),
@@ -389,12 +439,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.accnum}' ,
+          decoration: InputDecoration(hintText:'    ${widget.accnum.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -408,12 +461,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.accbrnch}' ,
+          decoration: InputDecoration(hintText:'    ${widget.accbrnch.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -426,12 +482,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'ifsc code ' ,
+          decoration: InputDecoration(hintText:'   ifsc code ' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -443,12 +502,15 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.adh}' ,
+          decoration: InputDecoration(hintText:'    ${widget.adh.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -480,23 +542,30 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
     SizedBox(height:20),
 
-    Container(height:620,width:330,
-    decoration:BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(20)),
+    Container(height:630,width:330,
+    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
-      SizedBox(height: 13,),
+      SizedBox(height: 20,),
 
       Padding(padding: EdgeInsets.all(10),child:Container(
         
 
         decoration: BoxDecoration(
+           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          //color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+          ),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.bats}' ,
+          decoration: InputDecoration(hintText:'    ${widget.bats.toUpperCase()}' ,
+          hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -509,13 +578,70 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         
 
         decoration: BoxDecoration(
+           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+         // color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+         ),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.bate}' ,
+          decoration: InputDecoration(hintText:'    ${widget.bate.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
+            border: InputBorder.none),
+        ),
+
+        
+      )),
+      SizedBox(height: 10,),
+
+      Padding(padding: EdgeInsets.all(10),child:Container(
+        
+
+        decoration: BoxDecoration(
+        color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+
+
+          
+         // color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+          ),
+        child:TextField(
+          
+          
+          
+          decoration: InputDecoration(hintText:'    ${widget.clg.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
+            border: InputBorder.none),
+        ),
+
+        
+      )),
+      SizedBox(height: 10,),
+
+      Padding(padding: EdgeInsets.all(10),child:Container(
+        
+
+        decoration: BoxDecoration(
+           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+          
+          //color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+),
+        child:TextField(
+          
+          
+          
+          decoration: InputDecoration(hintText:'    ${widget.deg.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -528,48 +654,17 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
+          ),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.clg}' ,
-            border: InputBorder.none),
+          decoration: InputDecoration(hintText:'    ${widget.dpt.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
         ),
-
-        
-      )),
-      SizedBox(height: 10,),
-
-      Padding(padding: EdgeInsets.all(10),child:Container(
-        
-
-        decoration: BoxDecoration(
-          
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
-        child:TextField(
-          
-          
-          
-          decoration: InputDecoration(hintText:'${widget.deg}' ,
-            border: InputBorder.none),
-        ),
-
-        
-      )),
-      SizedBox(height: 10,),
-
-      Padding(padding: EdgeInsets.all(10),child:Container(
-        
-
-        decoration: BoxDecoration(
-          
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
-        child:TextField(
-          
-          
-          
-          decoration: InputDecoration(hintText:'${widget.dpt}' ,
             border: InputBorder.none),
         ),
 
@@ -583,12 +678,16 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.bl}' ,
+          decoration: InputDecoration(hintText:'    ${widget.bl.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 
@@ -601,12 +700,16 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
         decoration: BoxDecoration(
           
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(20),),
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
           
           
           
-          decoration: InputDecoration(hintText:'${widget.com}' ,
+          decoration: InputDecoration(hintText:'    ${widget.com.toUpperCase()}' ,
+           hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color:Colors.white, 
+        ),
             border: InputBorder.none),
         ),
 

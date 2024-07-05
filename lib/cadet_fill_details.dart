@@ -137,13 +137,7 @@ class _fill_detailsState extends State<fill_details> {
   Widget build(BuildContext context) {
     
 
-    return  WillPopScope(
-      onWillPop: () async {
-        // Handle back button press
-        Navigator.of(context).popUntil((route) => route.isFirst);
-        return true; // Return true to allow back navigation
-      },
-      child:
+    return   
     Scaffold(
       resizeToAvoidBottomInset: false,
 
@@ -598,34 +592,7 @@ class _fill_detailsState extends State<fill_details> {
  create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ncc()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
 
 
         _regi_controller.clear();
@@ -677,7 +644,7 @@ _mothername_controller .clear();
 
         ],)
       )
-    )));
+    ));
   }
 }
 
