@@ -54,10 +54,13 @@ class _HomeState extends State<Home> {
 
 
 
-   String login_email = ' ', login_pass = ' ';
+   String login_email = ' ', login_pass = ' '; 
+   final String passkey = '123';
+   String? passkeyError;
 
   TextEditingController login_emailcontroller = TextEditingController();
   TextEditingController login_passcontroller = TextEditingController();
+  TextEditingController passkeyController = TextEditingController();
 
   final login_formkey = GlobalKey<FormState>();
 
@@ -90,7 +93,27 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     
-    return  Scaffold(
+    return  WillPopScope(
+    onWillPop: () async {
+      return await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Confirm Exit'),
+          content: Text('Are you sure you want to exit?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('No'),
+              onPressed: () => Navigator.of(context).pop(false),
+            ),
+            TextButton(
+              child: Text('Yes'),
+              onPressed: () => Navigator.of(context).pop(true),
+            ),
+          ],
+        ),
+      );
+    },
+    child: Scaffold(
       resizeToAvoidBottomInset: false,
 
     body:Container(
@@ -223,9 +246,87 @@ class _HomeState extends State<Home> {
       SizedBox(height:30),
 
 
+
+   GestureDetector(
+  onTap: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        String? passkeyError;
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Text('Enter the pass key'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: passkeyController,
+                    decoration: InputDecoration(hintText: 'Enter the pass key'),
+                  ),
+                  if (passkeyError != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        passkeyError!,
+                        style: TextStyle(color: Colors.red, fontSize: 16),
+                      ),
+                    ),
+                ],
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: Text('Submit'),
+                  onPressed: () {
+                    if (passkeyController.text.trim() == passkey) {
+                      passkeyController.clear(); // Clear the passkey field
+                      Navigator.of(context).pop(); // Close the dialog
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ano_view_details(),
+                        ),
+                      );
+                    } else {
+                      passkeyController.clear();
+                      setState(() {
+                        passkeyError = 'Enter correct pass key';
+                      });
+                    }
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  },
+  child: Padding(
+    padding: EdgeInsets.only(left: 80),
+    child: Row(
+      children: [
+        Text(
+          'ANO \'s ',
+          style: TextStyle(
+            color: Color.fromARGB(255, 47, 19, 203),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(width: 5),
+        Text(
+          'click here to continue',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+        ),
+      ],
+    ),
+  ),
+),
+
+
       
 
-      GestureDetector(
+      /*GestureDetector(
         onTap:(){
           Navigator.push(context,MaterialPageRoute(builder: (context) => ano_view_details()));
         },
@@ -235,14 +336,10 @@ class _HomeState extends State<Home> {
           Text('click here to continue',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue))
           ])
       ),
-
-     
-
+),*/
 
 
 
-      
-      ),
 
       SizedBox(height: 10,),
       
@@ -266,6 +363,6 @@ class _HomeState extends State<Home> {
     
     
     
-    )));
+    ))));
   }
 }
