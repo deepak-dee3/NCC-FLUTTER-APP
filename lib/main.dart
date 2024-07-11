@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/CADETS/cadet_view_events.dart';
+import 'package:ncc/Notification/notification.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:ncc/firebase_options.dart';
 import 'package:ncc/sign_in.dart';
@@ -13,6 +14,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 
 
@@ -20,6 +22,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 void main() async
 {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.init();
+  tz.initializeTimeZones();
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
@@ -262,6 +266,8 @@ class _HomeState extends State<Home> {
                 children: [
                   TextField(
                     controller: passkeyController,
+                    keyboardAppearance: Brightness.light,
+                   
                     decoration: InputDecoration(hintText: 'Enter the pass key'),
                   ),
                   if (passkeyError != null)
@@ -343,7 +349,15 @@ class _HomeState extends State<Home> {
 
       SizedBox(height: 10,),
       
-      GestureDetector(child:Text("(Or)",style: TextStyle(color:const Color.fromARGB(255, 231, 174, 6)),)),
+      GestureDetector(onTap: ()
+      {
+       // NotificationService.showInstantNotification("Instant", "this is an instant");
+
+      // DateTime scheduled_data = DateTime.now().add(Duration(seconds: 5));
+
+      // NotificationService.scheduleNotification("Major Dr.P.S.Ragavendhran", "uploaded", scheduled_data);
+      },
+        child:Text("(Or)",style: TextStyle(color:const Color.fromARGB(255, 231, 174, 6)),)),
 
       SizedBox(height:15),
 

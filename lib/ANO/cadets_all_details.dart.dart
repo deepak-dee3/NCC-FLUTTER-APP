@@ -68,7 +68,13 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
+      },
+      child:Scaffold(
       backgroundColor: Colors.blue.shade100,
       body: SingleChildScrollView(
         child: Column(
@@ -735,6 +741,6 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     
 
 
-    ])));
+    ]))));
   }
 }

@@ -52,6 +52,12 @@ dependencies:
   firebase_service: ^0.0.1+1
   firestore_ref: ^0.14.1
   carousel_slider: ^4.2.1
+  firebase_messaging: ^14.9.4
+  flutter_local_notifications: ^17.2.1+1
+  rxdart: ^0.28.0
+  flutter_timezone: ^1.0.8
+  timezone: ^0.9.4
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +84,14 @@ flutter:
    #To add assets to your application, add an assets section, like this:
   assets:
    - assets/
+
+  
+flutter_icons:
+  android: "launcher_icon"
+  ios: "AppIcon"
+  image_path: "assets/ncc_app-removebg-preview.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
  
   
 
@@ -108,3 +122,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  

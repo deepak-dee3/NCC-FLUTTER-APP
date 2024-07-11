@@ -11,8 +11,6 @@ import 'package:ncc/main.dart';
 
 class fill_details extends StatefulWidget{
 
-
-  
   @override
   State<fill_details> createState() => _fill_detailsState();
 }

@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
+import 'package:ncc/Notification/notification.dart';
 
 class upload_camp_detailss extends StatefulWidget {
   @override
@@ -57,6 +58,10 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');
 
+        NotificationService.showInstantNotification("Major Dr.P.S.Raghavendhran", "${_campeve_controller.text} is uploaded");
+
+        _campeve_controller.clear();
+
       Navigator.push(context, MaterialPageRoute(builder: (context) => ano_view_details()));
       });
 
@@ -76,7 +81,13 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
+      },
+      child:Scaffold(
       body: Container(
         child: Column(
           children: [
@@ -91,7 +102,9 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
                 child: TextFormField(
                   controller: _campeve_controller,
                   keyboardType: TextInputType.name,
+                  style: TextStyle(color: Colors.white), 
                   decoration: InputDecoration(
+
                     prefixIcon: Icon(Icons.notes),
                     prefixIconColor: Colors.white,
                     hintText: 'Enter the content',
@@ -151,6 +164,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
             GestureDetector(
               onTap: () {
                 uploadfirebase();
+               
               },
               child: Container(
                 width: 220,
@@ -167,6 +181,6 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
