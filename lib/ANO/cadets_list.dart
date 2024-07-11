@@ -88,6 +88,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
              final dpt = cadet['Department'] ?? 'no';
              final bl = cadet['Blood Group'] ?? 'no';
              final com = cadet['Community'] ?? 'no';
+             final ifsc = cadet['Ifsc'] ?? 'no';
 
              
             
@@ -113,7 +114,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
                   child:GestureDetector(
                     child:Text('View Details',style: GoogleFonts.prompt(textStyle:TextStyle(color: Color.fromARGB(255, 179, 41, 32),fontWeight: FontWeight.bold,fontSize: 13),),),
                     onTap:(){
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => ImageFromFirebase(cadetname:cadetname,regg_no: regg_no,dtrate:dtrate,grp:grp,btn:btn,accnum:accnum,accbrnch:accbrnch,phn:phn,adrs:adrs,ftname:ftname,ftphn:ftphn,ftocc:ftocc,mtname:mtname,mtphn:mtphn,mtocc:mtocc,adh:adh,bats:bats,bate:bate,clg:clg,deg:deg,dpt:dpt,bl:bl,com:com)));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => ImageFromFirebase(cadetname:cadetname,regg_no: regg_no,dtrate:dtrate,grp:grp,btn:btn,accnum:accnum,accbrnch:accbrnch,phn:phn,adrs:adrs,ftname:ftname,ftphn:ftphn,ftocc:ftocc,mtname:mtname,mtphn:mtphn,mtocc:mtocc,adh:adh,bats:bats,bate:bate,clg:clg,deg:deg,dpt:dpt,bl:bl,com:com,ifsc:ifsc)));
                     },
                   )
                   

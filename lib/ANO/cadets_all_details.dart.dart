@@ -25,10 +25,11 @@ class ImageFromFirebase extends StatefulWidget {
      final String dpt;
      final String bl;
      final String com;
+     final String ifsc;
 
 
 
-  const ImageFromFirebase({Key? key, required this.cadetname, required this.regg_no,required this.dtrate,required this.grp,required this.btn,required this.accnum,required this.accbrnch,required this.adrs,required this.phn,required this.ftname,required this.ftphn,required this.ftocc,required this.mtname,required this.mtphn,required this.mtocc,required this.adh,required this.bate,required this.bats,required this.clg,required this.deg,required this.dpt,required this.bl,required this.com}) : super(key: key);
+  const ImageFromFirebase({Key? key, required this.cadetname, required this.regg_no,required this.dtrate,required this.grp,required this.btn,required this.accnum,required this.accbrnch,required this.adrs,required this.phn,required this.ftname,required this.ftphn,required this.ftocc,required this.mtname,required this.mtphn,required this.mtocc,required this.adh,required this.bate,required this.bats,required this.clg,required this.deg,required this.dpt,required this.bl,required this.com,required this.ifsc}) : super(key: key);
   @override
   _ImageFromFirebaseState createState() => _ImageFromFirebaseState();
 }
@@ -247,6 +248,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     child:Column(children: [
       SizedBox(height: 17,),
 
+      
+
      
 
       
@@ -261,7 +264,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.phn}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(hintText:'   +91 ${widget.phn}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -326,7 +329,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.ftphn.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(hintText:'   +91 ${widget.ftphn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -389,7 +392,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.mtphn.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(hintText:'   +91 ${widget.mtphn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -493,7 +496,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'   ifsc code ' ,hintStyle: TextStyle(
+          decoration: InputDecoration(hintText:'    ${widget.ifsc.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),

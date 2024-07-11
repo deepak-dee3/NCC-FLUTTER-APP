@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/CADETS/cadet_view_events.dart';
+import 'package:ncc/FORGET%20PASSWORD/forgetpassword.dart';
 import 'package:ncc/Notification/notification.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:ncc/firebase_options.dart';
@@ -156,6 +157,9 @@ class _HomeState extends State<Home> {
                     return null;
                   },
         decoration: InputDecoration(border: InputBorder.none,
+           // focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
+
+        
         hintText: '     Enter your email',
         ),
        
@@ -189,6 +193,7 @@ class _HomeState extends State<Home> {
                     return null;
                   },
         decoration: InputDecoration(border: InputBorder.none,
+
         hintText: '     Enter your password',
         ),
         
@@ -200,6 +205,10 @@ class _HomeState extends State<Home> {
       ),
       SizedBox(height: 20,),
       GestureDetector(
+        onTap: ()
+        {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
+        },
         child:Padding(padding:EdgeInsets.only(left:140),child:Row(children:[
           Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.w500,fontSize: 10)),
          // SizedBox(width:5),
