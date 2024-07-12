@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:ncc/ANO/ano_view_camp_events.dart';
-import 'package:ncc/CADETS/cadet_update_profile.dart';
-import 'package:ncc/CADETS/cadet_upload_achievements.dart';
-import 'package:ncc/CADETS/cadet_view_achievements.dart';
+import 'package:ncc/CADETS/cadet_up1.dart';
 
-class cadet_main_page extends StatefulWidget{
+class upadte_profile extends StatefulWidget{
   @override
-  State<cadet_main_page> createState() => _cadet_main_pageState();
+  State<upadte_profile> createState() => _upadte_profileState();
 }
 
-class _cadet_main_pageState extends State<cadet_main_page> {
+class _upadte_profileState extends State<upadte_profile> {
   @override
   Widget build(BuildContext context) {
-   
-   return(
+    return
     Scaffold(
       body:SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
@@ -21,7 +17,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 
           SizedBox(height: 70,),
          GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => upadte_profile()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up1()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -30,13 +26,13 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('   UPDATE NCC DETAILS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
 
            GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -45,14 +41,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    UPDATE PERSONAL DETAILS      ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
           
 
           GestureDetector(onTap:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
+            //Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -61,14 +57,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('   UPDATE ACCOUNT DETAILS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
          
 
           GestureDetector(onTap:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
+           // Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -77,7 +73,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('   UPDATE ADDITIONAL DETAILS     ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
           
@@ -95,28 +91,12 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),*/
 
-          Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-
-            Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),
+          
           
         ],)
       )
 
 
-    ))
-
-      
-
-      
-
-    
-   );
+    ));
   }
 }
