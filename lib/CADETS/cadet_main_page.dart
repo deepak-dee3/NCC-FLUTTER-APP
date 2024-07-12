@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
+import 'package:ncc/CADETS/cadet_view_achievements.dart';
 
 class cadet_main_page extends StatefulWidget{
   @override
@@ -66,7 +67,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
          
 
           GestureDetector(onTap:(){
-         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
