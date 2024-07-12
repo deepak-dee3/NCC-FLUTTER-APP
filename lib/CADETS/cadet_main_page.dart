@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
+import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 
 class cadet_main_page extends StatefulWidget{
   @override
@@ -27,7 +28,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    PROFILE UPDATION                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -42,14 +43,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
           
 
           GestureDetector(onTap:(){
-           // Navigator.push(context,MaterialPageRoute(builder: (context) => upload_camp_detailss()));
+            Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -58,7 +59,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text(' UPLOAD ACHIEVEMENTS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -74,7 +75,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
           
@@ -99,7 +100,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),
           

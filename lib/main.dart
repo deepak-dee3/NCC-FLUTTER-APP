@@ -7,6 +7,7 @@ import 'package:ncc/FORGET%20PASSWORD/forgetpassword.dart';
 import 'package:ncc/Notification/notification.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:ncc/firebase_options.dart';
+import 'package:ncc/CADETS/cadet_main_page.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
 
     try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_events()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_main_page()));
 
       login_emailcontroller.clear();
       login_passcontroller.clear();
