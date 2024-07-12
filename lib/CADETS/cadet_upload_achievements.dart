@@ -92,7 +92,12 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
       body: Container(
         child: Column(
           children: [
-            SizedBox(height: 50),
+            SizedBox(height: 100),
+
+
+            Text('ACHIEVEMENTS',style:TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
+            Text('********************'),
+            SizedBox(height: 30,),
             Padding(
               padding: EdgeInsets.all(28),
               child: Container(

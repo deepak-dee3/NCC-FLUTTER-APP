@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ncc/CADETS/cadet_up1.dart';
+import 'package:ncc/CADETS/cadet_up2.dart';
+import 'package:ncc/CADETS/cadet_up3.dart';
+import 'package:ncc/CADETS/cadet_up4.dart';
 
 class upadte_profile extends StatefulWidget{
   @override
@@ -32,7 +35,7 @@ class _upadte_profileState extends State<upadte_profile> {
 
 
            GestureDetector(onTap:(){
-          //Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up2()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -48,7 +51,7 @@ class _upadte_profileState extends State<upadte_profile> {
           
 
           GestureDetector(onTap:(){
-            //Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
+            Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_up3()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -64,7 +67,7 @@ class _upadte_profileState extends State<upadte_profile> {
          
 
           GestureDetector(onTap:(){
-           // Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up4()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(

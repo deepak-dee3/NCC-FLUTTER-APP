@@ -5,6 +5,7 @@ import 'package:ncc/ANO/cadets_all_details.dart.dart';
 import 'package:ncc/ANO/cadets_list.dart';
 import 'package:ncc/ANO/upload_camps.dart';
 import 'package:ncc/ANO/upload_campss.dart';
+import 'package:ncc/CADETS/cadet_view_achievements.dart';
 
 
 class ano_view_details extends StatelessWidget
@@ -71,7 +72,7 @@ class ano_view_details extends StatelessWidget
           ],),)),),
 
           GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(

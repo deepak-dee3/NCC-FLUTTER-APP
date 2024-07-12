@@ -2,34 +2,24 @@ import 'package:flutter/material.dart';
 import "package:cloud_firestore/cloud_firestore.dart";
 import 'package:ncc/CADETS/cadet_update_profile.dart';
 
-class cadet_up1 extends StatefulWidget{
-                 
+class cadet_up3 extends StatefulWidget{
   @override
-  State<cadet_up1> createState() => _cadet_up1State();
+  State<cadet_up3> createState() => _cadet_up3State();
 }
 
-class _cadet_up1State extends State<cadet_up1> {
-                 //f1 = field number 1
-  //update(String collname,docname,field,var f1,var f2,var f3,var f4) async{
-  /*   update(String collname,docname,field,var f1) async{
+class _cadet_up3State extends State<cadet_up3> {
 
-  //await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:f1,field:f2,field:f3,field:f4});
 
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:f1});
 
-  print('data updated');
-
-}*/
-
-update(String collname, String docname, Map<String, dynamic> fields) async {
+  update(String collname, String docname, Map<String, dynamic> fields) async {
     await FirebaseFirestore.instance.collection(collname).doc(docname).update(fields);
     print('data updated');
 
     _update_regi_controller.clear();
-    _update_btn_controller.clear();
-    _update_dir_controller.clear();
-    _update_name_controller.clear();
-    _update_group_controller.clear();
+    _update_accnum_controller.clear();
+    _update_accbr_controller.clear();
+    _update_ifsc_controller.clear();
+    _update_adh_controller.clear();
 
    // SnackBar(content: content)
     ScaffoldMessenger.of(context).showSnackBar(
@@ -43,13 +33,14 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
   }
 
  TextEditingController _update_regi_controller = TextEditingController();
-  TextEditingController _update_name_controller = TextEditingController();
+  TextEditingController _update_accnum_controller = TextEditingController();
 
- TextEditingController _update_dir_controller = TextEditingController();
+ TextEditingController _update_accbr_controller = TextEditingController();
 
- TextEditingController _update_group_controller = TextEditingController();
+ TextEditingController _update_ifsc_controller = TextEditingController();
 
- TextEditingController _update_btn_controller = TextEditingController();
+ TextEditingController _update_adh_controller = TextEditingController();
+
 
 
 
@@ -104,7 +95,7 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
-            controller: _update_name_controller,
+            controller: _update_accnum_controller,
 
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -116,14 +107,14 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.account_balance),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
              
 
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-              hintText: 'NAME *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
+              hintText: 'ACCOUNT NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
@@ -133,7 +124,7 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
-            controller: _update_dir_controller,
+            controller: _update_accbr_controller,
 
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -145,14 +136,14 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_2),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.account_tree),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
              
 
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-              hintText: 'DIRECTORATE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
+              hintText: 'BRANCH *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
@@ -162,7 +153,7 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
-            controller: _update_group_controller,
+            controller: _update_ifsc_controller,
 
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -174,14 +165,14 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.groups),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.code),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
              
 
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-              hintText: 'GROUP *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
+              hintText: 'IFSC *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
@@ -191,7 +182,7 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
-            controller: _update_btn_controller,
+            controller: _update_adh_controller,
 
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -203,14 +194,14 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_3),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.attach_file),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
              
 
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-              hintText: 'BATTALION *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
+              hintText: 'ADHAR NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
@@ -228,10 +219,10 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
                onTap: () {
                   update('CADETS', _update_regi_controller.text, {
                     'Regimental_number': _update_regi_controller.text,
-                    'Name': _update_name_controller.text,
-                    'Directorate': _update_dir_controller.text,
-                    'Group': _update_group_controller.text,
-                    'Battalion': _update_btn_controller.text,
+                    'BANK ACCOUNT NUMBER': _update_accnum_controller.text,
+                    'BANK BRANCH': _update_accbr_controller.text,
+                    'IFSC': _update_ifsc_controller.text,
+                    'ADHAR NUMBER': _update_adh_controller.text,
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => upadte_profile()));
