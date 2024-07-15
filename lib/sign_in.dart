@@ -47,7 +47,14 @@ class _ncc_signState extends State<ncc_sign> {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
       backgroundColor:Colors.blue.shade100,
     /*  body:Column(children: [
 
@@ -248,6 +255,6 @@ class _ncc_signState extends State<ncc_sign> {
             ],),
 
     )
-    )));
+    ))));
   }
 }

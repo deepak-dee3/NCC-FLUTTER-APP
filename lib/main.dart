@@ -65,7 +65,24 @@ class _HomeState extends State<Home> {
 
     try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_main_page()));
+     Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => cadet_main_page(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
+
+
 
       login_emailcontroller.clear();
       login_passcontroller.clear();
@@ -268,9 +285,22 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).pop(); // Close the dialog
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => ano_view_details(),
-                        ),
+                         PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = 0.0;
+                          const end = 1.0;
+                          const curve = Curves.elasticIn;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var opacityAnimation = animation.drive(tween);
+
+                          return FadeTransition(
+                            opacity: opacityAnimation,
+                            child: child,
+                          );
+                        },
+                      ),
                       );
                     } else {
                       passkeyController.clear();

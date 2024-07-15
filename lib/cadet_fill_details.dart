@@ -204,7 +204,14 @@ _mothername_controller .clear();
 
   Widget build(BuildContext context) {
     
-    return   
+    return  
+     WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child: 
     Scaffold(
       resizeToAvoidBottomInset: false,
 
@@ -840,7 +847,7 @@ _mothername_controller .clear();
 
         ],)
       )
-    ));
+    )));
   }
 }
 

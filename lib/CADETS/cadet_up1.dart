@@ -42,7 +42,15 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+     WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
 
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -224,6 +232,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
       )
 
       
-    );
+    ));
   }
 }

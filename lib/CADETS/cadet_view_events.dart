@@ -34,7 +34,13 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
 
   @override
   Widget build(BuildContext context) {
-    return 
+    return  WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
       Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 210, 248),
       appBar: AppBar(
@@ -114,6 +120,6 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
           }
         },
       ),
-    );
+    ));
   }
 }

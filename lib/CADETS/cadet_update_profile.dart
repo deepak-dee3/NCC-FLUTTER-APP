@@ -13,6 +13,13 @@ class _upadte_profileState extends State<upadte_profile> {
   @override
   Widget build(BuildContext context) {
     return
+     WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
     Scaffold(
       body:SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
@@ -20,7 +27,22 @@ class _upadte_profileState extends State<upadte_profile> {
 
           SizedBox(height: 70,),
          GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up1()));
+          Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => cadet_up1(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -35,7 +57,22 @@ class _upadte_profileState extends State<upadte_profile> {
 
 
            GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up2()));
+          Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => cadet_up2(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -51,7 +88,22 @@ class _upadte_profileState extends State<upadte_profile> {
           
 
           GestureDetector(onTap:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_up3()));
+            Navigator.push(context,PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>cadet_up3(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -67,7 +119,22 @@ class _upadte_profileState extends State<upadte_profile> {
          
 
           GestureDetector(onTap:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_up4()));
+            Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => cadet_up4(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -100,6 +167,6 @@ class _upadte_profileState extends State<upadte_profile> {
       )
 
 
-    ));
+    )));
   }
 }

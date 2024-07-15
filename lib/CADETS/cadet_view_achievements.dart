@@ -218,7 +218,15 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+     WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 210, 248),
       appBar: AppBar(
         title: Text('Achievements'),
@@ -296,6 +304,6 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
           }
         },
       ),
-    );
+    ));
   }
 }

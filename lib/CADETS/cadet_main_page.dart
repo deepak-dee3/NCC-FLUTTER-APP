@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
 import 'package:ncc/CADETS/cadet_update_profile.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
+import 'package:page_transition/page_transition.dart';
+
 
 class cadet_main_page extends StatefulWidget{
   @override
@@ -10,18 +13,42 @@ class cadet_main_page extends StatefulWidget{
 }
 
 class _cadet_main_pageState extends State<cadet_main_page> {
+
+ 
   @override
   Widget build(BuildContext context) {
    
-   return(
-    Scaffold(
+   return
+    WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:Scaffold(
       body:SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
         child:Column(children: [
 
           SizedBox(height: 70,),
          GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => upadte_profile()));
+
+          Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => upadte_profile(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -36,7 +63,18 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 
 
            GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+            Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -52,7 +90,18 @@ class _cadet_main_pageState extends State<cadet_main_page> {
           
 
           GestureDetector(onTap:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
+            Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_upload_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+           // Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -68,7 +117,20 @@ class _cadet_main_pageState extends State<cadet_main_page> {
          
 
           GestureDetector(onTap:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
+
+           Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
+           
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(

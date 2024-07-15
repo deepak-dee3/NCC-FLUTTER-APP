@@ -28,7 +28,18 @@ class ano_view_details extends StatelessWidget
 
           SizedBox(height: 70,),
          GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ccadet_details()));
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => ccadet_details()));
+           Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ccadet_details(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -44,7 +55,18 @@ class ano_view_details extends StatelessWidget
           
 
           GestureDetector(onTap:(){
-            Navigator.push(context,MaterialPageRoute(builder: (context) => upload_camp_detailss()));
+          Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => upload_camp_detailss(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+           // Navigator.push(context,MaterialPageRoute(builder: (context) => upload_camp_detailss()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -58,7 +80,17 @@ class ano_view_details extends StatelessWidget
           ],),)),),
 
           GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+             Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -72,7 +104,18 @@ class ano_view_details extends StatelessWidget
           ],),)),),
 
           GestureDetector(onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
+          Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(

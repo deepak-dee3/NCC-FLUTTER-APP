@@ -44,7 +44,14 @@ class _cadet_up2State extends State<cadet_up2> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
 
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -342,6 +349,6 @@ class _cadet_up2State extends State<cadet_up2> {
           )
         )
       )
-    );
+    ));
   }
 }

@@ -62,7 +62,8 @@ dependencies:
   
   flutter_media_downloading: ^1.0.6
   flutter_downloader: ^1.11.7
-  pdf: ^3.11.0
+  page_transition: ^2.1.0
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

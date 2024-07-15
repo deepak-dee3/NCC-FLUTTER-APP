@@ -36,7 +36,14 @@ class _forgetpasswordState extends State<forgetpassword> {
   @override
   Widget build(BuildContext context) {
     
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
 
       body:Container(
         //color: Color.fromARGB(255, 188, 244, 190),
@@ -102,6 +109,6 @@ class _forgetpasswordState extends State<forgetpassword> {
         ],)
       )
 
-    ))])));
+    ))]))));
   }
 }

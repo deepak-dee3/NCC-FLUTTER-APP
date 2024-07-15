@@ -42,7 +42,14 @@ class _cadet_up4State extends State<cadet_up4> {
  TextEditingController _update_comm_controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return   WillPopScope(
+      onWillPop: () async{
+         Navigator.pop(context);
+         return false;
+        
+      },
+      child:
+    Scaffold(
 
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -311,6 +318,6 @@ class _cadet_up4State extends State<cadet_up4> {
 
 
 
-    );
+    ));
   }
 }
