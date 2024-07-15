@@ -30,14 +30,7 @@ class _forgetpasswordState extends State<forgetpassword> {
       {
         if(e.code == 'user-not-found'){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User Found For This Email',style:TextStyle(fontSize: 20))));
-        }
-
-
-      }
-
-
-
-
+        }}
   }
 
   @override
@@ -66,33 +59,6 @@ class _forgetpasswordState extends State<forgetpassword> {
 
               SizedBox(height:40),
 
-              /*Container(
-                height:60,
-                width: 300,
-                padding: EdgeInsets.symmetric(horizontal: 60),
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 91, 158, 93),
-                  borderRadius: BorderRadius.circular(20),
-                  
-                ),
-                child: TextFormField(
-                  controller: forget_mailcontroller,
-                  validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your email";
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(border: InputBorder.none,prefixIcon: Icon(Icons.email),labelText: 'Enter your mail here *'),
-
-                ),
-              ),
-
-            ],),
-
-            ),), ), */
 
             Padding(padding:EdgeInsets.all(15),child:TextFormField(
 

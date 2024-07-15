@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ncc/cadet_fill_details.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ncc/main.dart';
 import 'firebase_options.dart';
@@ -19,7 +18,6 @@ class _ncc_signState extends State<ncc_sign> {
   TextEditingController passcontroller =  TextEditingController();
   TextEditingController namecontroller =  TextEditingController();
   TextEditingController phonecontroller =  TextEditingController();
-
 
   final _formkey= GlobalKey<FormState>();
 
@@ -44,27 +42,13 @@ class _ncc_signState extends State<ncc_sign> {
         }else if(e.code == 'email-already-in-use')
         {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('email in use',style:TextStyle(fontSize: 20))));
-
-
-        }
-
-
-      }
-    }
-  }
-
-
-
-
-
-
-
-
+        }}} }
 
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
+      backgroundColor:Colors.blue.shade100,
     /*  body:Column(children: [
 
         SizedBox(height:120),
@@ -95,14 +79,14 @@ class _ncc_signState extends State<ncc_sign> {
       ],)
 
       */
-
-
       resizeToAvoidBottomInset: false,
-
-    body:Container(color:Colors.blue.withOpacity(0.2),
+    body:
+    SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child:Container(
+        //decoration: BoxDecoration(color:Colors.blue.withOpacity(0.2),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
+       // color:Colors.blue.withOpacity(0.2),
       child:Form(key: _formkey,
-      
-
       /*alignment: Alignment.center,
       padding:EdgeInsets.all(32),
       decoration: BoxDecoration(image:DecorationImage(image: NetworkImage(''),fit: BoxFit.cover)), */
@@ -119,26 +103,19 @@ class _ncc_signState extends State<ncc_sign> {
       width:330,
       padding: EdgeInsets.only(left:20),
       //color: Colors.red,
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.red.shade500,
       
       ),
       child:TextFormField(
-         
-        
         decoration: InputDecoration(border: InputBorder.none,
         hintText: '     Enter your name',
         ),
-        
-        
-        
       )
       
       ),
       SizedBox(height: 30,),
-
 
       Container(alignment: Alignment.center,
       height: 70,
@@ -152,11 +129,7 @@ class _ncc_signState extends State<ncc_sign> {
       
       ),
       child:TextFormField(
-
-        
-
-        
-        
+      
         decoration: InputDecoration(border: InputBorder.none,
         hintText: '     Enter your email',
         ),
@@ -167,12 +140,7 @@ class _ncc_signState extends State<ncc_sign> {
                     }
                     return null;
                   },
-        controller: emailcontroller,
-        
-       
-        
-        
-        
+        controller: emailcontroller,       
       )
       
       ),
@@ -193,7 +161,6 @@ class _ncc_signState extends State<ncc_sign> {
       child:
         TextFormField(
           
-
         decoration: InputDecoration(border: InputBorder.none,
         hintText: '     Enter your password',
         ),
@@ -207,7 +174,6 @@ class _ncc_signState extends State<ncc_sign> {
         controller: passcontroller,
         
         textAlign: TextAlign.start,
-        
         
       )
       
@@ -235,24 +201,14 @@ class _ncc_signState extends State<ncc_sign> {
         hintText: 'Enter your number',
         
         contentPadding: EdgeInsets.only(top:8),
-        
-        
+              
         ),
         textAlign: TextAlign.start,
-        keyboardType: TextInputType.phone,
+        keyboardType: TextInputType.phone,        
         
-        
-      )
-      
+      )      
       ),
-      SizedBox(height: 20,),
-
-
-
-      
-      
-      
-
+      SizedBox(height: 20,),     
       SizedBox(height:30),
       GestureDetector(onTap:(){
 
@@ -267,9 +223,6 @@ class _ncc_signState extends State<ncc_sign> {
           }
 
           registration();
-
-          
-      
 
               //Navigator.push(context, MaterialPageRoute(builder: (context) => choosing_items()));
             },
@@ -291,26 +244,10 @@ class _ncc_signState extends State<ncc_sign> {
       SizedBox(height:30),
 
 
-      
-
-      
-
       SizedBox(height: 10,),
-      
+            ],),
 
-      
-
-      
-      ],),
-
-      
-    
-    
-    
     )
-
-
-      
-    ));
+    )));
   }
 }

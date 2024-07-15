@@ -9,8 +9,6 @@ class cadet_up2 extends StatefulWidget{
 
 class _cadet_up2State extends State<cadet_up2> {
 
-
-
   update(String collname, String docname, Map<String, dynamic> fields) async {
     await FirebaseFirestore.instance.collection(collname).doc(docname).update(fields);
     print('data updated');
@@ -33,28 +31,16 @@ class _cadet_up2State extends State<cadet_up2> {
           duration: Duration(seconds: 2),
         ),
       );
-
-    
   }
   TextEditingController _update_regi_controller = TextEditingController();
-
  TextEditingController _update_phn_controller = TextEditingController();
   TextEditingController _update_add_controller = TextEditingController();
-
  TextEditingController _update_fname_controller = TextEditingController();
-
  TextEditingController _update_fnum_controller = TextEditingController();
-
  TextEditingController _update_focc_controller = TextEditingController();
-
  TextEditingController _update_mname_controller = TextEditingController();
-
  TextEditingController _update_mnum_controller = TextEditingController();
-
  TextEditingController _update_mocc_controller = TextEditingController();
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,9 +76,6 @@ class _cadet_up2State extends State<cadet_up2> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.numbers_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'REGIMENTAL NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -121,9 +104,6 @@ class _cadet_up2State extends State<cadet_up2> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.mobile_friendly),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'MOBILE NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -151,9 +131,6 @@ class _cadet_up2State extends State<cadet_up2> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.home),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'ADDRESS *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -179,9 +156,6 @@ class _cadet_up2State extends State<cadet_up2> {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.person_4),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'FATHER NAME *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -209,9 +183,6 @@ class _cadet_up2State extends State<cadet_up2> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'FATHER NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -237,9 +208,6 @@ class _cadet_up2State extends State<cadet_up2> {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.work),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'FATHER OCCUPATION *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -268,9 +236,6 @@ class _cadet_up2State extends State<cadet_up2> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.person_3),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'MOTHER NAME *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -293,13 +258,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     return null;
                   },
 
-
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'MOTHER NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -376,39 +337,11 @@ class _cadet_up2State extends State<cadet_up2> {
               ),
             ),
 
-
-
-
-
-
-
-
-
-
             ],
 
           )
         )
       )
-
-      /*  update(String collname,docname,field,var newfield) async{
-
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:newfield});
-
-  print('data updated');
-
-}
-
- ElevatedButton(onPressed: (){
-          update('Users', 'tom', 'name', 'jimmy');
-        }, child: Text('update')), */
-
-
-        
-
-
-
-
     );
   }
 }

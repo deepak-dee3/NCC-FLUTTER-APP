@@ -11,16 +11,6 @@ class cadet_up1 extends StatefulWidget{
 class _cadet_up1State extends State<cadet_up1> {
                  //f1 = field number 1
   //update(String collname,docname,field,var f1,var f2,var f3,var f4) async{
-  /*   update(String collname,docname,field,var f1) async{
-
-  //await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:f1,field:f2,field:f3,field:f4});
-
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:f1});
-
-  print('data updated');
-
-}*/
-
 update(String collname, String docname, Map<String, dynamic> fields) async {
     await FirebaseFirestore.instance.collection(collname).doc(docname).update(fields);
     print('data updated');
@@ -39,7 +29,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
         ),
       );
 
-    
   }
 
  TextEditingController _update_regi_controller = TextEditingController();
@@ -50,9 +39,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
  TextEditingController _update_group_controller = TextEditingController();
 
  TextEditingController _update_btn_controller = TextEditingController();
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -119,9 +105,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
             decoration: InputDecoration(prefixIcon: Icon(Icons.person),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'NAME *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -147,9 +130,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_2),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'DIRECTORATE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -177,9 +157,6 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
             decoration: InputDecoration(prefixIcon: Icon(Icons.groups),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'GROUP *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -201,13 +178,9 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
                     return null;
                   },
 
-
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_3),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'BATTALION *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -217,14 +190,8 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
           )),
           SizedBox(height: 20,),
 
-          //ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.upgrade), label:  Text('Complete'))
-
-
            GestureDetector(
-             // onTap: () {
-               // uploadfirebase();
-
-              // update('CADETS', 'update_regi_controller', 'Regimental_number', f1, f2, f3, f4)
+            
                onTap: () {
                   update('CADETS', _update_regi_controller.text, {
                     'Regimental_number': _update_regi_controller.text,
@@ -250,40 +217,13 @@ update(String collname, String docname, Map<String, dynamic> fields) async {
                 ),
               ),
             ),
-
-
-
-
-
-
-
-
-
-
             ],
 
           )
         )
       )
 
-      /*  update(String collname,docname,field,var newfield) async{
-
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:newfield});
-
-  print('data updated');
-
-}
-
- ElevatedButton(onPressed: (){
-          update('Users', 'tom', 'name', 'jimmy');
-        }, child: Text('update')), */
-
-
-        
-
-
-
-
+      
     );
   }
 }

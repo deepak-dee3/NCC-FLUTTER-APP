@@ -24,3 +24,5 @@ delete(String collname,docname) async {
 
   print('document deleted');
 }
+
+

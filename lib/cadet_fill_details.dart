@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:ncc/firebase_imp.dart/imp.dart';
 import 'package:ncc/main.dart';
 
@@ -51,10 +50,7 @@ class _fill_detailsState extends State<fill_details> {
     catch(e){
       print('print error occured');
 
-    }
-
-  }
-
+    }}
 
   validateForm() {
   if (_regi_controller.text.isEmpty || _name.text.isEmpty || _aadhar_controller.text.isEmpty || _address_controller.text.isEmpty || _bank_controller.text.isEmpty || _batchends_controller.text.isEmpty || _batchstarts_controller.text.isEmpty ||
@@ -96,15 +92,9 @@ class _fill_detailsState extends State<fill_details> {
   Branch = _branch_controller.text.trim();
   Ifsc = _ifsc_controller.text.trim();
 
-  
-
-
-
  create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc);
 
-
         Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
-
 
         _regi_controller.clear();
         
@@ -135,14 +125,9 @@ _mothername_controller .clear();
   }
 }
 
-  
 
-  
-
-  String Regimental_number = " ";
-  String Name = " ";
-  String Directorate = " ";
-  String Group = " ";
+  String Regimental_number = " ",Name = " ",Directorate = " ",Group = " ";
+ 
   String Battalion = " ";
   String Firstname = " " ;
   String Lastname = " ";
@@ -217,10 +202,8 @@ _mothername_controller .clear();
 
   @override
 
-  
   Widget build(BuildContext context) {
     
-
     return   
     Scaffold(
       resizeToAvoidBottomInset: false,
@@ -233,7 +216,7 @@ _mothername_controller .clear();
           SizedBox(height: 80,),
 
           Align(alignment: Alignment.topLeft,
-            child:Text('    Cadet Details',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.red)),),
+            child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Colors.red)),),
             
             SizedBox(height: 10,),
 
@@ -254,9 +237,7 @@ _mothername_controller .clear();
             decoration: InputDecoration(prefixIcon: Icon(Icons.numbers_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
+            
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'REGIMENTAL NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -274,7 +255,7 @@ _mothername_controller .clear();
                     return null;
                   },
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_2),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.person),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
              
 
@@ -365,8 +346,6 @@ _mothername_controller .clear();
                     }
                     return null;
                   },
-
-
 
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.person),
@@ -607,9 +586,7 @@ _mothername_controller .clear();
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-
-          
-
+     
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _motheroccupation_controller,
              validator: (value){
@@ -840,73 +817,8 @@ _mothername_controller .clear();
           }, child: Text('upload')),
           SizedBox(height:30),
           
-
           GestureDetector(onTap:(){
 
-
-  /*  Regimental_number = _regi_controller.text.trim();
-    Name = _name.text;
-   Directorate = _dir_controller.text.trim();
-    Group = _group_controller.text.trim();
-   Battalion = _battalion_controller.text.trim();
-   Firstname = _fnamecontroller.text.trim();
-   Lastname = _lnamecontroller.text.trim();
-   Gender = _gender_controller.text.trim();
-    Mobile = _mobile_controller.text.trim();
-   //DOB = _dob_controller.text.trim();
-   Batch_Starts = _batchstarts_controller.text.trim();
-   Batch_ends = _batchends_controller.text.trim();
-   Father_name = _fathername_controller.text.trim();
-   Father_number = _fathermobile_controller.text.trim();
-   Father_occupation = _fatheroccupation_controller.text.trim();
-   Mother_name = _mothername_controller.text.trim();
-  Mother_number = _mothernumber_controller.text.trim();
-  Mother_occupation = _motheroccupation_controller.text.trim();
- Address = _address_controller.text.trim();
-  Blood_group = _blood_controller.text.trim();
-   Aadhar = _aadhar_controller.text.trim();
-   Community = _community_controller.text.trim();
-  College = _college_controller.text.trim();
-    Degree = _degree_controller.text.trim();
-   Department =_dept_controller.text.trim();
-   Bank_number =_bank_controller.text.trim();
-  Branch = _branch_controller.text.trim();
-
-  
-
-
-
- create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch);
-
-
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
-
-
-        _regi_controller.clear();
-        
-    _dir_controller.clear();
-   _group_controller .clear();
-   _battalion_controller.clear();
-  _fnamecontroller.clear();
-   _lnamecontroller .clear();
-  _gender_controller .clear();
-   _mobile_controller.clear();
-  _batchstarts_controller  .clear();
-  _batchends_controller.clear();
-  _fathername_controller  .clear();
-  _fathermobile_controller .clear();
-   _fatheroccupation_controller.clear();
-_mothername_controller .clear();
-   _mothernumber_controller.clear();
-  _motheroccupation_controller.clear();
-   _address_controller .clear();
-   _blood_controller .clear();
-    _aadhar_controller.clear();
-  _community_controller .clear();
-   _college_controller .clear();
-   _dept_controller.clear();
-   _bank_controller .clear();
-   _branch_controller.clear(); */
    validateForm();
       },
         child:Container(alignment: Alignment.center,
@@ -925,10 +837,6 @@ _mothername_controller .clear();
       
       ),),
       SizedBox(height:20)
-
-          
-
-
 
         ],)
       )

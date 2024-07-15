@@ -59,6 +59,10 @@ dependencies:
   timezone: ^0.9.4
   flutter_launcher_icons: ^0.13.1
   photo_view: ^0.15.0
+  
+  flutter_media_downloading: ^1.0.6
+  flutter_downloader: ^1.11.7
+  pdf: ^3.11.0
 
 dev_dependencies:
   flutter_test:

@@ -9,9 +9,6 @@ class cadet_up4 extends StatefulWidget{
 
 class _cadet_up4State extends State<cadet_up4> {
 
-
-
-
    update(String collname, String docname, Map<String, dynamic> fields) async {
     await FirebaseFirestore.instance.collection(collname).doc(docname).update(fields);
     print('data updated');
@@ -25,9 +22,7 @@ class _cadet_up4State extends State<cadet_up4> {
     _update_dept_controller.clear();
      _update_blood_controller.clear();
     _update_comm_controller.clear();
-    
 
-   // SnackBar(content: content)
     ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Uploaded successfully'),
@@ -38,25 +33,13 @@ class _cadet_up4State extends State<cadet_up4> {
     
   }
   TextEditingController _update_regi_controller = TextEditingController();
-
  TextEditingController _update_bats_controller = TextEditingController();
   TextEditingController _update_bate_controller = TextEditingController();
-
  TextEditingController _update_col_controller = TextEditingController();
-
  TextEditingController _update_deg_controller = TextEditingController();
-
  TextEditingController _update_dept_controller = TextEditingController();
-
  TextEditingController _update_blood_controller = TextEditingController();
-
  TextEditingController _update_comm_controller = TextEditingController();
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -91,9 +74,6 @@ class _cadet_up4State extends State<cadet_up4> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.numbers_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'REGIMENTAL NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -102,10 +82,7 @@ class _cadet_up4State extends State<cadet_up4> {
           )),
 
           SizedBox(height:10),
-
-
-
-              Padding(padding:EdgeInsets.all(15),child:TextFormField(
+             Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _update_bats_controller,
 
@@ -117,13 +94,9 @@ class _cadet_up4State extends State<cadet_up4> {
                     return null;
                   },
 
-
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.mobile_friendly),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'BATCH STARTS *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -152,9 +125,6 @@ class _cadet_up4State extends State<cadet_up4> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.home),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'BATCH ENDS *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -181,9 +151,6 @@ class _cadet_up4State extends State<cadet_up4> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.person_4),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'COLLEGE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -209,11 +176,7 @@ class _cadet_up4State extends State<cadet_up4> {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
-
-            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
+           focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'DEGREE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
@@ -239,9 +202,7 @@ class _cadet_up4State extends State<cadet_up4> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.work),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
+ 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'DEPARTMENT *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -268,9 +229,6 @@ class _cadet_up4State extends State<cadet_up4> {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.person_3),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'BLOOD GROUP *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -299,9 +257,6 @@ class _cadet_up4State extends State<cadet_up4> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'COMMUNITY *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -312,14 +267,8 @@ class _cadet_up4State extends State<cadet_up4> {
          
           SizedBox(height: 20,),
 
-          //ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.upgrade), label:  Text('Complete'))
-
-
            GestureDetector(
-             // onTap: () {
-               // uploadfirebase();
-
-              // update('CADETS', 'update_regi_controller', 'Regimental_number', f1, f2, f3, f4)
+            
                onTap: () {
                   update('CADETS', _update_regi_controller.text, {
                     'BatchFrom': _update_bats_controller.text,
@@ -349,32 +298,12 @@ class _cadet_up4State extends State<cadet_up4> {
               ),
             ),
 
-
-
-
-
-
-
-
-
-
             ],
 
           )
         )
       )
 
-      /*  update(String collname,docname,field,var newfield) async{
-
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:newfield});
-
-  print('data updated');
-
-}
-
- ElevatedButton(onPressed: (){
-          update('Users', 'tom', 'name', 'jimmy');
-        }, child: Text('update')), */
 
 
         

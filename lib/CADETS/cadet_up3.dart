@@ -9,8 +9,6 @@ class cadet_up3 extends StatefulWidget{
 
 class _cadet_up3State extends State<cadet_up3> {
 
-
-
   update(String collname, String docname, Map<String, dynamic> fields) async {
     await FirebaseFirestore.instance.collection(collname).doc(docname).update(fields);
     print('data updated');
@@ -28,22 +26,13 @@ class _cadet_up3State extends State<cadet_up3> {
           duration: Duration(seconds: 2),
         ),
       );
-
-    
   }
 
  TextEditingController _update_regi_controller = TextEditingController();
   TextEditingController _update_accnum_controller = TextEditingController();
-
  TextEditingController _update_accbr_controller = TextEditingController();
-
  TextEditingController _update_ifsc_controller = TextEditingController();
-
  TextEditingController _update_adh_controller = TextEditingController();
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +69,6 @@ class _cadet_up3State extends State<cadet_up3> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.numbers_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'REGIMENTAL NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -110,9 +96,6 @@ class _cadet_up3State extends State<cadet_up3> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.account_balance),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'ACCOUNT NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -134,13 +117,9 @@ class _cadet_up3State extends State<cadet_up3> {
                     return null;
                   },
 
-
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.account_tree),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'BRANCH *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -168,9 +147,6 @@ class _cadet_up3State extends State<cadet_up3> {
             decoration: InputDecoration(prefixIcon: Icon(Icons.code),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
-             
-
-
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'IFSC *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
               
@@ -196,9 +172,6 @@ class _cadet_up3State extends State<cadet_up3> {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.attach_file),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
-
-             
-
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'ADHAR NUMBER *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -241,40 +214,11 @@ class _cadet_up3State extends State<cadet_up3> {
                 ),
               ),
             ),
-
-
-
-
-
-
-
-
-
-
             ],
 
           )
         )
       )
-
-      /*  update(String collname,docname,field,var newfield) async{
-
-  await FirebaseFirestore.instance.collection(collname).doc(docname).update({field:newfield});
-
-  print('data updated');
-
-}
-
- ElevatedButton(onPressed: (){
-          update('Users', 'tom', 'name', 'jimmy');
-        }, child: Text('update')), */
-
-
-        
-
-
-
-
     );
   }
 }

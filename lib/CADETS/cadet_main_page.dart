@@ -80,21 +80,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
-          
-
-          
-          
-         /* Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-
-            Text('    CONTACT US                                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),*/
-
+         
           Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
             width:330,
@@ -104,19 +90,10 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 
             Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),
-          
+          ],),)),     
         ],)
       )
-
-
     ))
-
-      
-
-      
-
-    
    );
   }
 }

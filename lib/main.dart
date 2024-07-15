@@ -11,27 +11,22 @@ import 'package:ncc/CADETS/cadet_main_page.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
-
-
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:timezone/data/latest.dart' as tz;
-
-
-
 
 void main() async
 {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService.init();
   tz.initializeTimeZones();
+ 
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
   runApp(NCC());
 }
-
 
 class NCC extends StatelessWidget{
   @override
@@ -46,9 +41,7 @@ class NCC extends StatelessWidget{
       pageTransitionType:PageTransitionType.leftToRight,
      // home:Home(),
      
-    ));
-    
-  }
+    ));}
 
 }
 class Home extends StatefulWidget{
@@ -57,8 +50,6 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home> {
-
-
 
    String login_email = ' ', login_pass = ' '; 
    final String passkey = '123';
@@ -86,16 +77,8 @@ class _HomeState extends State<Home> {
         }else if(e.code == 'wrong-password')
         {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password Provided By User',style:TextStyle(fontSize: 20))));
-
-
         }
-
-
-      }
-  }
-
-
-
+      }}
   @override
   Widget build(BuildContext context) {
     
@@ -122,7 +105,10 @@ class _HomeState extends State<Home> {
     child: Scaffold(
       resizeToAvoidBottomInset: false,
 
-    body:Container(
+    body:SingleChildScrollView(
+      child:Container(
+         padding: EdgeInsets.all(16.0),
+
       child:Form(key:login_formkey,
      // color: Color.fromARGB(255, 252, 223, 180),
 
@@ -159,13 +145,8 @@ class _HomeState extends State<Home> {
                   },
         decoration: InputDecoration(border: InputBorder.none,
            // focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-
-        
         hintText: '     Enter your email',
-        ),
-       
-        
-        
+        ),  
       )
       
       ),
@@ -183,6 +164,7 @@ class _HomeState extends State<Home> {
         color: Colors.red.shade500,
       
       ),
+      
       child:
         TextFormField(
          controller: login_passcontroller,
@@ -202,29 +184,18 @@ class _HomeState extends State<Home> {
         
         
       )
-      
       ),
       SizedBox(height: 20,),
+
       GestureDetector(
         onTap: ()
         {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
+           Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
+         
         },
-        child:Padding(padding:EdgeInsets.only(left:140),child:Row(children:[
-          Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.w500,fontSize: 10)),
-         // SizedBox(width:5),
-         // Text('click here to continue',style:TextStyle(fontWeight: FontWeight.bold,color: Color.fromARGB(255, 47, 19, 203,),))
-          ])
-      )
-
-
+        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.w500,fontSize: 12)),),),
       
-      ),
-      
-
       SizedBox(height:30),
-
-
       GestureDetector(
               onTap:(){
 
@@ -258,8 +229,6 @@ class _HomeState extends State<Home> {
       
       ),),
       SizedBox(height:30),
-
-
 
    GestureDetector(
   onTap: () {
@@ -318,9 +287,11 @@ class _HomeState extends State<Home> {
       },
     );
   },
-  child: Padding(
-    padding: EdgeInsets.only(left: 80),
-    child: Row(
+  child: Center(
+   // padding: EdgeInsets.only(left: 80),
+   // child:Align(alignment: Alignment.center,
+    child:Row(
+       mainAxisSize: MainAxisSize.min, 
       children: [
         Text(
           'ANO \'s ',
@@ -338,10 +309,6 @@ class _HomeState extends State<Home> {
     ),
   ),
 ),
-
-
-      
-
       /*GestureDetector(
         onTap:(){
           Navigator.push(context,MaterialPageRoute(builder: (context) => ano_view_details()));
@@ -353,10 +320,6 @@ class _HomeState extends State<Home> {
           ])
       ),
 ),*/
-
-
-
-
       SizedBox(height: 10,),
       
       GestureDetector(onTap: ()
@@ -373,20 +336,10 @@ class _HomeState extends State<Home> {
 
       GestureDetector(
         onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() ));
-
-          
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
         },
         child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline)))
-     
-
-      
-      ],),
-
-      
-    
-    
-    
-    ))));
+      ],),  
+    )))));
   }
 }

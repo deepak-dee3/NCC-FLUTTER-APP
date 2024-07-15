@@ -184,3 +184,175 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
     ));
   }
 }
+
+/*import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:file_picker/file_picker.dart';
+
+class UploadDetails extends StatefulWidget {
+  @override
+  _UploadDetailsState createState() => _UploadDetailsState();
+}
+
+class _UploadDetailsState extends State<UploadDetails> {
+  final ImagePicker _imagePicker = ImagePicker();
+  final TextEditingController _textController = TextEditingController();
+
+  XFile? _pickedImage;
+  File? _pickedPdf;
+
+  Future<void> _pickImage() async {
+    XFile? result = await _imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (result != null) {
+      setState(() {
+        _pickedImage = result;
+      });
+    }
+  }
+
+  Future<void> _pickImageFromCamera() async {
+    XFile? result = await _imagePicker.pickImage(source: ImageSource.camera);
+
+    if (result != null) {
+      setState(() {
+        _pickedImage = result;
+      });
+    }
+  }
+
+  Future<void> _pickPdf() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
+    );
+
+    if (result != null) {
+      setState(() {
+        _pickedPdf = File(result.files.single.path!);
+      });
+    }
+  }
+
+  Future<void> _uploadImage() async {
+    if (_pickedImage == null) {
+      Fluttertoast.showToast(msg: 'Please pick an image');
+      return;
+    }
+
+    try {
+      Reference imageRef = FirebaseStorage.instance.ref().child('images/${DateTime.now().millisecondsSinceEpoch}.jpg');
+
+      await imageRef.putFile(File(_pickedImage!.path!));
+
+      String imageUrl = await imageRef.getDownloadURL();
+
+      // Save image URL to Firestore or perform other actions as needed
+      await FirebaseFirestore.instance.collection('uploaded_images').add({
+        'url': imageUrl,
+        'uploadedAt': Timestamp.now(),
+        'description': _textController.text.trim(),
+      });
+
+      Fluttertoast.showToast(msg: 'Image uploaded successfully');
+
+      setState(() {
+        _pickedImage = null;
+        _textController.clear();
+      });
+    } catch (e) {
+      print('Error uploading image: $e');
+      Fluttertoast.showToast(msg: 'Failed to upload image');
+    }
+  }
+
+  Future<void> _uploadPdf() async {
+    if (_pickedPdf == null) {
+      Fluttertoast.showToast(msg: 'Please pick a PDF file');
+      return;
+    }
+
+    try {
+      Reference pdfRef = FirebaseStorage.instance.ref().child('pdfs/${DateTime.now().millisecondsSinceEpoch}.pdf');
+
+      await pdfRef.putFile(_pickedPdf!);
+
+      String pdfUrl = await pdfRef.getDownloadURL();
+
+      // Save PDF URL to Firestore or perform other actions as needed
+      await FirebaseFirestore.instance.collection('uploaded_pdfs').add({
+        'url': pdfUrl,
+        'uploadedAt': Timestamp.now(),
+        'description': _textController.text.trim(),
+      });
+
+      Fluttertoast.showToast(msg: 'PDF uploaded successfully');
+
+      setState(() {
+        _pickedPdf = null;
+        _textController.clear();
+      });
+    } catch (e) {
+      print('Error uploading PDF: $e');
+      Fluttertoast.showToast(msg: 'Failed to upload PDF');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Upload Details'),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextFormField(
+              controller: _textController,
+              decoration: InputDecoration(
+                hintText: 'Enter description',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: _pickImage,
+              child: Text('Pick Image from Gallery'),
+            ),
+            SizedBox(height: 10.0),
+            ElevatedButton(
+              onPressed: _pickImageFromCamera,
+              child: Text('Pick Image from Camera'),
+            ),
+            if (_pickedImage != null) Image.file(File(_pickedImage!.path)),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: _uploadImage,
+              child: Text('Upload Image'),
+            ),
+            Divider(),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: _pickPdf,
+              child: Text('Pick PDF'),
+            ),
+            if (_pickedPdf != null) Text('Selected PDF: ${_pickedPdf!.path.split('/').last}'),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: _uploadPdf,
+              child: Text('Upload PDF'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}*/
+

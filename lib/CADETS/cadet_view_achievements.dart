@@ -192,6 +192,23 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                   },
                 ),
               ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  color: Colors.black.withOpacity(0.5),
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    images[initialIndex]['title'],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
