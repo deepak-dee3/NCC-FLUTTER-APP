@@ -92,7 +92,7 @@ class _ncc_signState extends State<ncc_sign> {
       scrollDirection: Axis.vertical,
       child:Container(
         decoration: BoxDecoration(
-          color:Colors.blue.shade100,
+          color:Colors.red.withAlpha(15),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), // Highlight: Curved top-left corner
             topRight: Radius.circular(20), // Highlight: Curved top-right corner
@@ -119,7 +119,7 @@ class _ncc_signState extends State<ncc_sign> {
       //color: Colors.red,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.red,
+        color: Colors.red.shade500,
       
       ),
       child:TextFormField(
@@ -139,13 +139,14 @@ class _ncc_signState extends State<ncc_sign> {
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
+         color: Colors.red.shade500,
       
       ),
       child:TextFormField(
       
         decoration: InputDecoration(border: InputBorder.none,
         hintText: '     Enter your email',
+         errorStyle: TextStyle(color: Color.fromARGB(255, 32, 1, 144),fontSize: 12),
         ),
         validator: (value){
                     if(value == null || value.isEmpty)
@@ -154,6 +155,7 @@ class _ncc_signState extends State<ncc_sign> {
                     }
                     return null;
                   },
+                  
         controller: emailcontroller,       
       )
       
@@ -169,7 +171,7 @@ class _ncc_signState extends State<ncc_sign> {
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
+         color: Colors.red.shade500,
       
       ),
       child:
@@ -177,6 +179,8 @@ class _ncc_signState extends State<ncc_sign> {
           
         decoration: InputDecoration(border: InputBorder.none,
         hintText: '     Enter your password',
+         errorStyle: TextStyle(color: Color.fromARGB(255, 32, 1, 144),fontSize: 12),
+
         ),
         validator: (value){
                     if(value == null || value.isEmpty)
@@ -202,7 +206,7 @@ class _ncc_signState extends State<ncc_sign> {
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
+         color: Colors.red.shade500,
       
       ),
       child:
