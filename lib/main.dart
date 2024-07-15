@@ -366,7 +366,11 @@ class _HomeState extends State<Home> {
 
       GestureDetector(
         onTap:(){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
+         // Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
+         showModalBottomSheet(context: context, builder: (BuildContext context) {
+          return ncc_sign();
+
+         });
         },
         child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline)))
       ],),  

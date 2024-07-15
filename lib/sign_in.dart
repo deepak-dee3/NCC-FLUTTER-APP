@@ -55,7 +55,7 @@ class _ncc_signState extends State<ncc_sign> {
       },
       child:
     Scaffold(
-      backgroundColor:Colors.blue.shade100,
+      backgroundColor: Colors.transparent,
     /*  body:Column(children: [
 
         SizedBox(height:120),
@@ -91,6 +91,13 @@ class _ncc_signState extends State<ncc_sign> {
     SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child:Container(
+        decoration: BoxDecoration(
+          color:Colors.blue.shade100,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), // Highlight: Curved top-left corner
+            topRight: Radius.circular(20), // Highlight: Curved top-right corner
+          ),
+        ),
         //decoration: BoxDecoration(color:Colors.blue.withOpacity(0.2),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
        // color:Colors.blue.withOpacity(0.2),
       child:Form(key: _formkey,
@@ -112,7 +119,7 @@ class _ncc_signState extends State<ncc_sign> {
       //color: Colors.red,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
+        color: Colors.red,
       
       ),
       child:TextFormField(
