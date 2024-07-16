@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:shimmer/shimmer.dart';
+
 
 class ImageFromFirebase extends StatefulWidget {
   final String cadetname;
@@ -85,11 +87,23 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
+                   boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              blurRadius: 10,
+            )
+          ]
                 ),
                 height: 200,
                 width: 250,
                 child: imageUrl.isEmpty
-                    ? CircularProgressIndicator()
+                    ? Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            color: Colors.white,
+                          ),
+                        )
                     : ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
@@ -100,7 +114,13 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           loadingBuilder: (context, child, progress) {
                             return progress == null
                                 ? child
-                                : CircularProgressIndicator();
+                                :Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            color: Colors.white,
+                          ),
+                        );
                           },
                           errorBuilder: (context, error, stackTrace) {
                             return Text('Error loading image');
@@ -111,12 +131,25 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
             ),
 
     SizedBox(height:40),
-    Padding(padding: EdgeInsets.all(10),child:Text('NCC DETAILS',style: TextStyle(fontWeight: FontWeight.bold),)),
+    Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('NCC DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
     SizedBox(height:20),
 
     Container(height:450,width:330,
-    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
+    decoration:BoxDecoration(
+      boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              blurRadius: 10,
+            )
+          ],
+      
+      
+      color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 19,),
@@ -238,12 +271,23 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
     
 
-    Padding(padding: EdgeInsets.all(10),child:Text('PERSONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold),)),
+    Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('PERSONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
     SizedBox(height:20),
 
     Container(height:700,width:330,
-    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
+    decoration:BoxDecoration(
+      boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              blurRadius: 10,
+            )
+          ],
+      color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 17,),
@@ -433,12 +477,23 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
     SizedBox(height:20),
 
-    Padding(padding: EdgeInsets.all(10),child:Text('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold),)),
+    Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
     SizedBox(height:20),
 
     Container(height:350,width:330,
-    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
+    decoration:BoxDecoration(
+      boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              blurRadius: 10,
+            )
+          ],
+      color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 13,),
@@ -547,12 +602,23 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     SizedBox(height:30),
 
     
-    Padding(padding: EdgeInsets.all(10),child:Text('ADDITIONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold),)),
+    Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('ADDITIONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
     SizedBox(height:20),
 
     Container(height:630,width:330,
-    decoration:BoxDecoration(color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
+    decoration:BoxDecoration(
+      boxShadow: [
+            BoxShadow(
+              color: Colors.blue,
+              blurRadius: 10,
+            )
+          ],
+      color: Color.fromARGB(255, 29, 8, 97).withOpacity(0.9),borderRadius: BorderRadius.circular(10)),
 
     child:Column(children: [
       SizedBox(height: 20,),

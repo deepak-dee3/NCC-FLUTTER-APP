@@ -3,6 +3,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ncc/main.dart';
+import 'package:shimmer/shimmer.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -97,6 +98,13 @@ class _ncc_signState extends State<ncc_sign> {
             topLeft: Radius.circular(20), // Highlight: Curved top-left corner
             topRight: Radius.circular(20), // Highlight: Curved top-right corner
           ),
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 144, 1, 169),
+            Colors.yellow,
+            Colors.green,
+            Colors.brown,
+          ]),
+         
         ),
         //decoration: BoxDecoration(color:Colors.blue.withOpacity(0.2),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
        // color:Colors.blue.withOpacity(0.2),
@@ -108,7 +116,7 @@ class _ncc_signState extends State<ncc_sign> {
 
       SizedBox(height:50),
 
-      Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:150,height:150)),
+      Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:170,height:170)),
 
       SizedBox(height: 30,),
 
@@ -120,6 +128,12 @@ class _ncc_signState extends State<ncc_sign> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.red.shade500,
+         boxShadow: [
+            BoxShadow(
+              color: Colors.brown,
+              blurRadius: 10,
+            )
+          ]
       
       ),
       child:TextFormField(
@@ -140,6 +154,12 @@ class _ncc_signState extends State<ncc_sign> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
          color: Colors.red.shade500,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.brown,
+              blurRadius: 10,
+            )
+          ]
       
       ),
       child:TextFormField(
@@ -172,6 +192,12 @@ class _ncc_signState extends State<ncc_sign> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
          color: Colors.red.shade500,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.brown,
+              blurRadius: 10,
+            )
+          ]
       
       ),
       child:
@@ -207,6 +233,12 @@ class _ncc_signState extends State<ncc_sign> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
          color: Colors.red.shade500,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.brown,
+              blurRadius: 10,
+            )
+          ]
       
       ),
       child:
@@ -255,8 +287,8 @@ class _ncc_signState extends State<ncc_sign> {
         color: Color.fromARGB(255, 19, 4, 104),
       
       ),
-      child:
-        Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
+      child:Shimmer.fromColors(child:  Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
+       // Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
       ),),
       SizedBox(height:30),

@@ -15,10 +15,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:timezone/data/latest.dart' as tz;
+import 'dart:async';
+import 'package:shimmer/shimmer.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+
 
 void main() async
 {
   WidgetsFlutterBinding.ensureInitialized();
+  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
   tz.initializeTimeZones();
  
@@ -61,7 +66,7 @@ class _HomeState extends State<Home> {
 
   final login_formkey = GlobalKey<FormState>();
 
-  userlogin() async{
+ /* userlogin() async{
 
     try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
@@ -95,7 +100,60 @@ class _HomeState extends State<Home> {
         {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password Provided By User',style:TextStyle(fontSize: 20))));
         }
-      }}
+      }}*/
+      userlogin() async {
+    try {
+      if (login_email.isNotEmpty && login_pass.isNotEmpty) { // Check if both email and password are provided
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => cadet_main_page(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              const begin = Offset(1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+
+              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var offsetAnimation = animation.drive(tween);
+
+              return SlideTransition(
+                position: offsetAnimation,
+                child: child,
+              );
+            },
+          ),
+        );
+
+        login_emailcontroller.clear();
+        login_passcontroller.clear();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please enter email and password')));
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User found for that Email', style: TextStyle(fontSize: 20))));
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password provided by user', style: TextStyle(fontSize: 20))));
+      }
+    }
+  }
+   bool _showShimmer = true;
+  int _shimmerCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 15), (timer) {
+      setState(() {
+        _shimmerCount++;
+      /*  if (_shimmerCount >= 2) {
+          _showShimmer = false;
+          timer.cancel();
+        }*/
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     
@@ -136,8 +194,30 @@ class _HomeState extends State<Home> {
 
       SizedBox(height:90),
 
-      Center(child:Image(image: AssetImage('assets/ncclogo-removebg-preview.png',),width:150,height:150)),
-
+      Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.transparent,
+            highlightColor: Colors.white.withOpacity(0.5),
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
+              ),
+            ),
+          ),
+          Image(
+            image: AssetImage('assets/ncclogo-removebg-preview.png'),
+            width: 150,
+            height: 150,
+          ),
+        ],
+      ),
+    ),
       SizedBox(height: 70,),
 
       Container(alignment: Alignment.center,
@@ -149,6 +229,12 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.red.shade500,
+         boxShadow: [
+            BoxShadow(
+              color: Colors.red,
+              blurRadius: 3,
+            )
+          ]
       
       ),
       child:TextFormField(
@@ -179,6 +265,12 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.red.shade500,
+         boxShadow: [
+            BoxShadow(
+              color: Colors.red,
+              blurRadius: 3,
+            )
+          ]
       
       ),
       
@@ -224,9 +316,10 @@ class _HomeState extends State<Home> {
               login_pass = login_passcontroller.text.trim();
 
             });
+            userlogin();
           }
 
-          userlogin();
+         // userlogin();
           
 
 
@@ -240,11 +333,18 @@ class _HomeState extends State<Home> {
         borderRadius: BorderRadius.circular(40),
         color: Color.fromARGB(255, 19, 4, 104),
       
-      ),
-      child:
+      ),child:_showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 1),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
+      
         Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
-      ),),
+      ):Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),)),
       SizedBox(height:30),
 
    GestureDetector(
@@ -256,7 +356,15 @@ class _HomeState extends State<Home> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text('Enter the pass key'),
+              shadowColor: Colors.blue.shade900,
+              backgroundColor: Colors.blue,
+              title: Row(children: [
+
+                Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
+                SizedBox(width: 10,),
+                Text('Secure Key',style: TextStyle(fontSize: 20),)
+
+              ],),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -264,7 +372,9 @@ class _HomeState extends State<Home> {
                     controller: passkeyController,
                     keyboardAppearance: Brightness.light,
                    
-                    decoration: InputDecoration(hintText: 'Enter the pass key'),
+                    decoration: InputDecoration(
+                     
+                      hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.grey)),
                   ),
                   if (passkeyError != null)
                     Padding(
@@ -278,7 +388,7 @@ class _HomeState extends State<Home> {
               ),
               actions: <Widget>[
                 TextButton(
-                  child: Text('Submit'),
+                  child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey),),),
                   onPressed: () {
                     if (passkeyController.text.trim() == passkey) {
                       passkeyController.clear(); // Clear the passkey field
@@ -318,8 +428,7 @@ class _HomeState extends State<Home> {
     );
   },
   child: Center(
-   // padding: EdgeInsets.only(left: 80),
-   // child:Align(alignment: Alignment.center,
+  
     child:Row(
        mainAxisSize: MainAxisSize.min, 
       children: [
@@ -331,7 +440,21 @@ class _HomeState extends State<Home> {
           ),
         ),
         SizedBox(width: 5),
-        Text(
+        _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 1),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.red,
+                            child:Text(
+          'click here to continue',
+          style: TextStyle(fontWeight: FontWeight.bold, 
+          color: Colors.blue,
+
+         
+          ),
+        ),):Text(
           'click here to continue',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
         ),
@@ -339,17 +462,7 @@ class _HomeState extends State<Home> {
     ),
   ),
 ),
-      /*GestureDetector(
-        onTap:(){
-          Navigator.push(context,MaterialPageRoute(builder: (context) => ano_view_details()));
-        },
-        child:Padding(padding:EdgeInsets.only(left:80),child:Row(children:[
-          Text('ANO \'s ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold)),
-          SizedBox(width:5),
-          Text('click here to continue',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue))
-          ])
-      ),
-),*/
+     
       SizedBox(height: 10,),
       
       GestureDetector(onTap: ()
@@ -372,8 +485,15 @@ class _HomeState extends State<Home> {
 
          });
         },
-        child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline)))
-      ],),  
+        child:_showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 1),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.red,
+                            child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))):Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))
+      )],),  
     )))));
   }
 }

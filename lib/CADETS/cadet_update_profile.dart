@@ -3,6 +3,7 @@ import 'package:ncc/CADETS/cadet_up1.dart';
 import 'package:ncc/CADETS/cadet_up2.dart';
 import 'package:ncc/CADETS/cadet_up3.dart';
 import 'package:ncc/CADETS/cadet_up4.dart';
+import 'package:shimmer/shimmer.dart';
 
 class upadte_profile extends StatefulWidget{
   @override
@@ -51,7 +52,7 @@ class _upadte_profileState extends State<upadte_profile> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('   UPDATE NCC DETAILS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Shimmer.fromColors(baseColor: Colors.blue, highlightColor: Colors.white ,child:Text('   UPDATE NCC DETAILS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -81,7 +82,7 @@ class _upadte_profileState extends State<upadte_profile> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    UPDATE PERSONAL DETAILS      ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Shimmer.fromColors(baseColor: Colors.blue, highlightColor: Colors.white,child:Text('    UPDATE PERSONAL DETAILS      ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -112,7 +113,7 @@ class _upadte_profileState extends State<upadte_profile> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('   UPDATE ACCOUNT DETAILS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+           Shimmer.fromColors( baseColor: Colors.blue, highlightColor: Colors.white,child: Text('   UPDATE ACCOUNT DETAILS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -143,26 +144,9 @@ class _upadte_profileState extends State<upadte_profile> {
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('   UPDATE ADDITIONAL DETAILS     ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Shimmer.fromColors(baseColor:Colors.blue, highlightColor: Colors.white,child:Text('   UPDATE ADDITIONAL DETAILS     ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
-          
-
-          
-          
-         /* Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-
-            Text('    CONTACT US                                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),*/
-
-          
-          
         ],)
       )
 

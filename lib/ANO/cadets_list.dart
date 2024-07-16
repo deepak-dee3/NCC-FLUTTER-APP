@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ncc/ANO/cadets_all_details.dart.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+import 'package:shimmer/shimmer.dart';
 
 
 
@@ -14,6 +16,17 @@ class ccadet_details extends StatefulWidget{
 }
 
 class _ccadet_detailsState extends State<ccadet_details> {
+  bool _showShimmer = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 1), () {
+      setState(() {
+        _showShimmer = false;
+      });
+    });
+  }
   
   
   @override
@@ -95,7 +108,53 @@ class _ccadet_detailsState extends State<ccadet_details> {
               
 
              
-              return Column(children:[
+              return _showShimmer
+                                ? Shimmer.fromColors(
+                                    baseColor: Colors.blue,
+                                    highlightColor: Colors.white,
+                                    period: Duration(seconds: 1),
+                                    child:Column(children:[
+                
+                Card(elevation: 10,
+                shadowColor: Colors.black,
+                child:Container(
+                  height:130,
+                  decoration: BoxDecoration(color: Colors.blue),
+                child:ListTile(
+                //title: Text(cadetdocs[index][docname]),
+
+                //title:Text(regg_no),
+                contentPadding: EdgeInsets.all(20),
+
+                title:Text(regg_no,style:GoogleFonts.blackOpsOne(textStyle: TextStyle( fontFamily: 'Prompt',color: Colors.black),),),
+                subtitle: Text(cadetname,style: GoogleFonts.acme(textStyle:TextStyle( fontFamily: 'Prompt',color: Colors.black),),),
+                //trailing: ImageFromFirebase(),
+                trailing: Container(
+
+                  child:GestureDetector(
+                    child:Shimmer.fromColors(
+        baseColor: Colors.red,
+        highlightColor: Colors.white,
+        child:Text('View Details',style: GoogleFonts.prompt(textStyle:TextStyle(color: Color.fromARGB(255, 179, 41, 32),fontWeight: FontWeight.bold,fontSize: 13),),),),
+                    onTap:(){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => ImageFromFirebase(cadetname:cadetname,regg_no: regg_no,dtrate:dtrate,grp:grp,btn:btn,accnum:accnum,accbrnch:accbrnch,phn:phn,adrs:adrs,ftname:ftname,ftphn:ftphn,ftocc:ftocc,mtname:mtname,mtphn:mtphn,mtocc:mtocc,adh:adh,bats:bats,bate:bate,clg:clg,deg:deg,dpt:dpt,bl:bl,com:com,ifsc:ifsc)));
+                    },
+                  )
+                  
+
+                ) 
+              // trailing: Image(image: '${widget.regg_no}'),
+                
+                //trailing: Image.network('https://th.bing.com/th/id/OIP.XGbSok9Rdnx-zmSkuINqxgHaEo?w=308&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7',width: 120,),
+                //trailing: Image(image: image_path),
+               
+               
+               
+              ))),
+
+              SizedBox(height:15),
+              ])):Column(children:[
+                
                 Card(elevation: 10,
                 child:Container(
                   height:130,

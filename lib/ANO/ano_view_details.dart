@@ -6,10 +6,34 @@ import 'package:ncc/ANO/cadets_list.dart';
 import 'package:ncc/ANO/upload_camps.dart';
 import 'package:ncc/ANO/upload_campss.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
+import 'package:shimmer/shimmer.dart';
+import 'dart:async';
 
 
-class ano_view_details extends StatelessWidget
+class ano_view_details extends StatefulWidget
 {
+  @override
+  State<ano_view_details> createState() => _ano_view_detailsState();
+}
+
+class _ano_view_detailsState extends State<ano_view_details> {
+
+  bool _showShimmer = true;
+  int _shimmerCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 4), (timer) {
+      setState(() {
+        _shimmerCount++;
+        if (_shimmerCount >= 2) {
+          _showShimmer = false;
+          timer.cancel();
+        }
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     
@@ -47,10 +71,18 @@ class ano_view_details extends StatelessWidget
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    CADET\'S DETAILS                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    CADET\'S DETAILS                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):  Text('    CADET\'S DETAILS                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),),
+        ],),)),),
 
           
 
@@ -74,8 +106,16 @@ class ano_view_details extends StatelessWidget
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+               _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text(' UPLOAD CAMP / EVENT DETAILS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text(' UPLOAD CAMP / EVENT DETAILS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text(' UPLOAD CAMP / EVENT DETAILS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -99,7 +139,16 @@ class ano_view_details extends StatelessWidget
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-            Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+               _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
+
+            Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -123,8 +172,16 @@ class ano_view_details extends StatelessWidget
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+               _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
           
@@ -148,8 +205,16 @@ class ano_view_details extends StatelessWidget
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+               _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),
           
@@ -159,5 +224,4 @@ class ano_view_details extends StatelessWidget
 
     )));
   }
-
 }

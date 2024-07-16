@@ -25,9 +25,26 @@ class _fill_detailsState extends State<fill_details> {
 
     XFile ? res = await _imagepic.pickImage(source: ImageSource.gallery);
 
-    if(res != null)
+   /* if(res != null)
     {
       uploadfirebase(File(res.path));
+    }*/
+
+
+
+    if (res != null) {
+      File imageFile = File(res.path);
+      int fileSize = await imageFile.length();
+
+      // Check if image size is below 300 KB (307200 bytes)
+      if (fileSize <= 200 * 1024) {
+        uploadfirebase(imageFile);
+      } else {
+        Fluttertoast.showToast(
+          msg: 'Please pick an image below 200 KB in size.',
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
     }
 
   }
@@ -91,6 +108,10 @@ class _fill_detailsState extends State<fill_details> {
    Bank_number =_bank_controller.text.trim();
   Branch = _branch_controller.text.trim();
   Ifsc = _ifsc_controller.text.trim();
+
+
+
+
 
  create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc);
 
@@ -330,18 +351,6 @@ _mothername_controller .clear();
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-
-        /* Row(children:[ Padding(padding:EdgeInsets.all(10),child:TextFormField(
-            decoration: InputDecoration(hintText: 'First Name',hintStyle: TextStyle(fontSize: 13),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
-            
-          )),
-         /* Padding(padding:EdgeInsets.all(30),child:TextFormField(
-            decoration: InputDecoration(hintText: 'Last Name',hintStyle: TextStyle(fontSize: 13),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
-            
-          ))*/
-          ])  */
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -797,36 +806,15 @@ _mothername_controller .clear();
             
           )),
 
-        /*  ElevatedButton(onPressed: () async{
-
-            ImagePicker imagepicker = ImagePicker();
-            XFile? file = await imagepicker.pickImage(source: ImageSource.gallery);
-            print('${file?.path}');
-
-            if(file == null) return ;
-
-            String uniquefilename = DateTime.now().millisecondsSinceEpoch.toString();
-
-
-            Reference referenceRoot = FirebaseStorage.instance.ref();
-            Reference referenceDirImages = referenceRoot.child('images');
-
-            Reference referenceImageToUpload = referenceDirImages.child(uniquefilename);
-
-            referenceImageToUpload.putFile(File(file!.path));
-
-          }, child: Text('Image')),
-
-          */
-
           ElevatedButton(onPressed: (){
             pickimage();
-          }, child: Text('upload')),
+          }, child: Text('Upload Image ')),
           SizedBox(height:30),
           
           GestureDetector(onTap:(){
 
    validateForm();
+   
       },
         child:Container(alignment: Alignment.center,
       height: 70,

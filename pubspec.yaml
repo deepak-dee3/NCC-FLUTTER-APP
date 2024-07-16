@@ -64,6 +64,8 @@ dependencies:
   flutter_downloader: ^1.11.7
   page_transition: ^2.1.0
   get: ^4.6.6
+  shimmer: ^3.0.0
+  flutter_windowmanager: ^0.2.0
 
 dev_dependencies:
   flutter_test:

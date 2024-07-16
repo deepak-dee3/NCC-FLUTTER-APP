@@ -5,6 +5,8 @@ import 'package:ncc/CADETS/cadet_update_profile.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:page_transition/page_transition.dart';
+import 'dart:async';
+import 'package:shimmer/shimmer.dart';
 
 
 class cadet_main_page extends StatefulWidget{
@@ -13,6 +15,22 @@ class cadet_main_page extends StatefulWidget{
 }
 
 class _cadet_main_pageState extends State<cadet_main_page> {
+   bool _showShimmer = true;
+  int _shimmerCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 4), (timer) {
+      setState(() {
+        _shimmerCount++;
+        if (_shimmerCount >= 2) {
+          _showShimmer = false;
+          timer.cancel();
+        }
+      });
+    });
+  }
 
  
   @override
@@ -56,8 +74,16 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-
-            Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
+            Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -82,8 +108,17 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -109,8 +144,17 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
+            : Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -138,8 +182,17 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
          
@@ -149,8 +202,17 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
 
-            Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
+            :Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),     
         ],)
