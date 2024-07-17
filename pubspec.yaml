@@ -70,6 +70,7 @@ dependencies:
   avatar_glow: ^3.0.1
   interactiveviewer_gallery: ^0.6.0
   flutter_secure_storage: ^8.1.0
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
