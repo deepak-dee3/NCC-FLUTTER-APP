@@ -18,6 +18,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'dart:async';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 
 
 void main() async
@@ -181,8 +182,10 @@ class _HomeState extends State<Home> {
       resizeToAvoidBottomInset: false,
 
     body:SingleChildScrollView(
-      child:Container(
+      
+        child:Container(
          padding: EdgeInsets.all(16.0),
+         
 
       child:Form(key:login_formkey,
      // color: Color.fromARGB(255, 252, 223, 180),
@@ -374,7 +377,7 @@ class _HomeState extends State<Home> {
                    
                     decoration: InputDecoration(
                      
-                      hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.grey)),
+                      hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.white)),
                   ),
                   if (passkeyError != null)
                     Padding(

@@ -106,7 +106,9 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                         )
                     : ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
+                        child: InteractiveViewer(maxScale: 5,
+                          child:
+                        Image.network(
                           imageUrl,
                           width: 300,
                           height: 200,
@@ -125,7 +127,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           errorBuilder: (context, error, stackTrace) {
                             return Text('Error loading image');
                           },
-                        ),
+                        ),),
                       ),
               ),
             ),
@@ -161,8 +163,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
-          
-          
+          readOnly: true,
           
           decoration: InputDecoration(
              hintStyle: TextStyle(
@@ -184,7 +185,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -206,7 +207,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -227,7 +228,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -248,7 +249,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -304,7 +305,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -325,7 +326,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -348,7 +349,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -369,7 +370,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -390,7 +391,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -411,7 +412,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -432,7 +433,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -453,7 +454,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -481,7 +482,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     child:Shimmer.fromColors(
         baseColor: Colors.black,
         highlightColor: Colors.white,
-        child:Text('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
+        child:SelectableText('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
     SizedBox(height:20),
 
@@ -504,7 +505,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -527,6 +528,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
+          readOnly: true,
           
           
           
@@ -547,7 +549,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         decoration: BoxDecoration(
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -568,7 +570,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
-          
+          readOnly: true,
           
           
           decoration: InputDecoration(hintText:'    ${widget.adh.toUpperCase()}' ,hintStyle: TextStyle(
@@ -583,19 +585,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
       
       SizedBox(height: 10,),
 
-      
-
-      
-
-      
-
-
-
-
-
-
-
-
+     
       
     ],)
     ),
@@ -632,7 +622,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           //color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
           ),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -658,7 +648,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
          // color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
          ),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -684,7 +674,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
          // color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
           ),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -708,7 +698,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           //color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
 ),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -731,7 +721,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),
           ),
-        child:TextField(
+        child:TextField(readOnly: true,
           
           
           
@@ -755,7 +745,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
-          
+          readOnly: true,
           
           
           decoration: InputDecoration(hintText:'    ${widget.bl.toUpperCase()}' ,
@@ -777,7 +767,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(
-          
+          readOnly: true,
           
           
           decoration: InputDecoration(hintText:'    ${widget.com.toUpperCase()}' ,

@@ -17,6 +17,7 @@ class ccadet_details extends StatefulWidget{
 
 class _ccadet_detailsState extends State<ccadet_details> {
   bool _showShimmer = true;
+  late List<DocumentSnapshot> filteredCadetDocs; 
 
   @override
   void initState() {
@@ -31,13 +32,6 @@ class _ccadet_detailsState extends State<ccadet_details> {
   
   @override
   Widget build(BuildContext context) {
-
-    
-
-   
-
-    
-    
 
     //final storage = FirebaseStorage.getInstance().getReference().child()
    
