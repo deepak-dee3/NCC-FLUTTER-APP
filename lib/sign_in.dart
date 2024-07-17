@@ -6,6 +6,7 @@ import 'package:ncc/main.dart';
 import 'package:shimmer/shimmer.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ncc_sign extends StatefulWidget{
   @override
@@ -21,12 +22,19 @@ class _ncc_signState extends State<ncc_sign> {
   TextEditingController phonecontroller =  TextEditingController();
 
   final _formkey= GlobalKey<FormState>();
+  final storage = FlutterSecureStorage();
 
   registration() async {
     if(password!=null)
     {
       try{
         UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+
+        await storage.write(key: 'password', value: password); 
+        //String? storedPassword = await storage.read(key: 'password');
+       // await storage.delete(key: 'password');
+
+
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registered Successfully',style:TextStyle(fontSize: 20))));
 
@@ -45,6 +53,8 @@ class _ncc_signState extends State<ncc_sign> {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('email in use',style:TextStyle(fontSize: 20))));
         }}} }
 
+        
+
   @override
   Widget build(BuildContext context) {
     
@@ -57,36 +67,7 @@ class _ncc_signState extends State<ncc_sign> {
       child:
     Scaffold(
       backgroundColor: Colors.transparent,
-    /*  body:Column(children: [
-
-        SizedBox(height:120),
-
-        Padding(padding:EdgeInsets.only(left:27),child:Container(
-          child:Stack(
-            children: [
-              Padding(padding: EdgeInsets.all(10),
-              child:Container(width:330,height:600,
-              decoration: BoxDecoration(color:Color.fromARGB(255, 31, 1, 96),borderRadius: BorderRadius.circular(20)),)
-            ),
-            Stack(
-            children: [
-              Padding(padding: EdgeInsets.all(20),
-              child:Container(width:330,height:600,
-              decoration: BoxDecoration(color:Colors.blue,borderRadius: BorderRadius.circular(20)),)
-            )
-            ],
-          ),
-            ],
-          ),
-          
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20)
-            ,color: Colors.red,
-          ),
-          height:600,width:330)),
-      ],)
-
-      */
+    
       resizeToAvoidBottomInset: false,
     body:
     SingleChildScrollView(
@@ -260,6 +241,34 @@ class _ncc_signState extends State<ncc_sign> {
       ),
       SizedBox(height: 20,),     
       SizedBox(height:30),
+      GestureDetector(onTap: (){
+           Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
+          }, child:Container(padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.lightBlueAccent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blueAccent.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 15,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+            BoxShadow(
+              color: Colors.lightBlueAccent.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 15,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
+            child: Text('Click here to continue'))),
+
+            SizedBox(height: 30,),
       GestureDetector(onTap:(){
 
               if(_formkey.currentState!.validate())

@@ -805,11 +805,49 @@ _mothername_controller .clear();
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
+          SizedBox(height:15),
 
-          ElevatedButton(onPressed: (){
+         Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SelectableText('Note : ',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+            SizedBox(width:5),
+            SelectableText('Your image should '),
+            SizedBox(width:1),
+            SelectableText('below 200 kb',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold)),
+
+          ],
+         ),
+
+         SizedBox(height: 30,),
+
+          GestureDetector(onTap: (){
             pickimage();
-          }, child: Text('Upload Image ')),
-          SizedBox(height:30),
+          }, child:Container(padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          gradient: LinearGradient(
+            colors: [Colors.blueAccent, Colors.lightBlueAccent],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blueAccent.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 15,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+            BoxShadow(
+              color: Colors.lightBlueAccent.withOpacity(0.6),
+              spreadRadius: 1,
+              blurRadius: 15,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
+            child: Text('Upload Image '))),
+          SizedBox(height:35),
           
           GestureDetector(onTap:(){
 
