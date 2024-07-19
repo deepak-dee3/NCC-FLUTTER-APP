@@ -85,7 +85,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
               final cadet = cadetdocs[index];
               final regg_no = cadet['Regimental_number'] ?? 'no number';
               final cadetname = cadet['name'] ?? 'no name';
-             // final image_path = cadet['Images/zzz'] ?? 'no image';
+             // final image_path = cadet['Images'] ?? 'no image';
 
              final dtrate = cadet['Directorate'] ?? 'no dir';
              final grp = cadet['Group'] ?? 'no grp';
@@ -158,7 +158,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
               // trailing: Image(image: '${widget.regg_no}'),
                 
                 //trailing: Image.network('https://th.bing.com/th/id/OIP.XGbSok9Rdnx-zmSkuINqxgHaEo?w=308&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7',width: 120,),
-                //trailing: Image(image: image_path),
+               // trailing: Image(image: image_path),
                
                
                
@@ -191,10 +191,12 @@ class _ccadet_detailsState extends State<ccadet_details> {
                   
 
                 ) 
-              // trailing: Image(image: '${widget.regg_no}'),
+               //trailing: Image(image: '${widget.regg_no}'),
+              // trailing: Image.network('${widget.regg_no}'),
+
                 
                 //trailing: Image.network('https://th.bing.com/th/id/OIP.XGbSok9Rdnx-zmSkuINqxgHaEo?w=308&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7',width: 120,),
-                //trailing: Image(image: image_path),
+               // trailing: Image(image: image_path),
                
                
                

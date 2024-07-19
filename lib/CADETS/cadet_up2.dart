@@ -599,7 +599,7 @@ class _cadet_up2State extends State<cadet_up2> {
                   },
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.mobile_friendly),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_right),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
@@ -626,7 +626,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.home),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_left),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
@@ -652,7 +652,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_4),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.school),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
@@ -678,7 +678,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'DEGREE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -703,7 +703,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.work),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_rounded),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
  
@@ -731,7 +731,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.bloodtype),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
@@ -758,7 +758,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.people),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
