@@ -69,7 +69,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
   glowRadius: 0.7,
   glowIntensity: 0.6,
   child: SingleChildScrollView(scrollDirection: Axis.vertical,
-        child:Container(
+        child:Expanded(child:Container(
         child:Column(children: [
 
           SizedBox(height: 70,),
@@ -242,6 +242,6 @@ class _ano_view_detailsState extends State<ano_view_details> {
       )
 
 
-    ))));
+    )))));
   }
 }
