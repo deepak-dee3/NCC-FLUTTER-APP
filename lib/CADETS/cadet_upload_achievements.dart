@@ -88,11 +88,11 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
 
   @override
   Widget build(BuildContext context) {
-    return  WillPopScope(
-      onWillPop: () async{
-         Navigator.pop(context);
-         return false;
-        
+    return   WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
       },
       child:
      Scaffold(

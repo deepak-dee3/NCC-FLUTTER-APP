@@ -35,19 +35,16 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
 
   @override
   Widget build(BuildContext context) {
-    return  WillPopScope(
-      onWillPop: () async{
-         Navigator.pop(context);
-         return false;
-        
+    return WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
       },
       child:
       Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 210, 248),
-      appBar: AppBar(
-        title: Text(''),
-        backgroundColor: const Color.fromARGB(255, 164, 210, 248),
-      ),
+     
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: _fetchImageUrlsWithTitles(),
         builder: (context, snapshot) {

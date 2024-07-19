@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
-import 'package:ncc/CADETS/cadet_update_profile.dart';
+import 'package:ncc/CADETS/cadet_up2.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:page_transition/page_transition.dart';
@@ -36,10 +36,10 @@ class _cadet_main_pageState extends State<cadet_main_page> {
    
    return
     WillPopScope(
-      onWillPop: () async{
-         Navigator.pop(context);
-         return false;
-        
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
       },
       child:Scaffold(
       body:Metaballs(
@@ -86,7 +86,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
          GestureDetector(onTap:(){
 
           Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => upadte_profile(),
+                        pageBuilder: (context, animation, secondaryAnimation) => cadet_up2(),
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           const begin = Offset(1.0, 0.0);
                           const end = Offset.zero;
@@ -116,8 +116,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
-            Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    PROFILE UPDATION                   ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    PROFILE UPDATION',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    PROFILE UPDATION ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 100,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -151,8 +152,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    VIEW EVENTS                             ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 145,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -187,8 +189,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
-            : Text('    UPLOAD ACHIEVEMENTS         ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
+            : Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            SizedBox(width: 60,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -227,8 +230,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    VIEW ACHIEVEMENTS              ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 85,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
          

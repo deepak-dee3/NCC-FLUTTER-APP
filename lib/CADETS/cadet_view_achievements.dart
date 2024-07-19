@@ -94,11 +94,11 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
   @override
   Widget build(BuildContext context) {
     return 
-     WillPopScope(
-      onWillPop: () async{
-         Navigator.pop(context);
-         return false;
-        
+      WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
       },
       child:
     Scaffold(
