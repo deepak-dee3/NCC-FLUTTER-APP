@@ -79,7 +79,9 @@ class _ano_view_detailsState extends State<ano_view_details> {
             scale: 3.0, 
    
             child:Lottie.asset('assets/animation/Animation - 1721312169152.json')),),
-          
+
+
+            
          GestureDetector(onTap:(){
           //Navigator.push(context, MaterialPageRoute(builder: (context) => ccadet_details()));
            Navigator.push(context, PageRouteBuilder(
