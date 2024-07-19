@@ -99,7 +99,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
             width:330,
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
+            child: Row(
+              children: [
               _showShimmer? 
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
@@ -109,7 +110,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    CADET\'S DETAILS                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):  Text('    CADET\'S DETAILS                         ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):  Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 125,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
         ],),)),),
 
@@ -144,7 +146,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
                             highlightColor: Colors.white,
                             child:
 
-            Text(' UPLOAD CAMP / EVENT DETAILS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text(' UPLOAD CAMP / EVENT DETAILS  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            SizedBox(width: 15,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -177,7 +180,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW EVENTS                                ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 155,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -210,7 +214,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW ACHIEVEMENTS                  ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 90,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
           

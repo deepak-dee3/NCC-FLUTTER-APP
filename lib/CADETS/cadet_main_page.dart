@@ -232,27 +232,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
          
-          Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(
-             
-              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-              _showShimmer? 
-              Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
-                            baseColor: Colors.blue,
-                            highlightColor: Colors.white,
-                            child:
-
-            Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
-            :Text('    REPORT / ANY HELP?                ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),     
+          SizedBox(height: 30,),   
         ],)
       )
     ))

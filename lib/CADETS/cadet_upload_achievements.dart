@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/CADETS/cadet_main_page.dart';
 import 'package:ncc/Notification/notification.dart';
+import 'package:lottie/lottie.dart';
 
 class cadet_upload_achievements extends StatefulWidget{
   @override
@@ -95,14 +96,20 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
       },
       child:
      Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child:Container(
         child: Column(
           children: [
-            SizedBox(height: 100),
+            SizedBox(height: 80),
 
 
-            Text('ACHIEVEMENTS',style:TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
-            Text('********************'),
+            Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 1.5, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721312844095.json')),),
             SizedBox(height: 30,),
             Padding(
               padding: EdgeInsets.all(28),
@@ -195,6 +202,6 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
       ),
     )
       
-    );
+    ));
   }
 }
