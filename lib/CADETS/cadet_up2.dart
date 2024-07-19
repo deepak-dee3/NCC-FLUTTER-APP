@@ -824,6 +824,7 @@ class _cadet_up2State extends State<cadet_up2> {
                 ),
               ),
             ),
+            SizedBox(height: 20,)
 
             ],
 
