@@ -22,12 +22,16 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:ncc/sign_in.dart';
+import 'package:flutter/services.dart';
 
 
 
 
 void main() async
 {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(systemNavigationBarColor: Colors.white,
+    statusBarIconBrightness: Brightness.dark,
+    statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
@@ -231,9 +235,9 @@ class _HomeState extends State<Home> {
       child:  Container(
             height: 250,
             width: 100,child:Transform.scale(
-            scale: 2.0, 
+            scale: 3.0, 
    
-            child:Lottie.asset('assets/animation/Animation - 1721316481945.json')),),
+            child:Lottie.asset('assets/animation/2QsQCoEqkP.json')),),
     ),
    // Center(child:Image.asset('assets/ncc_app-removebg-preview.png',)),
       SizedBox(height: screenHeight * 0.03,),
@@ -275,7 +279,7 @@ class _HomeState extends State<Home> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
@@ -329,7 +333,7 @@ class _HomeState extends State<Home> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
@@ -346,7 +350,7 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Email Address",
+                      "Password",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -374,7 +378,8 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-              )),
+              )
+              ),
 
 
       /*Container(alignment: Alignment.center,
@@ -561,14 +566,14 @@ class _HomeState extends State<Home> {
                 boxShadow: [
                   BoxShadow(
                     color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
-                    blurRadius: 10,
-                    spreadRadius: 2,
+                    blurRadius: 5,
+                    spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
                   BoxShadow(
                    color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
                     blurRadius: 20,
-                    spreadRadius: 4,
+                    spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
                   
@@ -613,18 +618,19 @@ class _HomeState extends State<Home> {
             width: 150,height: 60,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 31, 9, 122),
+               
                 borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   BoxShadow(
                     color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
-                    blurRadius: 10,
-                    spreadRadius: 2,
+                    blurRadius: 5,
+                    spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
                   BoxShadow(
                     color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
                     blurRadius: 20,
-                    spreadRadius: 4,
+                    spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
                 ],

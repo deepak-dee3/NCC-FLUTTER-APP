@@ -37,7 +37,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
     //final storage = FirebaseStorage.getInstance().getReference().child()
    
    return Scaffold(
-    backgroundColor: Colors.blue.shade100,
+    backgroundColor: Colors.white,
     body:Column(children:[
       SizedBox(height:25),
 

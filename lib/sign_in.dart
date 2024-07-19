@@ -72,7 +72,7 @@ class _ncc_signState extends State<ncc_sign> {
     
       resizeToAvoidBottomInset: false,
     body:Metaballs(
-  color: const Color.fromARGB(255, 66, 133, 244),
+  color: Color.fromARGB(255, 235, 86, 98),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
     smoothing: 1,
@@ -80,8 +80,8 @@ class _ncc_signState extends State<ncc_sign> {
   ),
   gradient: LinearGradient(
     colors: [
-      const Color.fromARGB(255, 90, 60, 255),
-      const Color.fromARGB(255, 120, 255, 255),
+      Color.fromARGB(255, 184, 8, 26),
+      Color.fromARGB(255, 222, 16, 33),
     ],
     begin: Alignment.bottomRight,
     end: Alignment.topLeft
@@ -137,33 +137,56 @@ class _ncc_signState extends State<ncc_sign> {
 
       SizedBox(height: 30,),
 
-      Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.only(left:20),
-      //color: Colors.red,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
-         boxShadow: [
-            BoxShadow(
-              color: Colors.brown,
-              blurRadius: 10,
-            )
-          ]
-      
-      ),
-      child:TextFormField(
-        decoration: InputDecoration(border: InputBorder.none,
-        hintText: '     Enter your name',
-        ),
-      )
-      
-      ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Enter your name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextFormField(
+                     
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
+                          prefixIconColor: Colors.black,
+                          hintText: "Name",
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )
+              ),
       SizedBox(height: 30,),
 
-      Container(alignment: Alignment.center,
-      height: 70,
+      
+
+     /* Container(alignment: Alignment.center,
+     
       width:330,
       padding: EdgeInsets.only(left:20),
       //color: Colors.red,
@@ -196,11 +219,61 @@ class _ncc_signState extends State<ncc_sign> {
         controller: emailcontroller,       
       )
       
-      ),
+      ),*/      Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Enter your mail",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextFormField(
+                     controller: emailcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user mail";
+                    }
+                    return null;
+                  },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.mail_lock_outlined),
+                          prefixIconColor: Colors.black,
+                          hintText: "Mail",
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )
+              ),
 
       SizedBox(height: 30,),
 
-      Container(alignment: Alignment.center,
+     /* Container(alignment: Alignment.center,
       height: 70,
       width:330,
       padding: EdgeInsets.only(left:20),
@@ -238,45 +311,60 @@ class _ncc_signState extends State<ncc_sign> {
         
       )
       
-      ),
+      ),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Enter your password",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextFormField(
+                     controller: passcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user password";
+                    }
+                    return null;
+                  },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.password_rounded),
+                          prefixIconColor: Colors.black,
+                          hintText: "Password",
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )
+              ),
       SizedBox(height:30),
 
-      Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.only(left:10,top:8),
-      //color: Colors.red,
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-         color: Colors.red.shade500,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.brown,
-              blurRadius: 10,
-            )
-          ]
-      
-      ),
-      child:
-        IntlPhoneField(
-          controller: phonecontroller,
-          initialCountryCode: 'IN',
-          disableLengthCheck: true,
-          
-        decoration: InputDecoration(border: InputBorder.none,
-        hintText: 'Enter your number',
-        
-        contentPadding: EdgeInsets.only(top:8),
-              
-        ),
-        textAlign: TextAlign.start,
-        keyboardType: TextInputType.phone,        
-        
-      )      
-      ),
-      SizedBox(height: 20,),     
-      SizedBox(height:30),
      /* GestureDetector(onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
           }, child:Container(padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),

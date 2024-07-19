@@ -79,25 +79,38 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         return true;
       },
       child:Scaffold(
-      backgroundColor: Colors.blue.shade100,
-      body: 
+      //backgroundColor: Colors.blue.shade100,
+      body: Metaballs(
+  color: Color.fromARGB(255, 37, 3, 226),
+  effect: MetaballsEffect.follow(
+    growthFactor: 1,
+    smoothing: 1,
+    radius: 0.5,
+  ),
+  gradient: LinearGradient(
+    colors: [
+      Color.fromARGB(255, 5, 41, 226).withOpacity(0.2),
+      Color.fromARGB(255, 10, 2, 236).withOpacity(0.2),
+    ],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft
+  ),
+  metaballs: 40,
+  animationDuration: const Duration(milliseconds: 200),
+  speedMultiplier: 1,
+  bounceStiffness: 3,
+  minBallRadius: 15,
+  maxBallRadius: 40,
+  glowRadius: 0.7,
+  glowIntensity: 0.6,
+  child: 
     SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 100),
             Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                   boxShadow: [
-            BoxShadow(
-              color: Colors.blue,
-              blurRadius: 10,
-            )
-          ]
-                ),
-                height: 200,
-                width: 250,
+              child:CircleAvatar(
+               radius: 80,
                 child: imageUrl.isEmpty
                     ? Shimmer.fromColors(
                           baseColor: Colors.grey[300]!,
@@ -107,7 +120,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           ),
                         )
                     : ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(40),
                         child: InteractiveViewer(maxScale: 5,
                           child:
                         Image.network(
@@ -147,7 +160,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     decoration:BoxDecoration(
       boxShadow: [
             BoxShadow(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 21, 6, 240),
               blurRadius: 10,
             )
           ],
@@ -286,7 +299,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     decoration:BoxDecoration(
       boxShadow: [
             BoxShadow(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 21, 6, 240),
               blurRadius: 10,
             )
           ],
@@ -492,7 +505,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     decoration:BoxDecoration(
       boxShadow: [
             BoxShadow(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 21, 6, 240),
               blurRadius: 10,
             )
           ],
@@ -606,7 +619,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     decoration:BoxDecoration(
       boxShadow: [
             BoxShadow(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 21, 6, 240),
               blurRadius: 10,
             )
           ],
@@ -802,6 +815,6 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     
 
 
-    ]))));
+    ])))));
   }
 }

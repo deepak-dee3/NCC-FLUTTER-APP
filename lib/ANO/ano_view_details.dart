@@ -29,10 +29,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
     Timer.periodic(Duration(seconds: 4), (timer) {
       setState(() {
         _shimmerCount++;
-        if (_shimmerCount >= 2) {
-          _showShimmer = false;
-          timer.cancel();
-        }
+       
       });
     });
   }
@@ -49,7 +46,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
       child:Scaffold(
 
       body:Metaballs(
-  color: const Color.fromARGB(255, 66, 133, 244),
+  color: Color.fromARGB(255, 35, 3, 63),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
     smoothing: 1,
@@ -57,8 +54,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
   ),
   gradient: LinearGradient(
     colors: [
-      const Color.fromARGB(255, 90, 60, 255),
-      const Color.fromARGB(255, 120, 255, 255),
+      Color.fromARGB(255, 53, 29, 192).withOpacity(0.3),
+      Color.fromARGB(255, 51, 21, 126).withAlpha(2),
     ],
     begin: Alignment.bottomRight,
     end: Alignment.topLeft
@@ -230,25 +227,9 @@ class _ano_view_detailsState extends State<ano_view_details> {
             Text('    CONTACT US                                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),*/
+          
 
-          Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-               _showShimmer? 
-              Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
-                            baseColor: Colors.blue,
-                            highlightColor: Colors.white,
-                            child:
-
-            Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text('    REPORT / ANY HELP?                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),
+         SizedBox(height: 30,)
           
         ],)
       )
