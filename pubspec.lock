@@ -568,14 +568,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.4"
-  get:
-    dependency: "direct main"
-    description:
-      name: get
-      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.6.6"
   google_fonts:
     dependency: "direct main"
     description:
@@ -768,6 +760,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  lottie:
+    dependency: "direct main"
+    description:
+      name: lottie
+      sha256: "6a24ade5d3d918c306bb1c21a6b9a04aab0489d51a2582522eea820b4093b62b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   matcher:
     dependency: transitive
     description:
@@ -792,6 +792,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  metaballs:
+    dependency: "direct main"
+    description:
+      name: metaballs
+      sha256: "0a3c11cd8e094c78a5d541c442fe40baf4c01113cd0c3e0e1704d0f9da44b4c8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.0"
   mime:
     dependency: transitive
     description:

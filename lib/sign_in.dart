@@ -7,6 +7,8 @@ import 'package:shimmer/shimmer.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:lottie/lottie.dart';
+import 'package:metaballs/metaballs.dart';
 
 class ncc_sign extends StatefulWidget{
   @override
@@ -69,7 +71,30 @@ class _ncc_signState extends State<ncc_sign> {
       backgroundColor: Colors.transparent,
     
       resizeToAvoidBottomInset: false,
-    body:
+    body:Metaballs(
+  color: const Color.fromARGB(255, 66, 133, 244),
+  effect: MetaballsEffect.follow(
+    growthFactor: 1,
+    smoothing: 1,
+    radius: 0.5,
+  ),
+  gradient: LinearGradient(
+    colors: [
+      const Color.fromARGB(255, 90, 60, 255),
+      const Color.fromARGB(255, 120, 255, 255),
+    ],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft
+  ),
+  metaballs: 40,
+  animationDuration: const Duration(milliseconds: 200),
+  speedMultiplier: 1,
+  bounceStiffness: 3,
+  minBallRadius: 15,
+  maxBallRadius: 40,
+  glowRadius: 0.7,
+  glowIntensity: 0.6,
+  child: 
     SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child:Container(
@@ -97,7 +122,18 @@ class _ncc_signState extends State<ncc_sign> {
 
       SizedBox(height:50),
 
-      Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:170,height:170)),
+     // Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:170,height:170)),
+
+     Text('Sign Up Here',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+     SizedBox(height: 20,),
+
+     Center(child: Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 2.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721316481945.json')),),
+          ),
 
       SizedBox(height: 30,),
 
@@ -241,7 +277,7 @@ class _ncc_signState extends State<ncc_sign> {
       ),
       SizedBox(height: 20,),     
       SizedBox(height:30),
-      GestureDetector(onTap: (){
+     /* GestureDetector(onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
           }, child:Container(padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),
         decoration: BoxDecoration(
@@ -266,7 +302,7 @@ class _ncc_signState extends State<ncc_sign> {
             ),
           ],
         ),
-            child: Text('Click here to continue'))),
+            child: Text('Click here to continue'))),*/
 
             SizedBox(height: 30,),
       GestureDetector(onTap:(){
@@ -307,6 +343,6 @@ class _ncc_signState extends State<ncc_sign> {
             ],),
 
     )
-    ))));
+    )))));
   }
 }

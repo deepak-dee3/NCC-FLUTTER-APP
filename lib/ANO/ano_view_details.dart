@@ -8,6 +8,8 @@ import 'package:ncc/ANO/upload_campss.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:shimmer/shimmer.dart';
 import 'dart:async';
+import 'package:lottie/lottie.dart';
+import 'package:metaballs/metaballs.dart';
 
 
 class ano_view_details extends StatefulWidget
@@ -46,11 +48,41 @@ class _ano_view_detailsState extends State<ano_view_details> {
       },
       child:Scaffold(
 
-      body:SingleChildScrollView(scrollDirection: Axis.vertical,
+      body:Metaballs(
+  color: const Color.fromARGB(255, 66, 133, 244),
+  effect: MetaballsEffect.follow(
+    growthFactor: 1,
+    smoothing: 1,
+    radius: 0.5,
+  ),
+  gradient: LinearGradient(
+    colors: [
+      const Color.fromARGB(255, 90, 60, 255),
+      const Color.fromARGB(255, 120, 255, 255),
+    ],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft
+  ),
+  metaballs: 40,
+  animationDuration: const Duration(milliseconds: 200),
+  speedMultiplier: 1,
+  bounceStiffness: 3,
+  minBallRadius: 15,
+  maxBallRadius: 40,
+  glowRadius: 0.7,
+  glowIntensity: 0.6,
+  child: SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
         child:Column(children: [
 
           SizedBox(height: 70,),
+           Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 3.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721312169152.json')),),
+          
          GestureDetector(onTap:(){
           //Navigator.push(context, MaterialPageRoute(builder: (context) => ccadet_details()));
            Navigator.push(context, PageRouteBuilder(
@@ -222,6 +254,6 @@ class _ano_view_detailsState extends State<ano_view_details> {
       )
 
 
-    )));
+    ))));
   }
 }

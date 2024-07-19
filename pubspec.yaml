@@ -63,7 +63,6 @@ dependencies:
   flutter_media_downloading: ^1.0.6
   flutter_downloader: ^1.11.7
   page_transition: ^2.1.0
-  get: ^4.6.6
   shimmer: ^3.0.0
   flutter_windowmanager: ^0.2.0
   liquid_swipe: ^3.1.0
@@ -71,6 +70,11 @@ dependencies:
   interactiveviewer_gallery: ^0.6.0
   flutter_secure_storage: ^8.1.0
   permission_handler: ^11.3.1
+  lottie: ^3.1.2
+  metaballs: ^1.5.0
+
+  
+  
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +101,7 @@ flutter:
    #To add assets to your application, add an assets section, like this:
   assets:
    - assets/
+   - assets/animation/
 
   
 flutter_icons:

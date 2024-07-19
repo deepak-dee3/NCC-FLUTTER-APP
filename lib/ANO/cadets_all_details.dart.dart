@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:shimmer/shimmer.dart';
+import 'package:metaballs/metaballs.dart';
 
 
 class ImageFromFirebase extends StatefulWidget {
@@ -79,7 +80,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
       },
       child:Scaffold(
       backgroundColor: Colors.blue.shade100,
-      body: SingleChildScrollView(
+      body: 
+    SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 100),

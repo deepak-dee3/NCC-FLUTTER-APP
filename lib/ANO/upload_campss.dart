@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/Notification/notification.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:lottie/lottie.dart';
 
 class upload_camp_detailss extends StatefulWidget {
   @override
@@ -94,6 +95,17 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
         child: Column(
           children: [
             SizedBox(height: 50),
+             Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 1.5, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721312844095.json')),),
+
+            SizedBox(height:20),
+
+
+
             Padding(
               padding: EdgeInsets.all(28),
               child: Container(

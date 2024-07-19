@@ -6,6 +6,7 @@ import 'package:ncc/ANO/cadets_all_details.dart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import 'package:shimmer/shimmer.dart';
+import 'package:lottie/lottie.dart';
 
 
 
@@ -37,7 +38,24 @@ class _ccadet_detailsState extends State<ccadet_details> {
    
    return Scaffold(
     backgroundColor: Colors.blue.shade100,
-    body:Container( 
+    body:Column(children:[
+      SizedBox(height:25),
+
+        Container(
+            height: 250,
+            width: 100,
+            child: Center(
+              child: Transform.scale(
+                scale: 2.5,
+                child: Lottie.asset('assets/animation/Animation - 1721311751362.json'),
+              ),
+            ),
+          ),
+          
+          
+
+    Expanded(child:
+    Container( 
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       
         margin: EdgeInsets.all(10),
@@ -188,7 +206,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
           }
         },
         ),
-      )
+      ))])
 
 
     

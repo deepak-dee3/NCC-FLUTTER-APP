@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
 import 'package:ncc/CADETS/cadet_update_profile.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
@@ -7,6 +6,8 @@ import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:page_transition/page_transition.dart';
 import 'dart:async';
 import 'package:shimmer/shimmer.dart';
+import 'package:lottie/lottie.dart';
+import 'package:metaballs/metaballs.dart';
 
 
 class cadet_main_page extends StatefulWidget{
@@ -24,10 +25,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
     Timer.periodic(Duration(seconds: 4), (timer) {
       setState(() {
         _shimmerCount++;
-        if (_shimmerCount >= 2) {
-          _showShimmer = false;
-          timer.cancel();
-        }
+       
       });
     });
   }
@@ -44,11 +42,47 @@ class _cadet_main_pageState extends State<cadet_main_page> {
         
       },
       child:Scaffold(
-      body:SingleChildScrollView(scrollDirection: Axis.vertical,
+      body:Metaballs(
+  color: const Color.fromARGB(255, 66, 133, 244),
+  effect: MetaballsEffect.follow(
+    growthFactor: 1,
+    smoothing: 1,
+    radius: 0.5,
+  ),
+  gradient: LinearGradient(
+    colors: [
+      const Color.fromARGB(255, 90, 60, 255),
+      const Color.fromARGB(255, 120, 255, 255),
+    ],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft
+  ),
+  metaballs: 40,
+  animationDuration: const Duration(milliseconds: 200),
+  speedMultiplier: 1,
+  bounceStiffness: 3,
+  minBallRadius: 15,
+  maxBallRadius: 40,
+  glowRadius: 0.7,
+  glowIntensity: 0.6,
+  child: SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+
         child:Column(children: [
 
-          SizedBox(height: 70,),
+         SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+
+           Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 3.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721310404627.json')),),
+
+            SizedBox(height: 20,),
+
+
          GestureDetector(onTap:(){
 
           Navigator.push(context, PageRouteBuilder(
@@ -180,7 +214,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(
+              
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
               _showShimmer? 
               Shimmer.fromColors(
@@ -200,7 +236,9 @@ class _cadet_main_pageState extends State<cadet_main_page> {
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(
+             
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
               _showShimmer? 
               Shimmer.fromColors(
@@ -218,6 +256,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
         ],)
       )
     ))
-   );
+   ));
   }
 }

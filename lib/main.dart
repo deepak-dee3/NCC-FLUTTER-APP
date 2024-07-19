@@ -19,6 +19,11 @@ import 'dart:async';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:lottie/lottie.dart';
+import 'package:metaballs/metaballs.dart';
+import 'package:ncc/sign_in.dart';
+
+
 
 
 void main() async
@@ -50,6 +55,8 @@ class NCC extends StatelessWidget{
     ));}
 
 }
+
+
 class Home extends StatefulWidget{
   @override
   State<Home> createState() => _HomeState();
@@ -114,6 +121,7 @@ class _HomeState extends State<Home> {
               const begin = Offset(1.0, 0.0);
               const end = Offset.zero;
               const curve = Curves.ease;
+              
 
               var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
               var offsetAnimation = animation.drive(tween);
@@ -157,6 +165,9 @@ class _HomeState extends State<Home> {
   }
   @override
   Widget build(BuildContext context) {
+
+     var screenWidth = MediaQuery.of(context).size.width; 
+    var screenHeight = MediaQuery.of(context).size.height;
     
     return  WillPopScope(
     onWillPop: () async {
@@ -181,49 +192,53 @@ class _HomeState extends State<Home> {
     child: Scaffold(
       resizeToAvoidBottomInset: false,
 
-    body:SingleChildScrollView(
+    body:Metaballs(
+  color: const Color.fromARGB(255, 66, 133, 244),
+  effect: MetaballsEffect.follow(
+    growthFactor: 1,
+    smoothing: 1,
+    radius: 0.5,
+  ),
+  gradient: LinearGradient(
+    colors: [
+      const Color.fromARGB(255, 90, 60, 255),
+      const Color.fromARGB(255, 120, 255, 255),
+    ],
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft
+  ),
+  metaballs: 40,
+  animationDuration: const Duration(milliseconds: 200),
+  speedMultiplier: 1,
+  bounceStiffness: 3,
+  minBallRadius: 15,
+  maxBallRadius: 40,
+  glowRadius: 0.7,
+  glowIntensity: 0.6,
+  child: SingleChildScrollView(
       
         child:Container(
          padding: EdgeInsets.all(16.0),
          
 
       child:Form(key:login_formkey,
-     // color: Color.fromARGB(255, 252, 223, 180),
-
-      /*alignment: Alignment.center,
-      padding:EdgeInsets.all(32),
-      decoration: BoxDecoration(image:DecorationImage(image: NetworkImage(''),fit: BoxFit.cover)), */
+     
       child:Column(children: [
 
-      SizedBox(height:90),
+      SizedBox(height:screenHeight * 0.05),
 
       Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Shimmer.fromColors(
-            baseColor: Colors.transparent,
-            highlightColor: Colors.white.withOpacity(0.5),
-            child: Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
-              ),
-            ),
-          ),
-          Image(
-            image: AssetImage('assets/ncclogo-removebg-preview.png'),
-            width: 150,
-            height: 150,
-          ),
-        ],
-      ),
+      child:  Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 2.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721316481945.json')),),
     ),
-      SizedBox(height: 70,),
+   // Center(child:Image.asset('assets/ncc_app-removebg-preview.png',)),
+      SizedBox(height: screenHeight * 0.03,),
 
-      Container(alignment: Alignment.center,
+     /* Container(alignment: Alignment.center,
       height: 70,
       width:330,
       padding: EdgeInsets.only(left:20),
@@ -255,11 +270,114 @@ class _HomeState extends State<Home> {
         ),  
       )
       
-      ),
+      ),*/
+      Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Email Address",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextFormField(
+                     controller: login_emailcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user email";
+                    }
+                    return null;
+                  },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email_outlined),
+                          prefixIconColor: Colors.black,
+                          hintText: "Email",
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
 
-      SizedBox(height: 30,),
 
-      Container(alignment: Alignment.center,
+      SizedBox(height:screenHeight * 0.03,),
+
+      Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Email Address",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color(0xff67727d)),
+                    ),
+                    TextFormField(
+                     controller: login_passcontroller,
+                validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Enter your user password";
+                    }
+                    return null;
+                  },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.password_outlined),
+                          prefixIconColor: Colors.black,
+                          hintText: "Password",
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+
+
+      /*Container(alignment: Alignment.center,
       height: 70,
       width:330,
       padding: EdgeInsets.only(left:20),
@@ -296,16 +414,16 @@ class _HomeState extends State<Home> {
         
         
       )
-      ),
-      SizedBox(height: 20,),
-
+      ),*/
+      SizedBox(height:screenHeight * 0.03,),
+      
       GestureDetector(
         onTap: ()
         {
            Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
          
         },
-        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.w500,fontSize: 12)),),),
+        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
       
       SizedBox(height:30),
       GestureDetector(
@@ -327,30 +445,241 @@ class _HomeState extends State<Home> {
 
 
               },child:Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.all(10),
+      height:  screenHeight * 0.08,
+      width:double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
       //color: Colors.red,
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(40),
         color: Color.fromARGB(255, 19, 4, 104),
+       
       
-      ),child:_showShimmer? 
+      ),child:
+      
+        Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,))
+      
+      )),
+      SizedBox(height:10),
+      Text("(Or)",style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(255, 103, 41, 237)),),
+      
+
+      Padding(padding: EdgeInsets.all(20),child: Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        
+        children: [
+
+          GestureDetector(
+            onTap:()
+            {
+              
+
+               showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        String? passkeyError;
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              shadowColor: Colors.blue.shade900,
+              backgroundColor: Color.fromARGB(255, 10, 138, 243),
+              title: Row(children: [
+
+                Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
+                SizedBox(width: 10,),
+                Text('Secure Key',style: TextStyle(fontSize: 20),)
+
+              ],),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: passkeyController,
+                    keyboardAppearance: Brightness.light,
+                   
+                    decoration: InputDecoration(
+                     
+                      hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.white)),
+                  ),
+                  if (passkeyError != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        passkeyError!,
+                        style: TextStyle(color: Colors.red, fontSize: 16),
+                      ),
+                    ),
+                ],
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey),),),
+                  onPressed: () {
+                    if (passkeyController.text.trim() == passkey) {
+                      passkeyController.clear(); // Clear the passkey field
+                      Navigator.of(context).pop(); // Close the dialog
+                      Navigator.push(
+                        context,
+                         PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = 0.0;
+                          const end = 1.0;
+                          const curve = Curves.elasticIn;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var opacityAnimation = animation.drive(tween);
+
+                          return FadeTransition(
+                            opacity: opacityAnimation,
+                            child: child,
+                          );
+                        },
+                      ),
+                      );
+                    } else {
+                      passkeyController.clear();
+                      setState(() {
+                        passkeyError = 'Enter correct pass key';
+                      });
+                    }
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+
+            },
+            child:Container(
+            width: 150,height: 60,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 21, 3, 123),
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                    offset: Offset(0, 0),
+                  ),
+                  BoxShadow(
+                   color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
+                    blurRadius: 20,
+                    spreadRadius: 4,
+                    offset: Offset(0, 0),
+                  ),
+                  
+                ],
+              ),
+              child: Center(child:_showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 1),
+               
+                
+                            baseColor: Colors.white,
+                            highlightColor: Colors.blue,
+                            child:Text(
+                  'ANO ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),):Text(
+                  'ANO ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),),
+
+          ),),
+          
+           GestureDetector(
+            onTap:(){
+
+               showModalBottomSheet(context: context, builder: (BuildContext context) {
+          return ncc_sign();
+               });
+
+            },
+            child:Container(
+            width: 150,height: 60,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 31, 9, 122),
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                    offset: Offset(0, 0),
+                  ),
+                  BoxShadow(
+                    color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
+                    blurRadius: 20,
+                    spreadRadius: 4,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+              ),
+              child: Center(
+               child:_showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 1),
+               
+                
+                            baseColor: Colors.white,
+                            highlightColor: Colors.blue,
+                            child:Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                   // letterSpacing: 1.5,
+                  ),),
+                ):Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                   // letterSpacing: 1.5,
+                  ),),
+
+          )),),
+
+        ],
+      ),),
+
+
+
+    /*  GestureDetector(
+        onTap:(){
+         // Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
+         showModalBottomSheet(context: context, builder: (BuildContext context) {
+          return ncc_sign();
+
+         });
+        },
+        child:_showShimmer? 
               Shimmer.fromColors(
                 period: Duration(seconds: 1),
                
                 
                             baseColor: Colors.blue,
-                            highlightColor: Colors.white,
-                            child:
-      
-        Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
-      
-      ):Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),)),
-      SizedBox(height:30),
+                            highlightColor: Colors.red,
+                            child:Text('Sign Up ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))):Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))
+      ),*/
 
-   GestureDetector(
+  /* GestureDetector(
   onTap: () {
     showDialog(
       context: context,
@@ -464,23 +793,11 @@ class _HomeState extends State<Home> {
       ],
     ),
   ),
-),
+),*/
      
       SizedBox(height: 10,),
-      
-      GestureDetector(onTap: ()
-      {
-       // NotificationService.showInstantNotification("Instant", "this is an instant");
-
-      // DateTime scheduled_data = DateTime.now().add(Duration(seconds: 5));
-
-      // NotificationService.scheduleNotification("Major Dr.P.S.Ragavendhran", "uploaded", scheduled_data);
-      },
-        child:Text("(Or)",style: TextStyle(color:const Color.fromARGB(255, 231, 174, 6)),)),
-
-      SizedBox(height:15),
-
-      GestureDetector(
+    
+     /* GestureDetector(
         onTap:(){
          // Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
          showModalBottomSheet(context: context, builder: (BuildContext context) {
@@ -495,8 +812,12 @@ class _HomeState extends State<Home> {
                 
                             baseColor: Colors.blue,
                             highlightColor: Colors.red,
-                            child:Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))):Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))
-      )],),  
-    )))));
+                            child:Text('Sign Up ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))):Text('Sign In To Continue ',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,decoration: TextDecoration.underline))
+      ),*/
+
+     
+      ],),  
+    )))),
+    ));
   }
 }
