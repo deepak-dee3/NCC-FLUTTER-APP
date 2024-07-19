@@ -123,41 +123,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
           ],),)),),
 
 
-           GestureDetector(onTap:(){
-            Navigator.push(context,PageRouteBuilder(
-  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details(),
-  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-    return FadeTransition(
-      opacity: animation,
-      child: child,
-    );
-  },
-)
-);
-
-         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
-         },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-              _showShimmer? 
-              Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
-                            baseColor: Colors.blue,
-                            highlightColor: Colors.white,
-                            child:
-
-            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
-            SizedBox(width: 145,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),),
-
+          
           
 
           GestureDetector(onTap:(){
@@ -194,6 +160,42 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             SizedBox(width: 60,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
+
+           GestureDetector(onTap:(){
+            Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+
+         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
+         },
+          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Container(
+            width:330,
+            height: 100,
+            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            child: Row(children: [
+              _showShimmer? 
+              Shimmer.fromColors(
+                period: Duration(seconds: 3),
+               
+                
+                            baseColor: Colors.blue,
+                            highlightColor: Colors.white,
+                            child:
+
+            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
+            :Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            SizedBox(width: 145,),
+            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+          ],),)),),
+
 
          
 
