@@ -91,7 +91,9 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
         return true;
       },
       child:Scaffold(
-      body: Container(
+        
+      body: (SingleChildScrollView(scrollDirection: Axis.vertical,
+        child:Container(
         child: Column(
           children: [
             SizedBox(height: 50),
@@ -198,7 +200,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
           ],
         ),
       ),
-    ));
+    ))));
   }
 }
 

@@ -16,19 +16,8 @@ class cadet_main_page extends StatefulWidget{
 }
 
 class _cadet_main_pageState extends State<cadet_main_page> {
-   bool _showShimmer = true;
-  int _shimmerCount = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    Timer.periodic(Duration(seconds: 4), (timer) {
-      setState(() {
-        _shimmerCount++;
-       
-      });
-    });
-  }
+  
+  
 
  
   @override
@@ -42,7 +31,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
         return true;
       },
       child:Scaffold(
-      body:Metaballs(
+      body:
+      Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -108,7 +98,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-              _showShimmer? 
+             
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
                
@@ -116,8 +106,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
-            Text('    PROFILE UPDATION',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    PROFILE UPDATION ',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    PROFILE UPDATION',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+           
             SizedBox(width: 100,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
@@ -146,7 +136,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-              _showShimmer? 
+            
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
                
@@ -155,8 +145,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),)
-            : Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
+            
             SizedBox(width: 60,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
@@ -181,7 +171,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-              _showShimmer? 
+              
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
                
@@ -190,8 +180,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+            
             SizedBox(width: 145,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
@@ -223,7 +213,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
               
               color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-              _showShimmer? 
+            
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
                
@@ -232,8 +222,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),)
-            :Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+  
             SizedBox(width: 85,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),

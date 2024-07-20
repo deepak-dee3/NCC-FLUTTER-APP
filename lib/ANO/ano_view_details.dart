@@ -37,7 +37,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
   Widget build(BuildContext context) {
     
     return 
-    WillPopScope(
+WillPopScope(
       onWillPop: () async {
         // Handle back button press
         Navigator.pop(context);
@@ -46,7 +46,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
       child:Scaffold(
 
       body:Metaballs(
-  color: Color.fromARGB(255, 35, 3, 63),
+      color: Color.fromARGB(255, 35, 3, 63),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
     smoothing: 1,

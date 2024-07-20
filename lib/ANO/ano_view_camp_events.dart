@@ -92,7 +92,13 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
+      },
+      child:Scaffold(
       backgroundColor: Color.fromARGB(255, 167, 212, 248),
       appBar: AppBar(
         title: Text(''),
@@ -183,7 +189,7 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
           }
         },
       ),
-    ]));
+    ])));
   }
 }
 

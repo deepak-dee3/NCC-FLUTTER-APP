@@ -45,7 +45,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
       Scaffold(
       backgroundColor: const Color.fromARGB(255, 164, 210, 248),
      
-      body: FutureBuilder<List<Map<String, dynamic>>>(
+      body: SingleChildScrollView(scrollDirection: Axis.vertical,child:FutureBuilder<List<Map<String, dynamic>>>(
         future: _fetchImageUrlsWithTitles(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -118,6 +118,6 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
           }
         },
       ),
-    ));
+    )));
   }
 }

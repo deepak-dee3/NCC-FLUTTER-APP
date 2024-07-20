@@ -36,9 +36,15 @@ class _ccadet_detailsState extends State<ccadet_details> {
 
     //final storage = FirebaseStorage.getInstance().getReference().child()
    
-   return Scaffold(
+   return WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
+      },
+      child:Scaffold(
     backgroundColor: Colors.white,
-    body:Column(children:[
+    body:SingleChildScrollView(scrollDirection: Axis.vertical,child:Container(child:Column(children:[
       SizedBox(height:25),
 
         Container(
@@ -54,7 +60,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
           
           
 
-    Expanded(child:
+    
     Container( 
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       
@@ -77,6 +83,9 @@ class _ccadet_detailsState extends State<ccadet_details> {
 
 
             return ListView.builder(itemCount: cadetdocs.length,
+
+            shrinkWrap: true, // Added to make ListView.builder scrollable inside SingleChildScrollView
+                        physics: NeverScrollableScrollPhysics(),
             //padding: EdgeInsets.all(10),
             
             
@@ -209,12 +218,12 @@ class _ccadet_detailsState extends State<ccadet_details> {
           }
         },
         ),
-      ))])
+      )])
 
 
     
 
-   );
+   ))));
   }
 }
 
