@@ -100,9 +100,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             child: Row(children: [
              
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
@@ -111,10 +108,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             SizedBox(width: 100,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
-
-
-          
-          
 
           GestureDetector(onTap:(){
             Navigator.push(context,PageRouteBuilder(
@@ -127,8 +120,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
   },
 )
 );
-
-           // Navigator.push(context,MaterialPageRoute(builder: (context) => cadet_upload_achievements()));
           },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -138,10 +129,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             child: Row(children: [
             
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
-                            baseColor: Colors.blue,
+                          baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
@@ -161,10 +149,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
     );
   },
 )
-);
-
-         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
-         },
+);         },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
             width:330,
@@ -173,9 +158,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             child: Row(children: [
               
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
@@ -185,10 +167,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             SizedBox(width: 145,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
-
-
-         
-
           GestureDetector(onTap:(){
 
            Navigator.push(context, PageRouteBuilder(
@@ -200,10 +178,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
     );
   },
 )
-);
-
-            //Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
-           
+);           
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -215,10 +190,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             child: Row(children: [
             
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
-                            baseColor: Colors.blue,
+                           baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 

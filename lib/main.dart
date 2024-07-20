@@ -51,12 +51,12 @@ class NCC extends StatelessWidget{
     return MaterialApp(
        debugShowCheckedModeBanner: false,
       home:AnimatedSplashScreen(nextScreen: LiquidSwipeScreen() ,
-      splash:Text('UNITY AND DISCIPLINE',style:TextStyle(fontWeight: FontWeight.bold )),
+      splash:Text('UNITY AND DISCIPLINE',style:TextStyle(fontWeight: FontWeight.bold ,fontSize: 15)),
       duration: 3000,
-     // splashTransition: SplashTransition.rotationTransition,
+     
       backgroundColor: Colors.white,
       pageTransitionType:PageTransitionType.leftToRight,
-     // home:Home(),
+     
      
     ));}
 
@@ -104,41 +104,7 @@ class _HomeState extends State<Home> {
 
   final login_formkey = GlobalKey<FormState>();
 
- /* userlogin() async{
-
-    try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
-     Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => cadet_main_page(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                          const begin = Offset(1.0, 0.0);
-                          const end = Offset.zero;
-                          const curve = Curves.ease;
-
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                          var offsetAnimation = animation.drive(tween);
-
-                          return SlideTransition(
-                            position: offsetAnimation,
-                            child: child,
-                          );
-                        },
-                      ),);
-
-
-
-      login_emailcontroller.clear();
-      login_passcontroller.clear();
-
-    }on FirebaseAuthException catch (e)
-      {
-        if(e.code == 'user-not-found'){
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User found For That Email',style:TextStyle(fontSize: 20))));
-        }else if(e.code == 'wrong-password')
-        {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password Provided By User',style:TextStyle(fontSize: 20))));
-        }
-      }}*/
+ 
       userlogin() async {
     try {
       if (login_email.isNotEmpty && login_pass.isNotEmpty) { // Check if both email and password are provided
@@ -151,8 +117,6 @@ class _HomeState extends State<Home> {
               const begin = Offset(1.0, 0.0);
               const end = Offset.zero;
               const curve = Curves.ease;
-              
-
               var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
               var offsetAnimation = animation.drive(tween);
 
@@ -163,7 +127,6 @@ class _HomeState extends State<Home> {
             },
           ),
         );
-
         login_emailcontroller.clear();
         login_passcontroller.clear();
       } else {
@@ -177,22 +140,7 @@ class _HomeState extends State<Home> {
       }
     }
   }
-   bool _showShimmer = true;
-  int _shimmerCount = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    Timer.periodic(Duration(seconds: 15), (timer) {
-      setState(() {
-        _shimmerCount++;
-      /*  if (_shimmerCount >= 2) {
-          _showShimmer = false;
-          timer.cancel();
-        }*/
-      });
-    });
-  }
+   
   @override
   Widget build(BuildContext context) {
 
@@ -605,7 +553,7 @@ class _HomeState extends State<Home> {
                   
                 ],
               ),
-              child: Center(child:_showShimmer? 
+              child: Center(child:
               Shimmer.fromColors(
                 period: Duration(seconds: 1),
                
@@ -620,15 +568,7 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5,
                   ),
-                ),):Text(
-                  'ANO ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                  ),
-                ),),
+                ),)),
 
           ),),
           
@@ -669,7 +609,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               child: Center(
-               child:_showShimmer? 
+               child:
               Shimmer.fromColors(
                 period: Duration(seconds: 1),
                
@@ -684,14 +624,7 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.bold,
                    // letterSpacing: 1.5,
                   ),),
-                ):Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                   // letterSpacing: 1.5,
-                  ),),
+                ),
 
           )),),
 

@@ -378,27 +378,5 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                                                 ),
                                               ),
                                               SizedBox(height: 4),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  }
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+                                            ],),),),],),),),),);},),);}},),],),),),);}}
 

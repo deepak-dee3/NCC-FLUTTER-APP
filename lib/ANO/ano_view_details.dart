@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ncc/ANO/ano_view_camp_events.dart';
-import 'package:ncc/ANO/dumy_cadet_details.dart';
 import 'package:ncc/ANO/cadets_all_details.dart.dart';
 import 'package:ncc/ANO/cadets_list.dart';
-import 'package:ncc/ANO/upload_camps.dart';
 import 'package:ncc/ANO/upload_campss.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:shimmer/shimmer.dart';
@@ -20,19 +18,6 @@ class ano_view_details extends StatefulWidget
 
 class _ano_view_detailsState extends State<ano_view_details> {
 
-  bool _showShimmer = true;
-  int _shimmerCount = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    Timer.periodic(Duration(seconds: 4), (timer) {
-      setState(() {
-        _shimmerCount++;
-       
-      });
-    });
-  }
   @override
   Widget build(BuildContext context) {
     
@@ -103,7 +88,7 @@ WillPopScope(
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(
               children: [
-              _showShimmer? 
+              
               Shimmer.fromColors(
                 period: Duration(seconds: 3),
                
@@ -112,8 +97,7 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):  Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
-            SizedBox(width: 125,),
+            Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
         ],),)),),
 
@@ -139,16 +123,16 @@ WillPopScope(
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-               _showShimmer? 
+              
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
+               
                
                 
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
-            Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),):Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
+            Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
             SizedBox(width: 15,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
@@ -173,16 +157,16 @@ WillPopScope(
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
-               _showShimmer? 
+              
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
+                
                
                 
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             SizedBox(width: 155,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
@@ -207,36 +191,19 @@ WillPopScope(
             height: 100,
             decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
-               _showShimmer? 
+             
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
                 
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),):Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),
+            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
             SizedBox(width: 90,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
-          
-
-          
-          
-         /* Padding(padding: EdgeInsets.only(left:30,top:60),
-          child:Container(
-            width:330,
-            height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
-            child: Row(children: [
-
-            Text('    CONTACT US                                  ',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
-          ],),)),*/
-          
-
-         SizedBox(height: 30,)
+      
+           SizedBox(height: 30,)
           
         ],)
       )

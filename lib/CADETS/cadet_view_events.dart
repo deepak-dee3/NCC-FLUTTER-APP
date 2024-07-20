@@ -97,27 +97,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
-                                 /* Text(
-                                    'Description or additional details',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),*/
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            );
-          }
-        },
-      ),
-    )));
+                                  SizedBox(height: 10),
+                                 ],),),),],),),),);},);}},),)));
   }
 }
