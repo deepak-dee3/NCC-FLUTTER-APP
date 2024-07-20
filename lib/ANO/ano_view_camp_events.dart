@@ -161,6 +161,7 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
                                   children: [
                                     Text(
                                       title,
+                                      maxLines: null,
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,

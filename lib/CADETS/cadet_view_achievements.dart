@@ -170,6 +170,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
+                                      maxLines: null,
                                       title,
                                       style: TextStyle(
                                         color: Colors.white,

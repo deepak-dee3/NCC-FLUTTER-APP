@@ -33,7 +33,7 @@ void main() async
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+ // await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
   tz.initializeTimeZones();
  

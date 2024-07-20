@@ -29,10 +29,11 @@ class ImageFromFirebase extends StatefulWidget {
      final String bl;
      final String com;
      final String ifsc;
+     final String DOB;
 
 
 
-  const ImageFromFirebase({Key? key, required this.cadetname, required this.regg_no,required this.dtrate,required this.grp,required this.btn,required this.accnum,required this.accbrnch,required this.adrs,required this.phn,required this.ftname,required this.ftphn,required this.ftocc,required this.mtname,required this.mtphn,required this.mtocc,required this.adh,required this.bate,required this.bats,required this.clg,required this.deg,required this.dpt,required this.bl,required this.com,required this.ifsc}) : super(key: key);
+  const ImageFromFirebase({Key? key, required this.cadetname, required this.regg_no,required this.dtrate,required this.grp,required this.btn,required this.accnum,required this.accbrnch,required this.adrs,required this.phn,required this.ftname,required this.ftphn,required this.ftocc,required this.mtname,required this.mtphn,required this.mtocc,required this.adh,required this.bate,required this.bats,required this.clg,required this.deg,required this.dpt,required this.bl,required this.com,required this.ifsc,required this.DOB}) : super(key: key);
   @override
   _ImageFromFirebaseState createState() => _ImageFromFirebaseState();
 }
@@ -181,6 +182,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           readOnly: true,
           
           decoration: InputDecoration(
+            
              hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -295,7 +297,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
     SizedBox(height:20),
 
-    Container(height:700,width:330,
+    Container(height:780,width:330,
     decoration:BoxDecoration(
       boxShadow: [
             BoxShadow(
@@ -307,6 +309,25 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
     child:Column(children: [
       SizedBox(height: 17,),
+
+      Padding(padding: EdgeInsets.all(10),child:Container(
+        
+
+        decoration: BoxDecoration(
+          
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
+        child:TextField(readOnly: true,
+         
+          decoration: InputDecoration(hintText:'    ${widget.DOB}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+        ),
+            border: InputBorder.none),
+        ),
+
+        
+      )),
+      SizedBox(height: 10,),
 
       
 
@@ -342,9 +363,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(readOnly: true,
-          
-          
-          
+        maxLines: null, 
+      
           decoration: InputDecoration(
             hintStyle: TextStyle(
           fontFamily: 'Lato',
@@ -796,24 +816,9 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         
       )),
 
-      
-
-      
-
-      
-
-      
-      
     ],)
     ),
     SizedBox(height:20),
-
-
-
-
-
-    
-
 
     ])))));
   }

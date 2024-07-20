@@ -73,7 +73,7 @@ class _fill_detailsState extends State<fill_details> {
   if (_regi_controller.text.isEmpty || _name.text.isEmpty || _aadhar_controller.text.isEmpty || _address_controller.text.isEmpty || _bank_controller.text.isEmpty || _batchends_controller.text.isEmpty || _batchstarts_controller.text.isEmpty ||
   _battalion_controller.text.isEmpty || _blood_controller.text.isEmpty || _branch_controller.text.isEmpty || _college_controller.text.isEmpty  || _community_controller.text.isEmpty || _degree_controller.text.isEmpty || Mother_occupation.isEmpty
   || Mother_number.isEmpty ||_dept_controller.text.isEmpty || _dir_controller.text.isEmpty || _fathermobile_controller.text.isEmpty || _fathername_controller.text.isEmpty  ||_fatheroccupation_controller.text.isEmpty || _fnamecontroller.text.isEmpty
-  || _gender_controller.text.isEmpty || _group_controller.text.isEmpty || _lnamecontroller.text.isEmpty || _mobile_controller.text.isEmpty || _mothername_controller.text.isEmpty || _mothernumber_controller.text.isEmpty || _ifsc_controller.text.isEmpty) {
+  || _gender_controller.text.isEmpty || _group_controller.text.isEmpty || _lnamecontroller.text.isEmpty || _mobile_controller.text.isEmpty || _mothername_controller.text.isEmpty || _mothernumber_controller.text.isEmpty || _ifsc_controller.text.isEmpty || _dob_controller.text.isEmpty) {
 
    ScaffoldMessenger.of(context).showSnackBar(SnackBar(padding: EdgeInsets.only(bottom: 20,left:70,top:25),backgroundColor: Colors.red,content: Text('All the details are required *',style:TextStyle(fontSize: 15,color: Colors.white))));
 
@@ -89,7 +89,7 @@ class _fill_detailsState extends State<fill_details> {
    Lastname = _lnamecontroller.text.trim();
    Gender = _gender_controller.text.trim();
     Mobile = _mobile_controller.text.trim();
-   //DOB = _dob_controller.text.trim();
+   DOB = _dob_controller.text.trim();
    Batch_Starts = _batchstarts_controller.text.trim();
    Batch_ends = _batchends_controller.text.trim();
    Father_name = _fathername_controller.text.trim();
@@ -113,7 +113,7 @@ class _fill_detailsState extends State<fill_details> {
 
 
 
- create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc);
+ create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
 
         Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
 
@@ -126,6 +126,7 @@ class _fill_detailsState extends State<fill_details> {
    _lnamecontroller .clear();
   _gender_controller .clear();
    _mobile_controller.clear();
+   _dob_controller.clear();
   _batchstarts_controller  .clear();
   _batchends_controller.clear();
   _fathername_controller  .clear();
@@ -202,6 +203,7 @@ _mothername_controller .clear();
   TextEditingController _bank_controller = TextEditingController();
   TextEditingController _branch_controller = TextEditingController();
   TextEditingController _ifsc_controller = TextEditingController();
+  TextEditingController _dob_controller = TextEditingController();
   
 
 
@@ -213,13 +215,13 @@ _mothername_controller .clear();
     if(_picked!=null)
     {
       setState(() {
-        _datecontroller.text = _picked.toString().split(" ")[0];
+        _dob_controller.text = _picked.toString().split(" ")[0];
       });
     }
 
   }
 
-  TextEditingController _datecontroller = TextEditingController();
+ 
 
   @override
 
@@ -445,7 +447,7 @@ _mothername_controller .clear();
 
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
-            controller: _datecontroller,
+            controller: _dob_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
                     {
