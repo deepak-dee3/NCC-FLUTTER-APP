@@ -89,14 +89,12 @@ WillPopScope(
               children: [
               
               Shimmer.fromColors(
-                period: Duration(seconds: 3),
-               
-                
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
             Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+            SizedBox(width: 120,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
         ],),)),),
 
@@ -112,10 +110,7 @@ WillPopScope(
     );
   },
 )
-);
-
-           // Navigator.push(context,MaterialPageRoute(builder: (context) => upload_camp_detailss()));
-          },
+);          },
             child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
             width:330,
@@ -125,8 +120,6 @@ WillPopScope(
               
               Shimmer.fromColors(
                
-               
-                
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
@@ -147,7 +140,6 @@ WillPopScope(
   },
 )
 );
-         // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_camp_view_details()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -158,10 +150,7 @@ WillPopScope(
 
               
               Shimmer.fromColors(
-                
-               
-                
-                            baseColor: Colors.blue,
+                          baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
 
@@ -181,8 +170,6 @@ WillPopScope(
   },
 )
 );
-
-          //Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_view_achievements()));
          },
           child:Padding(padding: EdgeInsets.only(left:30,top:60),
           child:Container(
@@ -192,7 +179,6 @@ WillPopScope(
             child: Row(children: [
              
               Shimmer.fromColors(
-                
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
@@ -205,9 +191,6 @@ WillPopScope(
            SizedBox(height: 30,)
           
         ],)
-      )
-
-
-    ))));
+      )   ))));
   }
 }
