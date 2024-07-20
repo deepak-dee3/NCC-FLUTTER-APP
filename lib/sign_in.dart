@@ -124,7 +124,10 @@ class _ncc_signState extends State<ncc_sign> {
 
      // Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:170,height:170)),
 
-     Text('Sign Up Here',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+     Shimmer.fromColors(
+      baseColor: Colors.black,
+      highlightColor: Colors.grey[100]!,
+      child: Text('Sign Up ',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),),
      SizedBox(height: 20,),
 
      Center(child: Container(

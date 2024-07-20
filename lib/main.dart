@@ -552,7 +552,7 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                         context,
                          PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => contents(),
+                        pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           const begin = 0.0;
                           const end = 1.0;
@@ -637,7 +637,14 @@ class _HomeState extends State<Home> {
 
                showModalBottomSheet(context: context, builder: (BuildContext context) {
           return ncc_sign();
-               });
+               },
+               // backgroundColor: Colors.transparent, // Set background color to transparent
+      isScrollControlled: true,
+      transitionAnimationController: AnimationController(
+        vsync: Navigator.of(context),
+        duration: Duration(milliseconds: 300),
+      )..forward(),
+               );
 
             },
             child:Container(
