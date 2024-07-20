@@ -17,21 +17,10 @@ class fill_details extends StatefulWidget{
 class _fill_detailsState extends State<fill_details> {
 
   String ? imageurl;
-
   final ImagePicker _imagepic = ImagePicker();
-
   pickimage() async
   {
-
     XFile ? res = await _imagepic.pickImage(source: ImageSource.gallery);
-
-   /* if(res != null)
-    {
-      uploadfirebase(File(res.path));
-    }*/
-
-
-
     if (res != null) {
       File imageFile = File(res.path);
       int fileSize = await imageFile.length();
@@ -43,11 +32,7 @@ class _fill_detailsState extends State<fill_details> {
         Fluttertoast.showToast(
           msg: 'Please pick an image below 200 KB in size.',
           toastLength: Toast.LENGTH_LONG,
-        );
-      }
-    }
-
-  }
+        );}}}
 
   uploadfirebase(image)  async{
     try{
@@ -109,11 +94,7 @@ class _fill_detailsState extends State<fill_details> {
   Branch = _branch_controller.text.trim();
   Ifsc = _ifsc_controller.text.trim();
 
-
-
-
-
- create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
+create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
 
         Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
 
@@ -149,8 +130,7 @@ _mothername_controller .clear();
 
 
   String Regimental_number = " ",Name = " ",Directorate = " ",Group = " ";
- 
-  String Battalion = " ";
+ String Battalion = " ";
   String Firstname = " " ;
   String Lastname = " ";
   String Gender = " ";
@@ -205,8 +185,6 @@ _mothername_controller .clear();
   TextEditingController _ifsc_controller = TextEditingController();
   TextEditingController _dob_controller = TextEditingController();
   
-
-
   Future<void> _selectdate() async{
 
     DateTime? _picked = await showDatePicker(context: context,
@@ -220,9 +198,6 @@ _mothername_controller .clear();
     }
 
   }
-
- 
-
   @override
 
   Widget build(BuildContext context) {

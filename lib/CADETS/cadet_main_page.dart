@@ -4,7 +4,6 @@ import 'package:ncc/CADETS/cadet_up2.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
 import 'package:page_transition/page_transition.dart';
-import 'dart:async';
 import 'package:shimmer/shimmer.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:ncc/main.dart';
@@ -35,9 +34,6 @@ class _ncc_signState extends State<ncc_sign> {
         await storage.write(key: 'password', value: password); 
         //String? storedPassword = await storage.read(key: 'password');
        // await storage.delete(key: 'password');
-
-
-
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registered Successfully',style:TextStyle(fontSize: 20))));
 
         Navigator.push(context, MaterialPageRoute(builder: (context) => fill_details()));
@@ -54,8 +50,6 @@ class _ncc_signState extends State<ncc_sign> {
         {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('email in use',style:TextStyle(fontSize: 20))));
         }}} }
-
-        
 
   @override
   Widget build(BuildContext context) {
@@ -112,17 +106,13 @@ class _ncc_signState extends State<ncc_sign> {
           ]),
          
         ),
-        //decoration: BoxDecoration(color:Colors.blue.withOpacity(0.2),borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20))),
-       // color:Colors.blue.withOpacity(0.2),
+        
       child:Form(key: _formkey,
-      /*alignment: Alignment.center,
-      padding:EdgeInsets.all(32),
-      decoration: BoxDecoration(image:DecorationImage(image: NetworkImage(''),fit: BoxFit.cover)), */
+      
       child:Column(children: [
 
       SizedBox(height:50),
 
-     // Center(child:Image(image: AssetImage('assets/three_head-removebg-preview.png',),width:170,height:170)),
 
      Shimmer.fromColors(
       baseColor: Colors.black,
@@ -423,17 +413,14 @@ class _ncc_signState extends State<ncc_sign> {
         color: Color.fromARGB(255, 19, 4, 104),
       
       ),
-      child:Shimmer.fromColors(child:  Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
+      child:Shimmer.fromColors(
+        
+        child:  Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
        // Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
       ),),
       SizedBox(height:30),
-
-
-      SizedBox(height: 10,),
-            ],),
-
-    )
+ ],),)
     )))));
   }
 }

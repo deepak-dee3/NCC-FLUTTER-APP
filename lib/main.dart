@@ -16,7 +16,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'dart:async';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
@@ -412,7 +411,7 @@ class _HomeState extends State<Home> {
           {
             setState(() {
               login_email = login_emailcontroller.text.trim();
-              //username = namecontroller.text.trim();
+              
               login_pass = login_passcontroller.text.trim();
 
             });
@@ -420,9 +419,6 @@ class _HomeState extends State<Home> {
           }
 
          // userlogin();
-          
-
-
               },child:Container(alignment: Alignment.center,
       height:  screenHeight * 0.08,
       width:double.infinity,
@@ -555,7 +551,7 @@ class _HomeState extends State<Home> {
               ),
               child: Center(child:
               Shimmer.fromColors(
-                period: Duration(seconds: 1),
+               
                
                 
                             baseColor: Colors.white,
@@ -611,10 +607,7 @@ class _HomeState extends State<Home> {
               child: Center(
                child:
               Shimmer.fromColors(
-                period: Duration(seconds: 1),
-               
-                
-                            baseColor: Colors.white,
+                         baseColor: Colors.white,
                             highlightColor: Colors.blue,
                             child:Text(
                   'Sign Up',
@@ -630,6 +623,14 @@ class _HomeState extends State<Home> {
 
         ],
       ),),
+
+        SizedBox(height: 10,),
+
+         ],),  
+    )))),
+    ));
+  }
+}
 
 
 
@@ -766,10 +767,7 @@ class _HomeState extends State<Home> {
     ),
   ),
 ),*/
-     
-      SizedBox(height: 10,),
-    
-     /* GestureDetector(
+          /* GestureDetector(
         onTap:(){
          // Navigator.push(context, MaterialPageRoute(builder: (context) => ncc_sign() )); 
          showModalBottomSheet(context: context, builder: (BuildContext context) {
@@ -788,8 +786,4 @@ class _HomeState extends State<Home> {
       ),*/
 
      
-      ],),  
-    )))),
-    ));
-  }
-}
+     
