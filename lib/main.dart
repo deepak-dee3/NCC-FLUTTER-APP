@@ -8,6 +8,7 @@ import 'package:ncc/Notification/notification.dart';
 import 'package:ncc/cadet_fill_details.dart';
 import 'package:ncc/firebase_options.dart';
 import 'package:ncc/CADETS/cadet_main_page.dart';
+import 'package:ncc/ncc_content.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -23,6 +24,7 @@ import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:flutter/services.dart';
+
 
 
 
@@ -48,7 +50,7 @@ class NCC extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
        debugShowCheckedModeBanner: false,
-      home:AnimatedSplashScreen(nextScreen: Home() ,
+      home:AnimatedSplashScreen(nextScreen: LiquidSwipeScreen() ,
       splash:Text('UNITY AND DISCIPLINE',style:TextStyle(fontWeight: FontWeight.bold )),
       duration: 3000,
      // splashTransition: SplashTransition.rotationTransition,
@@ -58,6 +60,30 @@ class NCC extends StatelessWidget{
      
     ));}
 
+}
+
+class LiquidSwipeScreen extends StatefulWidget {
+  @override
+  State<LiquidSwipeScreen> createState() => _LiquidSwipeScreenState();
+}
+
+class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return LiquidSwipe(
+      
+      pages: [
+        Home(),
+        contents(), 
+       
+      ],
+      initialPage: 0,
+      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.white),
+      
+    );
+  }
 }
 
 
@@ -526,7 +552,7 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                         context,
                          PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
+                        pageBuilder: (context, animation, secondaryAnimation) => contents(),
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           const begin = 0.0;
                           const end = 1.0;
