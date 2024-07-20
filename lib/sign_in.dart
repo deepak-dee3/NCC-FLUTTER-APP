@@ -151,7 +151,7 @@ class _ncc_signState extends State<ncc_sign> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Enter your name",
+                      "Enter your name *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -163,11 +163,12 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.black),
+                          color: Colors.white),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           prefixIconColor: Colors.black,
                           hintText: "Name",
+                          
                           border: InputBorder.none),
                     ),
                   ],
@@ -233,7 +234,7 @@ class _ncc_signState extends State<ncc_sign> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Enter your mail",
+                      "Enter your correct mail *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -252,7 +253,7 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.black),
+                          color: Colors.white),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.mail_lock_outlined),
                           prefixIconColor: Colors.black,
@@ -326,7 +327,7 @@ class _ncc_signState extends State<ncc_sign> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Enter your password",
+                      "Enter your password  max(6) *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -345,7 +346,7 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.black),
+                          color: Colors.white),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.password_rounded),
                           prefixIconColor: Colors.black,
