@@ -23,7 +23,7 @@ import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:flutter/services.dart';
-
+import 'package:ncc/Notification/main_page_notification.dart';
 
 
 
@@ -34,7 +34,7 @@ void main() async
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
- // await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
   tz.initializeTimeZones();
  
@@ -74,12 +74,13 @@ class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
     return LiquidSwipe(
       
       pages: [
+        
         Home(),
         contents(), 
        
       ],
       initialPage: 0,
-      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.white),
+      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.black),
       
     );
   }
@@ -169,30 +170,7 @@ class _HomeState extends State<Home> {
     child: Scaffold(
       resizeToAvoidBottomInset: false,
 
-    body:Metaballs(
-  color: const Color.fromARGB(255, 66, 133, 244),
-  effect: MetaballsEffect.follow(
-    growthFactor: 1,
-    smoothing: 1,
-    radius: 0.5,
-  ),
-  gradient: LinearGradient(
-    colors: [
-      const Color.fromARGB(255, 90, 60, 255),
-      const Color.fromARGB(255, 120, 255, 255),
-    ],
-    begin: Alignment.bottomRight,
-    end: Alignment.topLeft
-  ),
-  metaballs: 40,
-  animationDuration: const Duration(milliseconds: 200),
-  speedMultiplier: 1,
-  bounceStiffness: 3,
-  minBallRadius: 15,
-  maxBallRadius: 40,
-  glowRadius: 0.7,
-  glowIntensity: 0.6,
-  child: SingleChildScrollView(
+    body: SingleChildScrollView(
       
         child:Container(
          padding: EdgeInsets.all(16.0),
@@ -202,18 +180,34 @@ class _HomeState extends State<Home> {
      
       child:Column(children: [
 
-      SizedBox(height:screenHeight * 0.05),
+      SizedBox(height:screenHeight * 0.09),
 
       Center(
-      child:  Container(
-            height: 250,
-            width: 100,child:Transform.scale(
-            scale: 3.0, 
-   
-            child:Lottie.asset('assets/animation/2QsQCoEqkP.json')),),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.transparent,
+            highlightColor: Colors.black.withOpacity(0.5),
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
+              ),
+            ),
+          ),
+          Image(
+            image: AssetImage('assets/ncclogo-removebg-preview.png'),
+            width: 120,
+            height: 120,
+          ),
+        ],
+      ),
     ),
    // Center(child:Image.asset('assets/ncc_app-removebg-preview.png',)),
-      SizedBox(height: screenHeight * 0.03,),
+      SizedBox(height: screenHeight * 0.08,),
 
      /* Container(alignment: Alignment.center,
       height: 70,
@@ -426,16 +420,27 @@ class _HomeState extends State<Home> {
       //color: Colors.red,
 
       decoration: BoxDecoration(
+         boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                    blurRadius: 5,
+                    spreadRadius: 1,
+                    offset: Offset(0, 0),
+                  ),
+                 
+                  
+                ],
         borderRadius: BorderRadius.circular(40),
         color: Color.fromARGB(255, 19, 4, 104),
        
       
       ),child:
       
-        Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,))
+        Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.blue,
+          child:Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,)))
       
       )),
-      SizedBox(height:10),
+      SizedBox(height:20),
       Text("(Or)",style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(255, 103, 41, 237)),),
       
 
@@ -540,12 +545,7 @@ class _HomeState extends State<Home> {
                     spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
-                  BoxShadow(
-                   color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
-                    blurRadius: 20,
-                    spreadRadius: 1,
-                    offset: Offset(0, 0),
-                  ),
+                  
                   
                 ],
               ),
@@ -596,12 +596,7 @@ class _HomeState extends State<Home> {
                     spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
-                  BoxShadow(
-                    color: const Color.fromARGB(255, 96, 68, 255).withOpacity(0.6),
-                    blurRadius: 20,
-                    spreadRadius: 1,
-                    offset: Offset(0, 0),
-                  ),
+                 
                 ],
               ),
               child: Center(
@@ -628,7 +623,7 @@ class _HomeState extends State<Home> {
 
          ],),  
     )))),
-    ));
+    );
   }
 }
 

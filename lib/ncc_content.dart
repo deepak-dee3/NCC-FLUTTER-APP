@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:metaballs/metaballs.dart';
+import 'package:shimmer/shimmer.dart';
 
 class contents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body:Metaballs(
+      body:/*Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -31,7 +32,7 @@ class contents extends StatelessWidget{
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: Container(
+  child: */Container(
           child: Padding(padding: EdgeInsets.all(25),child:Column(
             
 
@@ -39,8 +40,33 @@ class contents extends StatelessWidget{
 
               SizedBox(height: 50,),
 
-              Expanded(flex:1,
-                child: Container(child:Image.asset('assets/ncclogo-removebg-preview.png'))),
+                
+
+              Expanded(flex:2,
+                child:   Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.transparent,
+            highlightColor: Colors.black.withOpacity(0.5),
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
+              ),
+            ),
+          ),
+          Image(
+            image: AssetImage('assets/three_head-removebg-preview.png'),
+            width: 140,
+            height: 140,
+          ),
+        ],
+      ),
+    ),),
 
               Expanded(flex: 1,
                 child:Align(alignment: Alignment.centerLeft,child: Container(
@@ -71,7 +97,7 @@ class contents extends StatelessWidget{
             ],
           ),
         ),
-      )));
+      ));
     
   }
 

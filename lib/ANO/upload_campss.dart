@@ -12,6 +12,8 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:lottie/lottie.dart';
 
 class upload_camp_detailss extends StatefulWidget {
+
+  
   @override
   State<upload_camp_detailss> createState() => _upload_camp_detailsState();
 }
@@ -55,8 +57,16 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
         return;
       }
 
-      Reference image_ref =
-          FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/${_campeve_controller.text}');
+   /*  Reference image_ref = important
+          FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/${_campeve_controller.text}');*/
+
+          final now = DateTime.now();
+      final formattedDate = "${now.day}-${now.month}-${now.year} ${now.hour}:${now.minute}:${now.second}";
+
+      // Append the date and time to the content
+      final contentWithDate = "${_campeve_controller.text} (Uploaded on: $formattedDate)";
+
+      Reference image_ref = FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/$contentWithDate');
 
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');

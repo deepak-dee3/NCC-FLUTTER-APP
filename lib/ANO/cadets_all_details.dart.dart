@@ -81,7 +81,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
       },
       child:Scaffold(
       //backgroundColor: Colors.blue.shade100,
-      body: Metaballs(
+      body: /*Metaballs(
   color: Color.fromARGB(255, 37, 3, 226),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -104,24 +104,33 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: 
+  child: */
     SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 100),
-            Center(
+            Center(child:Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                BoxShadow(color: Color.fromARGB(255, 29, 8, 97),blurRadius: 10),
+
+              ]),
               child:CircleAvatar(
-               radius: 80,
+              
+
+               radius: 100,
                 child: imageUrl.isEmpty
                     ? Shimmer.fromColors(
                           baseColor: Colors.grey[300]!,
                           highlightColor: Colors.grey[100]!,
                           child: Container(
+                            
                             color: Colors.white,
                           ),
                         )
                     : ClipRRect(
-                        borderRadius: BorderRadius.circular(40),
+                        borderRadius: BorderRadius.circular(20),
                         child: InteractiveViewer(maxScale: 5,
                           child:
                         Image.network(
@@ -145,7 +154,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           },
                         ),),
                       ),
-              ),
+              ),),
             ),
 
     SizedBox(height:40),
@@ -820,6 +829,6 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     ),
     SizedBox(height:20),
 
-    ])))));
+    ]))));
   }
 }

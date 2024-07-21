@@ -43,7 +43,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
       },
       child:
       Scaffold(
-      backgroundColor: const Color.fromARGB(255, 164, 210, 248),
+     // backgroundColor: const Color.fromARGB(255, 164, 210, 248),
      
       body: SingleChildScrollView(scrollDirection: Axis.vertical,child:FutureBuilder<List<Map<String, dynamic>>>(
         future: _fetchImageUrlsWithTitles(),
@@ -66,12 +66,16 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
                   child: Card(
                     elevation: 10,
                     child: Container(
+                      
                       height: 250, // Adjust container height as needed
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(color: Color.fromARGB(255, 25, 3, 77),blurRadius: 5)
+                        ],
                         //borderRadius: BorderRadius.only(topLeft: Radius.circular(5),topRight: Radius.circular(5)),
                         borderRadius: BorderRadius.circular(5),
                         
-                        color: Colors.blue,
+                        color: Colors.grey,
                         image: DecorationImage(
                           image: NetworkImage(imageUrl,),
                           fit: BoxFit.cover,
@@ -93,7 +97,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
                                   Text(
                                     title,
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),

@@ -31,7 +31,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
       },
       child:Scaffold(
       body:
-      Metaballs(
+     /* Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -54,7 +54,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: SingleChildScrollView(scrollDirection: Axis.vertical,
+  child: */SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
           padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
 
@@ -203,6 +203,6 @@ class _cadet_main_pageState extends State<cadet_main_page> {
         ],)
       )
     ))
-   ));
+   );
   }
 }

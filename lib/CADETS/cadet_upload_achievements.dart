@@ -56,8 +56,18 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
         return;
       }
 
-      Reference image_ref =
-          FirebaseStorage.instance.ref().child('ACHIEVEMENTS_BY_C/${_camp_achieve_controller.text}');
+    /*  Reference image_ref =  important
+          FirebaseStorage.instance.ref().child('ACHIEVEMENTS_BY_C/${_camp_achieve_controller.text}');*/
+
+           // **Added code to get current date and time**
+      final now = DateTime.now();
+      final formattedDate = "${now.day}-${now.month}-${now.year} ${now.hour}:${now.minute}:${now.second}";
+
+      // **Modified content to include date and time**
+      final contentWithDate = "${_camp_achieve_controller.text} (Uploaded on: $formattedDate)";
+
+      // **Updated Firebase Storage reference to include content with date**
+      Reference image_ref = FirebaseStorage.instance.ref().child('ACHIEVEMENTS_BY_C/$contentWithDate');
 
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');

@@ -35,8 +35,8 @@ class _ccadet_detailsState extends State<ccadet_details> {
             width: 100,
             child: Center(
               child: Transform.scale(
-                scale: 2.5,
-                child: Lottie.asset('assets/animation/Animation - 1721311751362.json'),
+                scale: 3.0,
+                child: Lottie.asset('assets/animation/HCQVEI3eoF.json'),
               ),
             ),
           ),
@@ -113,11 +113,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
               
 
              
-              return Shimmer.fromColors(
-                                    baseColor: Colors.blue,
-                                    highlightColor: Colors.white,
-                                   
-                                    child:Column(children:[
+              return Column(children:[
                 
                 Card(elevation: 10,
                 shadowColor: Colors.black,
@@ -157,7 +153,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
               ))),
 
               SizedBox(height:15),
-              ]));
+              ]);
             });
           }
         },

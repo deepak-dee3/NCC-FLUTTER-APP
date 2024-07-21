@@ -4,6 +4,7 @@ import 'package:ncc/ANO/cadets_all_details.dart.dart';
 import 'package:ncc/ANO/cadets_list.dart';
 import 'package:ncc/ANO/upload_campss.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
+import 'package:ncc/main.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
@@ -24,12 +25,12 @@ class _ano_view_detailsState extends State<ano_view_details> {
 WillPopScope(
       onWillPop: () async {
         // Handle back button press
-        Navigator.pop(context);
+        Navigator.pop(context,MaterialPageRoute(builder: (context) => Home()));
         return true;
       },
       child:Scaffold(
 
-      body:Metaballs(
+      body:/*Metaballs(
       color: Color.fromARGB(255, 35, 3, 63),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -52,7 +53,7 @@ WillPopScope(
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: SingleChildScrollView(scrollDirection: Axis.vertical,
+  child:*/ SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(
         child:Column(children: [
 
@@ -124,8 +125,8 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text(' UPLOAD CAMP / EVENT DETAILS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
-            SizedBox(width: 15,),
+            Text('    UPLOAD CAMP / EVENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
+            SizedBox(width: 60 ,),
             Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
           ],),)),),
 
@@ -154,8 +155,8 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
-            SizedBox(width: 155,),
+            Text('    VIEW CAMP / EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+            SizedBox(width: 85,),
             Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
           ],),)),),
 
@@ -191,6 +192,6 @@ WillPopScope(
            SizedBox(height: 30,)
           
         ],)
-      )   ))));
+      )   )));
   }
 }

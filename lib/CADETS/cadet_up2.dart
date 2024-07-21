@@ -99,7 +99,8 @@ class _cadet_up2State extends State<cadet_up2> {
       child:
     Scaffold(
 
-      body:Metaballs(
+      body:
+      /*Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -122,7 +123,7 @@ class _cadet_up2State extends State<cadet_up2> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: 
+  child: */
       SingleChildScrollView(
         scrollDirection: Axis.vertical,
 
@@ -678,7 +679,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.book_rounded),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
               hintText: 'DEGREE *',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110),),
@@ -703,7 +704,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_rounded),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.file_copy_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
  
@@ -831,6 +832,6 @@ class _cadet_up2State extends State<cadet_up2> {
           )
         )
       )
-    )));
+    ));
   }
 }

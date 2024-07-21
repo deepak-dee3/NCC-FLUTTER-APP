@@ -99,19 +99,18 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
         return true;
       },
       child:Scaffold(
-      backgroundColor: Color.fromARGB(255, 167, 212, 248),
-      appBar: AppBar(
-        title: Text(''),
-        backgroundColor: const Color.fromARGB(255, 164, 210, 248),
-      ),
+     // backgroundColor: Color.fromARGB(255, 167, 212, 248),
+      
       body:Column(children:[
+
+        SizedBox(height: MediaQuery.of(context).size.height * 0.10,),
 
          Container(
             height: 250,
             width: 100,child:Transform.scale(
             scale: 2.0, 
    
-            child:Lottie.asset('assets/animation/Animation - 1721313461343.json')),),
+            child:Lottie.asset('assets/animation/Animation - 1721542924636.json')),),
 
             SizedBox(height:20),
 
@@ -143,6 +142,11 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
                       child: Container(
                         height: 250, // Adjust container height as needed
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black,blurRadius: 7,
+                            )
+                          ],
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.blue,
                           image: DecorationImage(

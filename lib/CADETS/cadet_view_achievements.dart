@@ -100,7 +100,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
         return true;
       },
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 164, 210, 248),
+        //backgroundColor: const Color.fromARGB(255, 164, 210, 248),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -111,7 +111,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                 height: 200,
                 width: 100,
                 child: Transform.scale(
-                  scale: 1.5,
+                  scale: 2,
                   child: Lottie.asset('assets/animation/Animation - 1721314505334.json'),
                 ),
               ),
@@ -128,7 +128,8 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                     return Center(child: Text('No images found'));
                   } else {
-                    return Container( // Changed from Expanded to Container to fit inside SingleChildScrollView
+                    return Container(
+                       // Changed from Expanded to Container to fit inside SingleChildScrollView
                       height: MediaQuery.of(context).size.height - 200, // Adjust height to prevent overflow
                       child: ListView.builder(
                         itemCount: snapshot.data!.length,
@@ -143,10 +144,14 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Card(
+                               
                                 elevation: 10,
                                 child: Container(
                                   height: 250, // Adjust container height as needed
                                   decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(color: Colors.black,blurRadius: 5)
+                                    ],
                                     borderRadius: BorderRadius.circular(5),
                                     color: Colors.blue,
                                     image: DecorationImage(
@@ -176,7 +181,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
-                                              SizedBox(height: 4),
+                                              SizedBox(height: 20),
   ],),),),],),),),),);},),);}},),],),),),);}}
 
 /*import 'package:flutter/material.dart';

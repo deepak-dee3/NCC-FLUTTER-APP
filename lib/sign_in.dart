@@ -65,7 +65,7 @@ class _ncc_signState extends State<ncc_sign> {
       backgroundColor: Colors.transparent,
     
       resizeToAvoidBottomInset: false,
-    body:Metaballs(
+    body:/*Metaballs(
   color: Color.fromARGB(255, 235, 86, 98),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -88,7 +88,7 @@ class _ncc_signState extends State<ncc_sign> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: 
+  child: */
     SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child:Container(
@@ -134,7 +134,7 @@ class _ncc_signState extends State<ncc_sign> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
@@ -163,7 +163,7 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                          color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           prefixIconColor: Colors.black,
@@ -217,7 +217,7 @@ class _ncc_signState extends State<ncc_sign> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
@@ -253,7 +253,7 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                          color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.mail_lock_outlined),
                           prefixIconColor: Colors.black,
@@ -310,7 +310,7 @@ class _ncc_signState extends State<ncc_sign> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                  color: Colors.red.withOpacity(0.2),
+                  color: Colors.blue.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
@@ -346,7 +346,7 @@ class _ncc_signState extends State<ncc_sign> {
                       style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                          color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.password_rounded),
                           prefixIconColor: Colors.black,
@@ -416,12 +416,12 @@ class _ncc_signState extends State<ncc_sign> {
       ),
       child:Shimmer.fromColors(
         
-        child:  Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
+        child:  Text('Sign Up Here',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
        // Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
       ),),
       SizedBox(height:30),
  ],),)
-    )))));
+    ))));
   }
 }

@@ -7,6 +7,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ncc/firebase_imp.dart/imp.dart';
 import 'package:ncc/main.dart';
+import 'package:lottie/lottie.dart';
+import 'package:shimmer/shimmer.dart';
 
 class fill_details extends StatefulWidget{
 
@@ -216,14 +218,31 @@ _mothername_controller .clear();
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child:Container(
-          color: Colors.blue.withOpacity(0.2),
+         // color: Colors.blue.withOpacity(0.2),
         child:Column(children: [
           SizedBox(height: 80,),
 
-          Align(alignment: Alignment.topLeft,
-            child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Colors.red)),),
+       /*   Align(alignment: Alignment.topLeft,
+            child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Color.fromARGB(255, 6, 6, 184))),),*/
+
+           
+
+             Center(child: Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 2.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721493362106.json')),),
+          ),
             
             SizedBox(height: 10,),
+            Align(alignment: Alignment.topLeft,
+            child:Shimmer.fromColors(baseColor: Color.fromARGB(255, 6, 6, 184),highlightColor: Colors.white,
+              child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Color.fromARGB(255, 6, 6, 184))),),),
+
+            SizedBox(height: 20,),
+
+            
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -265,7 +284,7 @@ _mothername_controller .clear();
              
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color:Color.fromARGB(255, 29, 2, 110))),
-              hintText: 'NAME',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
+              hintText: 'RANK & NAME',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
@@ -823,7 +842,7 @@ _mothername_controller .clear();
             ),
           ],
         ),
-            child: Text('Upload Image '))),
+            child: Text('Upload Image ',style: TextStyle(fontWeight: FontWeight.bold),))),
           SizedBox(height:35),
           
           GestureDetector(onTap:(){
@@ -843,7 +862,8 @@ _mothername_controller .clear();
       
       ),
       child:
-        Text('Completed',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
+        Shimmer.fromColors(highlightColor: Colors.black,baseColor:const Color.fromARGB(255, 255, 255, 255) ,
+          child:Text('Completed',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15)))
       
       ),),
       SizedBox(height:20)

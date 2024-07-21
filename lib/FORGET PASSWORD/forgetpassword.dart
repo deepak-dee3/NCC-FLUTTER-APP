@@ -48,7 +48,7 @@ class _forgetpasswordState extends State<forgetpassword> {
     Scaffold(
 
       body:
-      Metaballs(
+      /*Metaballs(
   color: Color.fromARGB(255, 235, 86, 98),
   effect: MetaballsEffect.follow(
     growthFactor: 1,
@@ -71,7 +71,7 @@ class _forgetpasswordState extends State<forgetpassword> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: SingleChildScrollView(scrollDirection: Axis.vertical,
+  child: */SingleChildScrollView(scrollDirection: Axis.vertical,
     child:
       Container(
        
@@ -95,7 +95,10 @@ class _forgetpasswordState extends State<forgetpassword> {
 
           
           Center(child:Container(
-            width:350,height:350,color:Colors.red.withOpacity(0.3),
+            decoration: BoxDecoration(
+              border: Border.all(width: 2,color: Colors.black),
+              borderRadius: BorderRadius.circular(20),color:Colors.green.withOpacity(0.1)),
+            width:350,height:350,
             child:Form(key:forget_formkey,
               child:Column(children: [
 
@@ -162,6 +165,6 @@ class _forgetpasswordState extends State<forgetpassword> {
         ],)
       )
 
-    ))]))))));
+    ))])))));
   }
 }
