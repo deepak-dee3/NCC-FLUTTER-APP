@@ -146,8 +146,9 @@ class _HomeState extends State<Home> {
               style: TextStyle(fontSize: 20))));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Login failed. Please try again.',
-              style: TextStyle(fontSize: 20))));
+        backgroundColor: Colors.red,
+          content: Text('Error in your mail and password',
+              style: TextStyle(fontSize: 15))));
     }
   } catch (e) {
     print('Exception: $e'); // Logging the general error for debugging
@@ -292,10 +293,8 @@ class _HomeState extends State<Home> {
                     {
                       return "Enter your user email";
                     }
-                    else if(!value.contains('@'))
-                    {
-                      return "Email should contains @";
-                    }
+                    
+                   
                    
                     return null;
                   },
@@ -499,6 +498,7 @@ class _HomeState extends State<Home> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextField(
+                    style: TextStyle(color:Colors.white),
                     controller: passkeyController,
                     keyboardAppearance: Brightness.light,
                    
@@ -511,7 +511,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         passkeyError!,
-                        style: TextStyle(color: Colors.red, fontSize: 16),
+                        style: TextStyle(color: Colors.red, fontSize: 16,fontWeight: FontWeight.bold),
                       ),
                     ),
                 ],

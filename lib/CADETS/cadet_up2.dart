@@ -153,6 +153,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                     else if (!RegExp(r'^TN\d{2}(SDA|SWA|JDA|JWA)\d+$').hasMatch(value)) {
+        return 'Please enter a valid regimental number (e.g., TN23SDA824605)';
+      }
                     return null;
                   },
 
@@ -179,6 +182,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -204,6 +210,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The directorate name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -230,6 +239,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The group name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -256,6 +268,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The battalion name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -277,16 +292,17 @@ class _cadet_up2State extends State<cadet_up2> {
 
             controller: _update_phn_controller,
 
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-
-
-            keyboardType: TextInputType.name,
+              validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter your mobile number';
+  } else if (value.length != 10) {
+    return 'Mobile number must be exactly 10 digits';
+  } else if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+    return 'Please enter a valid mobile number';
+  }
+  return null;
+},
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.mobile_friendly),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -304,16 +320,23 @@ class _cadet_up2State extends State<cadet_up2> {
 
             controller: _update_add_controller,
 
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }
+
+      // Regex pattern to check if the address contains a pin code at the end
+      final pinCodePattern = RegExp(r'\b\d{6}\b$');
+      if (!pinCodePattern.hasMatch(value)) {
+        return 'Include 6-digit pin code at the end';
+      }
+
+      return null;
+    },
+    keyboardType: TextInputType.multiline,
 
 
-            keyboardType: TextInputType.name,
+           
             decoration: InputDecoration(prefixIcon: Icon(Icons.home),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -335,6 +358,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else if (RegExp(r'\d').hasMatch(value)) {
+        return 'Father Name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -361,6 +387,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
                     return null;
                   },
 
@@ -387,6 +416,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                      else if (RegExp(r'\d').hasMatch(value)) {
+        return 'Father occupation should not contain numbers';
+      }
                     return null;
                   },
 
@@ -414,6 +446,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                     else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -441,6 +476,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
                     return null;
                   },
 
@@ -467,6 +505,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                     else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Occuation should not contain numbers';
+      }
                     return null;
                   },
 
@@ -546,6 +587,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^[A-Z]{4}0[A-Z0-9]{6}$').hasMatch(value)) {
+        return 'Please enter a valid IFSC code';
+      }
                     return null;
                   },
 
@@ -572,11 +616,14 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^\d{12}$').hasMatch(value)) {
+        return 'Please enter a valid 12-digit Aadhar number';
+      }
                     return null;
                   },
 
 
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.attach_file),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -596,6 +643,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
                     return null;
                   },
 
@@ -622,6 +672,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
                     return null;
                   },
 
@@ -727,6 +780,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                     else if (!RegExp(r'^(A|B|AB|O)[+-]?$').hasMatch(value)) {
+        return 'Enter valid blood group (e.g., A+, B-, AB+, O-)';
+      }
                     return null;
                   },
 
@@ -754,6 +810,9 @@ class _cadet_up2State extends State<cadet_up2> {
                     {
                       return "Fill this required field";
                     }
+                     else if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)) {
+        return 'Please enter only alphabetic characters and spaces';
+      }
                     return null;
                   },
 

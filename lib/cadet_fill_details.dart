@@ -18,6 +18,8 @@ class fill_details extends StatefulWidget{
 
 class _fill_detailsState extends State<fill_details> {
 
+  final _formKey = GlobalKey<FormState>();
+
   String ? imageurl;
   final ImagePicker _imagepic = ImagePicker();
   pickimage() async
@@ -56,7 +58,84 @@ class _fill_detailsState extends State<fill_details> {
 
     }}
 
-  validateForm() {
+    validateForm() {
+    if (_formKey.currentState!.validate()) { 
+
+
+
+       Regimental_number = _regi_controller.text.trim();
+    Name = _name.text;
+   Directorate = _dir_controller.text.trim();
+    Group = _group_controller.text.trim();
+   Battalion = _battalion_controller.text.trim();
+   Firstname = _fnamecontroller.text.trim();
+   Lastname = _lnamecontroller.text.trim();
+   Gender = _gender_controller.text.trim();
+    Mobile = _mobile_controller.text.trim();
+   DOB = _dob_controller.text.trim();
+   Batch_Starts = _batchstarts_controller.text.trim();
+   Batch_ends = _batchends_controller.text.trim();
+   Father_name = _fathername_controller.text.trim();
+   Father_number = _fathermobile_controller.text.trim();
+   Father_occupation = _fatheroccupation_controller.text.trim();
+   Mother_name = _mothername_controller.text.trim();
+  Mother_number = _mothernumber_controller.text.trim();
+  Mother_occupation = _motheroccupation_controller.text.trim();
+ Address = _address_controller.text.trim();
+  Blood_group = _blood_controller.text.trim();
+   Aadhar = _aadhar_controller.text.trim();
+   Community = _community_controller.text.trim();
+  College = _college_controller.text.trim();
+    Degree = _degree_controller.text.trim();
+   Department =_dept_controller.text.trim();
+   Bank_number =_bank_controller.text.trim();
+  Branch = _branch_controller.text.trim();
+  Ifsc = _ifsc_controller.text.trim();
+      
+      // **Use formKey to validate form**
+      // Process data here
+      create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
+
+      _dir_controller.clear();
+   _group_controller .clear();
+   _battalion_controller.clear();
+  _fnamecontroller.clear();
+   _lnamecontroller .clear();
+  _gender_controller .clear();
+   _mobile_controller.clear();
+   _dob_controller.clear();
+  _batchstarts_controller  .clear();
+  _batchends_controller.clear();
+  _fathername_controller  .clear();
+  _fathermobile_controller .clear();
+   _fatheroccupation_controller.clear();
+_mothername_controller .clear();
+   _mothernumber_controller.clear();
+  _motheroccupation_controller.clear();
+   _address_controller .clear();
+   _blood_controller .clear();
+    _aadhar_controller.clear();
+  _community_controller .clear();
+   _college_controller .clear();
+   _dept_controller.clear();
+   _bank_controller .clear();
+   _branch_controller.clear();
+
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          padding: EdgeInsets.only(bottom: 20, left: 70, top: 25),
+          backgroundColor: Colors.red,
+          content: Text('All the details are required *', style: TextStyle(fontSize: 15, color: Colors.white)),
+        ),
+      );
+    }
+  }
+
+
+ /* validateForm() {
   if (_regi_controller.text.isEmpty || _name.text.isEmpty || _aadhar_controller.text.isEmpty || _address_controller.text.isEmpty || _bank_controller.text.isEmpty || _batchends_controller.text.isEmpty || _batchstarts_controller.text.isEmpty ||
   _battalion_controller.text.isEmpty || _blood_controller.text.isEmpty || _branch_controller.text.isEmpty || _college_controller.text.isEmpty  || _community_controller.text.isEmpty || _degree_controller.text.isEmpty || Mother_occupation.isEmpty
   || Mother_number.isEmpty ||_dept_controller.text.isEmpty || _dir_controller.text.isEmpty || _fathermobile_controller.text.isEmpty || _fathername_controller.text.isEmpty  ||_fatheroccupation_controller.text.isEmpty || _fnamecontroller.text.isEmpty
@@ -128,7 +207,7 @@ _mothername_controller .clear();
    _branch_controller.clear();
 
   }
-}
+}*/
 
 
   String Regimental_number = " ",Name = " ",Directorate = " ",Group = " ";
@@ -242,6 +321,11 @@ _mothername_controller .clear();
 
             SizedBox(height: 20,),
 
+            Form(
+                  key: _formKey, // **Added Form widget with formKey**
+                  child: Column(
+                    children: [
+
             
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -253,6 +337,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^TN\d{2}(SDA|SWA|JDA|JWA)\d+$').hasMatch(value)) {
+        return 'Please enter a valid regimental number (e.g., TN23SDA824605)';
+      }
                     return null;
                   },
 
@@ -298,6 +385,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The directorate name should not contain numbers';
+      }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -318,6 +408,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The group name should not contain numbers';
+      }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -336,6 +429,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                     else if (RegExp(r'\d').hasMatch(value)) {
+        return 'The battalion name should not contain numbers';
+      }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -356,6 +452,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The first name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -379,6 +478,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The last name should not contain numbers';
+      }
                     return null;
                   },
 
@@ -402,6 +504,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Should not contain numbers';
+      }
                     return null;
                   },
 
@@ -420,13 +525,16 @@ _mothername_controller .clear();
 
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _mobile_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+             validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter your mobile number';
+  } else if (value.length != 10) {
+    return 'Mobile number must be exactly 10 digits';
+  } else if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+    return 'Please enter a valid mobile number';
+  }
+  return null;
+},
             keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
@@ -465,13 +573,14 @@ _mothername_controller .clear();
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _batchstarts_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+            validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Fill this required field';
+  } else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
+  return null;
+},
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_right),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
@@ -484,13 +593,14 @@ _mothername_controller .clear();
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _batchends_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+            validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Fill this required field';
+  } else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
+  return null;
+},
             keyboardType: TextInputType.name,
             decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_left),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
@@ -508,6 +618,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                     else if (RegExp(r'\d').hasMatch(value)) {
+        return 'Father Name should not contain numbers';
+      }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -521,13 +634,14 @@ _mothername_controller .clear();
           )),
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _fathermobile_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
+      return null;
+    },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone_android),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
@@ -548,9 +662,12 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Occupation should not contain numbers';
+      }
                     return null;
                   },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.work),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -567,6 +684,9 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Name should not contain numbers';
+      }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -580,13 +700,14 @@ _mothername_controller .clear();
           )),
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _mothernumber_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+              validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
+      return null;
+    },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.phone_android),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
@@ -601,14 +722,15 @@ _mothername_controller .clear();
      
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _motheroccupation_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.name,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Occupation should not contain numbers';
+      }
+      return null;
+    },
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.work),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -620,14 +742,21 @@ _mothername_controller .clear();
 
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _address_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.multiline,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }
+
+      // Regex pattern to check if the address contains a pin code at the end
+      final pinCodePattern = RegExp(r'\b\d{6}\b$');
+      if (!pinCodePattern.hasMatch(value)) {
+        return 'Include 6-digit pin code at the end';
+      }
+
+      return null;
+    },
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
             decoration: InputDecoration(prefixIcon: Icon(Icons.location_pin),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -639,14 +768,19 @@ _mothername_controller .clear();
 
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _blood_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.name,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }
+      
+      
+      else if (!RegExp(r'^(A|B|AB|O)[+-]?$').hasMatch(value)) {
+        return 'Enter valid blood group (e.g., A+, B-, AB+, O-)';
+      }
+      
+      return null;
+    },
+    keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.bloodtype),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -657,14 +791,15 @@ _mothername_controller .clear();
           )),
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _aadhar_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.number,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{12}$').hasMatch(value)) {
+        return 'Please enter a valid 12-digit Aadhar number';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.attach_file),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -675,14 +810,15 @@ _mothername_controller .clear();
           )),
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _community_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.name,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)) {
+        return 'Please enter only alphabetic characters and spaces';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.people),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -698,9 +834,14 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                     else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
+                    
                     return null;
                   },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.school),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -718,9 +859,13 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
                     return null;
                   },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -736,6 +881,10 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
                     return null;
                   },
             keyboardType: TextInputType.name,
@@ -749,14 +898,15 @@ _mothername_controller .clear();
           )),
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _bank_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
-            keyboardType: TextInputType.number,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[0-9\s\-]+$').hasMatch(value)) {
+        return 'Please enter a valid bank account number';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.account_balance),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -772,9 +922,12 @@ _mothername_controller .clear();
                     {
                       return "Fill this required field";
                     }
+                    else if (!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value)) {
+        return 'Please enter a valid branch name without numbers';
+      }
                     return null;
                   },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.text,
             decoration: InputDecoration(prefixIcon: Icon(Icons.account_tree_outlined),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -785,14 +938,15 @@ _mothername_controller .clear();
           )),
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _ifsc_controller,
-            keyboardType: TextInputType.name,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                    return null;
-                  },
+            keyboardType: TextInputType.text,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[A-Z]{4}0[A-Z0-9]{6}$').hasMatch(value)) {
+        return 'Please enter a valid IFSC code';
+      }
+      return null;
+    },
             decoration: InputDecoration(prefixIcon: Icon(Icons.code),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -870,7 +1024,7 @@ _mothername_controller .clear();
 
         ],)
       )
-    )));
+    ])))));
   }
 }
 

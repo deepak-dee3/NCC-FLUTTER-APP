@@ -34,13 +34,15 @@ class _ncc_signState extends State<ncc_sign> {
         await storage.write(key: 'password', value: password); 
         //String? storedPassword = await storage.read(key: 'password');
        // await storage.delete(key: 'password');
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Registered Successfully',style:TextStyle(fontSize: 20))));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.red,
+        duration: Duration(seconds:  20),
+          content: Text("Attention : Don't exit this page ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold))));
 
         Navigator.push(context, MaterialPageRoute(builder: (context) => fill_details()));
         emailcontroller.clear();
         namecontroller.clear();
         passcontroller.clear();
-        phonecontroller.clear();
+       
 
       }on FirebaseAuthException catch (e)
       {
@@ -160,6 +162,7 @@ class _ncc_signState extends State<ncc_sign> {
                           color: Color(0xff67727d)),
                     ),
                     TextFormField(
+                      controller: namecontroller,
                       validator: (value) {
                         if(value == null || value.isEmpty)
                         {
@@ -266,6 +269,9 @@ class _ncc_signState extends State<ncc_sign> {
     else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
       return "Enter valid email (e.g., mail@domain.com)";
     } 
+    else if (!RegExp(r'^[^@]+ncc[^@]*@[^@]+\.[^@]+$').hasMatch(value)) {
+      return "must contain ncc(e.g., mailncc@domain.com)";
+    }
     return null;
   },
                       cursorColor: Colors.black,

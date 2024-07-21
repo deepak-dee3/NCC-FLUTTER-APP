@@ -121,13 +121,16 @@ class _forgetpasswordState extends State<forgetpassword> {
                     {
                       return "Fill this required field";
                     }
+                     else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
+      return "Enter valid email (e.g., mail@domain.com)";
+    } 
                     return null;
                   },
             keyboardType: TextInputType.name,
              style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                          color: Colors.red),
             
             decoration: InputDecoration(prefixIcon: Icon(Icons.mark_email_read_outlined),errorStyle: TextStyle(color: Colors.white),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
