@@ -46,10 +46,12 @@ class _ncc_signState extends State<ncc_sign> {
       {
         if(e.code == 'weak passord'){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Password provided is too weak',style:TextStyle(fontSize: 20))));
-        }else if(e.code == 'email-already-in-use')
+        }/*else if(e.code == 'email-already-in-use')
         {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('email in use',style:TextStyle(fontSize: 20))));
-        }}} }
+        }*/
+        return null;
+        }} }
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +160,18 @@ class _ncc_signState extends State<ncc_sign> {
                           color: Color(0xff67727d)),
                     ),
                     TextFormField(
+                      validator: (value) {
+                        if(value == null || value.isEmpty)
+                        {
+                          return "Name must not be null";
+
+                        }
+                        else if(!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)){
+
+                          return "Should not contain numbers";
+                        }
+                        return null;
+                      },
                      
                       cursorColor: Colors.black,
                       style: TextStyle(
@@ -242,13 +256,18 @@ class _ncc_signState extends State<ncc_sign> {
                     ),
                     TextFormField(
                      controller: emailcontroller,
-                validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your user mail";
-                    }
-                    return null;
-                  },
+                 validator: (value) {
+    if (value == null || value.isEmpty) {
+      return "Email must not be null";
+    } else if (!value.contains("@")) {
+      return "Email must contain '@'";
+    }
+   
+    else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
+      return "Enter valid email (e.g., mail@domain.com)";
+    } 
+    return null;
+  },
                       cursorColor: Colors.black,
                       style: TextStyle(
                           fontSize: 17,
@@ -327,7 +346,7 @@ class _ncc_signState extends State<ncc_sign> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Enter your password  max(6) *",
+                      "Enter your password *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -340,6 +359,10 @@ class _ncc_signState extends State<ncc_sign> {
                     {
                       return "Enter your user password";
                     }
+                   else if (!RegExp(r'^(?=.*[0-9])(?=.*[!@#\$%^&*()_+[\]{}|;:,.<>?]).+$').hasMatch(value)) {
+                     return "Aleast one special character and number * ";
+                    }
+    
                     return null;
                   },
                       cursorColor: Colors.black,

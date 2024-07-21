@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
  
       userlogin() async {
     try {
-      if (login_email.isNotEmpty && login_pass.isNotEmpty) { // Check if both email and password are provided
+      if (login_email.isNotEmpty && login_pass.isNotEmpty ) { // Check if both email and password are provided
         await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
         Navigator.push(
           context,
@@ -125,21 +125,37 @@ class _HomeState extends State<Home> {
                 child: child,
               );
             },
+            transitionDuration: Duration(microseconds: 1),
           ),
         );
         login_emailcontroller.clear();
         login_passcontroller.clear();
-      } else {
+      }
+      else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please enter email and password')));
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User found for that Email', style: TextStyle(fontSize: 20))));
-      } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Wrong Password provided by user', style: TextStyle(fontSize: 20))));
-      }
+    print('FirebaseAuthException: ${e.code}'); // Logging the error code for debugging
+    if (e.code == 'user-not-found') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('No User found for that Email',
+              style: TextStyle(fontSize: 20))));
+    } else if (e.code == 'wrong-password') {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Wrong Password provided by user',
+              style: TextStyle(fontSize: 20))));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Login failed. Please try again.',
+              style: TextStyle(fontSize: 20))));
     }
+  } catch (e) {
+    print('Exception: $e'); // Logging the general error for debugging
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('An error occurred. Please try again.',
+            style: TextStyle(fontSize: 20))));
   }
+}
    
   @override
   Widget build(BuildContext context) {
@@ -276,6 +292,11 @@ class _HomeState extends State<Home> {
                     {
                       return "Enter your user email";
                     }
+                    else if(!value.contains('@'))
+                    {
+                      return "Email should contains @";
+                    }
+                   
                     return null;
                   },
                       cursorColor: Colors.black,
@@ -330,6 +351,10 @@ class _HomeState extends State<Home> {
                     {
                       return "Enter your user password";
                     }
+                   
+                      else {
+                        "Correct your password";
+                      }
                     return null;
                   },
                       cursorColor: Colors.black,
