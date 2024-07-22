@@ -3,6 +3,7 @@ import 'package:ncc/ANO/ano_view_camp_events.dart';
 import 'package:ncc/CADETS/cadet_up2.dart';
 import 'package:ncc/CADETS/cadet_upload_achievements.dart';
 import 'package:ncc/CADETS/cadet_view_achievements.dart';
+import 'package:ncc/main.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:lottie/lottie.dart';
@@ -26,8 +27,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
     WillPopScope(
       onWillPop: () async {
         // Handle back button press
-        Navigator.pop(context);
-        return true;
+         Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => Home()),(route) => false,);
+       return false;
       },
       child:Scaffold(
       body:

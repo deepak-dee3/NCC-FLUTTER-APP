@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ncc_sign extends StatefulWidget{
   @override
@@ -38,7 +39,16 @@ class _ncc_signState extends State<ncc_sign> {
         duration: Duration(seconds:  20),
           content: Text("Attention : Don't exit this page ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold))));
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => fill_details()));
+          Fluttertoast.showToast(
+        msg: "Attention : Don't exit this page",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) => fill_details(email: email)));
         emailcontroller.clear();
         namecontroller.clear();
         passcontroller.clear();

@@ -9,6 +9,10 @@ import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/CADETS/cadet_main_page.dart';
 import 'package:ncc/Notification/notification.dart';
 import 'package:lottie/lottie.dart';
+import 'package:image_compression_flutter/image_compression_flutter.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:quickalert/quickalert.dart';
 
 class cadet_upload_achievements extends StatefulWidget{
   @override
@@ -24,7 +28,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
 
   XFile? _pickedImage;
 
-  pickimage() async {
+  Future<void> pickimage() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.gallery);
 
     if (res != null) {
@@ -34,7 +38,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
     }
   }
 
-  pickimage_cam() async {
+  Future<void> pickimage_cam() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.camera);
 
     if (res != null) {
@@ -44,7 +48,27 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
     }
   }
 
-  uploadfirebase() async {
+   Future<File> compressImage(XFile image) async {
+  final compressedImageData = await FlutterImageCompress.compressWithFile(
+    image.path,
+    minWidth: 900,
+    minHeight: 900,
+    quality: 95,
+  );
+
+  if (compressedImageData == null) {
+    throw Exception("Error compressing image");
+  }
+
+  final tempDir = await getTemporaryDirectory();
+  final tempFilePath = '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
+  final compressedImageFile = File(tempFilePath)..writeAsBytesSync(compressedImageData);
+
+  return compressedImageFile;
+}
+
+
+  Future<void> uploadfirebase() async {
     try {
       if (_pickedImage == null) {
         Fluttertoast.showToast(msg: 'Please pick an image');
@@ -55,6 +79,12 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
         Fluttertoast.showToast(msg: 'Please fill in the content first');
         return;
       }
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.loading,
+        title: 'Loading',
+        text: 'Uploading your image',
+      );
 
     /*  Reference image_ref =  important
           FirebaseStorage.instance.ref().child('ACHIEVEMENTS_BY_C/${_camp_achieve_controller.text}');*/
@@ -68,6 +98,8 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
 
       // **Updated Firebase Storage reference to include content with date**
       Reference image_ref = FirebaseStorage.instance.ref().child('ACHIEVEMENTS_BY_C/$contentWithDate');
+
+      File compressedFile = await compressImage(_pickedImage!);
 
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');

@@ -10,6 +10,11 @@ import 'package:ncc/ANO/ano_view_details.dart';
 import 'package:ncc/Notification/notification.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:lottie/lottie.dart';
+import 'package:image_compression_flutter/image_compression_flutter.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:quickalert/quickalert.dart';
+
 
 class upload_camp_detailss extends StatefulWidget {
 
@@ -25,7 +30,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
   XFile? _pickedImage;
 
-  pickimage() async {
+  Future<void> pickimage() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.gallery);
 
     if (res != null) {
@@ -35,7 +40,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
     }
   }
 
-  pickimage_cam() async {
+  Future<void> pickimage_cam() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.camera);
 
     if (res != null) {
@@ -45,7 +50,27 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
     }
   }
 
-  uploadfirebase() async {
+  Future<File> compressImage(XFile image) async {
+  final compressedImageData = await FlutterImageCompress.compressWithFile(
+    image.path,
+    minWidth: 900,
+    minHeight: 900,
+    quality: 95,
+  );
+
+  if (compressedImageData == null) {
+    throw Exception("Error compressing image");
+  }
+
+  final tempDir = await getTemporaryDirectory();
+  final tempFilePath = '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
+  final compressedImageFile = File(tempFilePath)..writeAsBytesSync(compressedImageData);
+
+  return compressedImageFile;
+}
+
+
+  Future<void> uploadfirebase() async {
     try {
       if (_pickedImage == null) {
         Fluttertoast.showToast(msg: 'Please pick an image');
@@ -56,6 +81,13 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
         Fluttertoast.showToast(msg: 'Please fill in the content first');
         return;
       }
+
+       QuickAlert.show(
+        context: context,
+        type: QuickAlertType.loading,
+        title: 'Loading',
+        text: 'Uploading your image',
+      );
 
    /*  Reference image_ref = important
           FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/${_campeve_controller.text}');*/
@@ -68,6 +100,8 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
       Reference image_ref = FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/$contentWithDate');
 
+       File compressedFile = await compressImage(_pickedImage!);
+
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');
 
@@ -76,13 +110,17 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
         _campeve_controller.clear();
 
       Navigator.push(context, MaterialPageRoute(builder: (context) => ano_view_details()));
+    
       });
 
       imageurl = await image_ref.getDownloadURL();
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Uploaded successfully'),
+          backgroundColor: Colors.red,
+          padding: EdgeInsets.all(10),
+          
+          content: Text('Uploaded successfully',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
           duration: Duration(seconds: 2),
         ),
       );
@@ -90,6 +128,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
       print('Error uploading image: $e');
       // Handle error as needed
     }
+    
   }
 
   @override
@@ -198,7 +237,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
               child: Container(
                 width: 220,
                 height: 60,
-                child: Text('Complete',
+                child: Text('Upload',
                     style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(

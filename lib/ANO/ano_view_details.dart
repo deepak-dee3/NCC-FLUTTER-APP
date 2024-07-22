@@ -25,8 +25,8 @@ class _ano_view_detailsState extends State<ano_view_details> {
 WillPopScope(
       onWillPop: () async {
         // Handle back button press
-        Navigator.pop(context,MaterialPageRoute(builder: (context) => Home()));
-        return true;
+        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => Home()),(route) => false,);
+       return false;
       },
       child:Scaffold(
 

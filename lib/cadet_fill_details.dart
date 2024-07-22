@@ -9,8 +9,12 @@ import 'package:ncc/firebase_imp.dart/imp.dart';
 import 'package:ncc/main.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:quickalert/quickalert.dart';
 
 class fill_details extends StatefulWidget{
+  final String email;
+  
+  fill_details({required this.email});
 
   @override
   State<fill_details> createState() => _fill_detailsState();
@@ -60,10 +64,12 @@ class _fill_detailsState extends State<fill_details> {
 
     validateForm() {
     if (_formKey.currentState!.validate()) { 
+      try{
 
 
 
        Regimental_number = _regi_controller.text.trim();
+       Email = widget.email.trim();
     Name = _name.text;
    Directorate = _dir_controller.text.trim();
     Group = _group_controller.text.trim();
@@ -94,7 +100,7 @@ class _fill_detailsState extends State<fill_details> {
       
       // **Use formKey to validate form**
       // Process data here
-      create(Regimental_number,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
+      create(Regimental_number,Email,Name,Directorate,Group,Battalion,Firstname,Lastname,Gender,Mobile,Batch_Starts,Batch_ends,Father_name,Father_number,Father_occupation,Mother_name,Mother_number,Mother_occupation,Address,Blood_group,Aadhar,Community,College,Degree,Department,Bank_number,Branch,Ifsc,DOB);
 
       _dir_controller.clear();
    _group_controller .clear();
@@ -121,8 +127,30 @@ _mothername_controller .clear();
    _bank_controller .clear();
    _branch_controller.clear();
 
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+  
+     QuickAlert.show(
+    context: context,
+    type: QuickAlertType.success,
+    text: 'Information Uploaded Successfully!',
+    headerBackgroundColor: Colors.blue,
+    onConfirmBtnTap: () {
+      // Navigate to Home after alert is dismissed
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => Home()),
+        (route) => false,
+      );
+    },
+  );
+    }catch(e)
+    {
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.error,
+        title: 'Oops...',
+        text: 'Sorry, something went wrong',
+      );
+    }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -235,6 +263,7 @@ _mothername_controller .clear();
   String Bank_number = " " ;
   String Branch = " ";
   String Ifsc = " ";
+  String Email = " ";
   //String Community = " ";
 
   TextEditingController _regi_controller = TextEditingController();
@@ -581,7 +610,7 @@ _mothername_controller .clear();
   }
   return null;
 },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_right),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -601,7 +630,7 @@ _mothername_controller .clear();
   }
   return null;
 },
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_left),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
@@ -866,7 +895,7 @@ _mothername_controller .clear();
                     return null;
                   },
             keyboardType: TextInputType.text,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.book),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color:Color.fromARGB(255, 29, 2, 110))),
@@ -888,7 +917,7 @@ _mothername_controller .clear();
                     return null;
                   },
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
+            decoration: InputDecoration(prefixIcon: Icon(Icons.sell_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             focusedBorder: OutlineInputBorder(borderSide: BorderSide(color:Color.fromARGB(255, 29, 2, 110))),
@@ -943,7 +972,7 @@ _mothername_controller .clear();
       if (value == null || value.isEmpty) {
         return 'Fill this required field';
       } else if (!RegExp(r'^[A-Z]{4}0[A-Z0-9]{6}$').hasMatch(value)) {
-        return 'Please enter a valid IFSC code';
+        return 'Please enter valid IFSC code';
       }
       return null;
     },
