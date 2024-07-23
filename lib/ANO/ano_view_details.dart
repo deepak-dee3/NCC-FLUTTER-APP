@@ -54,14 +54,14 @@ WillPopScope(
   glowRadius: 0.7,
   glowIntensity: 0.6,
   child:*/ SingleChildScrollView(scrollDirection: Axis.vertical,
-        child:Container(
+        child:Container(child:Center(
         child:Column(children: [
 
-          SizedBox(height: 70,),
+          SizedBox(height: 50,),
            Container(
             height: 250,
             width: 100,child:Transform.scale(
-            scale: 3.0, 
+            scale: 2.0, 
    
             child:Lottie.asset('assets/animation/Animation - 1721312169152.json')),),
 
@@ -81,11 +81,14 @@ WillPopScope(
 );
 
          },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(
               children: [
               
@@ -94,9 +97,9 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
-            SizedBox(width: 120,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+            Padding(padding: EdgeInsets.only(left:20),child:Text('CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold))),),
+            
+           Padding(padding: EdgeInsets.only(left:124),child:  Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
         ],),)),),
 
           
@@ -112,11 +115,14 @@ WillPopScope(
   },
 )
 );          },
-            child:Padding(padding: EdgeInsets.only(left:30,top:60),
+            child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
               
               Shimmer.fromColors(
@@ -125,9 +131,9 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    UPLOAD CAMP / EVENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
-            SizedBox(width: 60 ,),
-            Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
+            Padding(padding: EdgeInsets.only(left:20),child:Text('UPLOAD CAMP / EVENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),),
+            
+           Padding(padding: EdgeInsets.only(left:64),child:  Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,))
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -142,11 +148,14 @@ WillPopScope(
 )
 );
          },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
 
               
@@ -155,9 +164,9 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW CAMP / EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
-            SizedBox(width: 85,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+            Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW CAMP / EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
+            
+            Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -172,11 +181,14 @@ WillPopScope(
 )
 );
          },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
              
               Shimmer.fromColors(
@@ -184,14 +196,14 @@ WillPopScope(
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
-            SizedBox(width: 90,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+            Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
+            
+            Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
           ],),)),),
       
            SizedBox(height: 30,)
           
         ],)
-      )   )));
+      )   ))));
   }
 }

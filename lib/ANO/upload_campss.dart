@@ -14,6 +14,7 @@ import 'package:image_compression_flutter/image_compression_flutter.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:shimmer/shimmer.dart';
 
 
 class upload_camp_detailss extends StatefulWidget {
@@ -30,7 +31,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
   XFile? _pickedImage;
 
-  Future<void> pickimage() async {
+Future<void> pickimage() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.gallery);
 
     if (res != null) {
@@ -40,7 +41,7 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
     }
   }
 
-  Future<void> pickimage_cam() async {
+ Future<void>pickimage_cam() async {
     XFile? res = await _imagepic.pickImage(source: ImageSource.camera);
 
     if (res != null) {
@@ -68,7 +69,6 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
   return compressedImageFile;
 }
-
 
   Future<void> uploadfirebase() async {
     try {
@@ -100,7 +100,10 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
 
       Reference image_ref = FirebaseStorage.instance.ref().child('CAMP_EVENT_Images/$contentWithDate');
 
-       File compressedFile = await compressImage(_pickedImage!);
+      File compressedFile = await compressImage(_pickedImage!);
+
+
+      
 
       await image_ref.putFile(File(_pickedImage!.path)).whenComplete(() {
        // Fluttertoast.showToast(msg: 'Image uploaded');
@@ -182,6 +185,88 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
               ),
             ),
             Padding(
+  padding: EdgeInsets.all(40),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                pickimage_cam();
+              },
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 222, 5, 5),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 181, 28, 17).withOpacity(0.6),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                    child: Center(child: Icon(Icons.camera)),
+                  ),
+                  SizedBox(height: 8), // Add some spacing between icon and text
+                  Text(
+                    'Camera',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                pickimage();
+              },
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.6),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                    child: Center(child: Icon(Icons.image)),
+                  ),
+                  SizedBox(height: 8), // Add some spacing between icon and text
+                  Text(
+                    'Gallery',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
+
+
+           /* Padding(
               padding: EdgeInsets.only(left: 80, top: 30),
               child: Row(
                 children: [
@@ -227,21 +312,22 @@ class _upload_camp_detailsState extends State<upload_camp_detailss> {
                   Text('Gallery', style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
-            ),
-            SizedBox(height: 60),
+            ),*/
+            SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 uploadfirebase();
                
               },
               child: Container(
-                width: 220,
+                width: 260,
                 height: 60,
-                child: Text('Upload',
-                    style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                child: Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.black,
+                  child:Text('Upload',
+                    style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(40),
                   color: Color.fromARGB(255, 18, 13, 93),
                 ),
               ),

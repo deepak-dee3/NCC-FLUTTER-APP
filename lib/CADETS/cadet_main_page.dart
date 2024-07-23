@@ -56,21 +56,21 @@ class _cadet_main_pageState extends State<cadet_main_page> {
   glowRadius: 0.7,
   glowIntensity: 0.6,
   child: */SingleChildScrollView(scrollDirection: Axis.vertical,
-        child:Container(
-          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+        child:Container(child:Center(
+          //padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
 
         child:Column(children: [
 
-         SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+         SizedBox(height: 60),
 
-           Container(
+           Center(child:Container(
             height: 250,
             width: 100,child:Transform.scale(
             scale: 3.0, 
    
-            child:Lottie.asset('assets/animation/Animation - 1721310404627.json')),),
+            child:Lottie.asset('assets/animation/Animation - 1721310404627.json')),),),
 
-            SizedBox(height: 20,),
+           
 
 
          GestureDetector(onTap:(){
@@ -92,21 +92,24 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                         },
                       ),);
          },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
              
               Shimmer.fromColors(
                             baseColor: Colors.blue,
                             highlightColor: Colors.white,
                             child:
-            Text('    PROFILE UPDATION',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+           Padding(padding: EdgeInsets.only(left: 20),child: Text('UPDATE PROFILE',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
            
             SizedBox(width: 100,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+            Padding(padding: EdgeInsets.only(left:7 ),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -121,11 +124,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 )
 );
           },
-            child:Padding(padding: EdgeInsets.only(left:30,top:60),
+            child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
             
               Shimmer.fromColors(
@@ -133,10 +139,10 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),
+           Padding(padding: EdgeInsets.only(left: 20),child: Text('UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),),
             
-            SizedBox(width: 60,),
-            Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,)
+            
+          Padding(padding: EdgeInsets.only(left: 63),child:Icon(Icons.chevron_right,size: 30,color: Colors.blue,)),
           ],),)),),
 
            GestureDetector(onTap:(){
@@ -150,11 +156,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
   },
 )
 );         },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
-            decoration: BoxDecoration(color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
+              color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
               
               Shimmer.fromColors(
@@ -162,10 +171,10 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+           Padding(padding:EdgeInsets.only(left:20),child: Text('VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
             
             SizedBox(width: 145,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+            Padding(padding:EdgeInsets.only(left:11),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
           GestureDetector(onTap:(){
 
@@ -180,11 +189,14 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 )
 );           
          },
-          child:Padding(padding: EdgeInsets.only(left:30,top:60),
+          child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
             width:330,
             height: 100,
             decoration: BoxDecoration(
+              boxShadow: [
+              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            ],
               
               color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
@@ -194,16 +206,16 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             highlightColor: Colors.white,
                             child:
 
-            Text('    VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),
+            Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
   
             SizedBox(width: 85,),
-            Icon(Icons.arrow_circle_right_outlined,color:Colors.blue)
+           Padding(padding: EdgeInsets.only(left:4),child: Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
          
           SizedBox(height: 30,),   
         ],)
       )
     ))
-   );
+   ));
   }
 }

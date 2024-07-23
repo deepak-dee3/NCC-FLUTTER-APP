@@ -13,6 +13,7 @@ import 'package:image_compression_flutter/image_compression_flutter.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:shimmer/shimmer.dart';
 
 class cadet_upload_achievements extends StatefulWidget{
   @override
@@ -74,6 +75,12 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
         Fluttertoast.showToast(msg: 'Please pick an image');
         return;
       }
+
+      int fileSize = await File(_pickedImage!.path).length();
+    if (fileSize > 2 * 1024 * 1024) { // 3 MB in bytes
+      Fluttertoast.showToast(msg: 'Upload image below 3 MB');
+      return;
+    }
 
       if (_camp_achieve_controller.text.isEmpty) {
         Fluttertoast.showToast(msg: 'Please fill in the content first');
@@ -143,7 +150,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
         child:Container(
         child: Column(
           children: [
-            SizedBox(height: 80),
+            SizedBox(height: 40),
 
 
             Container(
@@ -177,7 +184,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
                 ),
               ),
             ),
-            Padding(
+          /*  Padding(
               padding: EdgeInsets.only(left: 80, top: 30),
               child: Row(
                 children: [
@@ -221,20 +228,106 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
                 ],
               ),
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 60),*/
+
+            Padding(
+  padding: EdgeInsets.all(40),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                pickimage_cam();
+              },
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 222, 5, 5),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 181, 28, 17).withOpacity(0.6),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                    child: Center(child: Icon(Icons.camera)),
+                  ),
+                  SizedBox(height: 8), // Add some spacing between icon and text
+                  Text(
+                    'Camera',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                pickimage();
+              },
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.6),
+                          blurRadius: 5,
+                          spreadRadius: 1,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                    child: Center(child: Icon(Icons.image)),
+                  ),
+                  SizedBox(height: 8), // Add some spacing between icon and text
+                  Text(
+                    'Gallery',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
+
+SizedBox(height: 20,),
+
+
             GestureDetector(
               onTap: () {
                 uploadfirebase();
                
               },
               child: Container(
-                width: 220,
+                width: 260,
                 height: 60,
-                child: Text('Complete',
-                    style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),
+                child:Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.black,
+                  child: Text('Upload',
+                    style: TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold)),),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(40),
                   color: Color.fromARGB(255, 18, 13, 93),
                 ),
               ),

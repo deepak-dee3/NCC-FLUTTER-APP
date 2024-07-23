@@ -22,16 +22,18 @@ class _forgetpasswordState extends State<forgetpassword> {
     try{
       await FirebaseAuth.instance.sendPasswordResetEmail(email: forget_email);
 
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Check your mailbox ',style:TextStyle(fontSize: 20))));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.red,content: Text('Check your mailbox ',style:TextStyle(fontSize: 15))));
 
-    Navigator.push(context,MaterialPageRoute(builder: (context) => Home()));
+     Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context) => Home()),(route) => false,);
+       return false;
 
       //  Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
 
       }on FirebaseAuthException catch (e)
       {
         if(e.code == 'user-not-found'){
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User Found For This Email',style:TextStyle(fontSize: 20))));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.red,
+          content: Text('No User Found For This Email',style:TextStyle(fontSize: 15))));
         }}
   }
 
@@ -97,7 +99,7 @@ class _forgetpasswordState extends State<forgetpassword> {
           Center(child:Container(
             decoration: BoxDecoration(
               border: Border.all(width: 2,color: Colors.black),
-              borderRadius: BorderRadius.circular(20),color:Colors.green.withOpacity(0.1)),
+              borderRadius: BorderRadius.circular(20),color:Colors.blue.withOpacity(0.1)),
             width:350,height:350,
             child:Form(key:forget_formkey,
               child:Column(children: [

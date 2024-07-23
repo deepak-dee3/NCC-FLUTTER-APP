@@ -80,7 +80,7 @@ class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
        
       ],
       initialPage: 0,
-      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.black),
+      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.red),
       
     );
   }
@@ -472,6 +472,8 @@ class _HomeState extends State<Home> {
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
         
         children: [
+          
+          Expanded(child: 
 
           GestureDetector(
             onTap:()
@@ -491,7 +493,7 @@ class _HomeState extends State<Home> {
 
                 Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
                 SizedBox(width: 10,),
-                Text('Secure Key',style: TextStyle(fontSize: 20),)
+                Text('Secure Key',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
 
               ],),
               content: Column(
@@ -518,7 +520,7 @@ class _HomeState extends State<Home> {
               ),
               actions: <Widget>[
                 TextButton(
-                  child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey),),),
+                  child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),),
                   onPressed: () {
                     if (passkeyController.text.trim() == passkey) {
                       passkeyController.clear(); // Clear the passkey field
@@ -591,7 +593,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),)),
 
-          ),),
+          ),),),
+          SizedBox(width: screenWidth * 0.1,),
+
+          Expanded(child: 
           
            GestureDetector(
             onTap:(){
@@ -641,7 +646,7 @@ class _HomeState extends State<Home> {
 
           )),),
 
-        ],
+      )],
       ),),
 
         SizedBox(height: 10,),
