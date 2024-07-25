@@ -9,6 +9,7 @@ import 'package:ncc/cadet_fill_details.dart';
 import 'package:ncc/firebase_options.dart';
 import 'package:ncc/CADETS/cadet_main_page.dart';
 import 'package:ncc/ncc_content.dart';
+import 'package:ncc/privacy_policy.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -77,6 +78,7 @@ class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
         
         Home(),
         contents(), 
+        privacypolicy(),
        
       ],
       initialPage: 0,
