@@ -99,7 +99,7 @@ WillPopScope(
 
             Padding(padding: EdgeInsets.only(left:20),child:Text('CADET\'S DETAILS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold))),),
             
-           Padding(padding: EdgeInsets.only(left:124),child:  Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
+         //  Padding(padding: EdgeInsets.only(left:124),child:  Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
         ],),)),),
 
           
@@ -133,7 +133,7 @@ WillPopScope(
 
             Padding(padding: EdgeInsets.only(left:20),child:Text('UPLOAD CAMP / EVENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),),
             
-           Padding(padding: EdgeInsets.only(left:64),child:  Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,))
+         //  Padding(padding: EdgeInsets.only(left:64),child:  Icon(Icons.arrow_circle_right_outlined,color: Colors.blue,))
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -166,7 +166,7 @@ WillPopScope(
 
             Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW CAMP / EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
             
-            Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
+          //  Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -198,7 +198,7 @@ WillPopScope(
 
             Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
             
-            Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
+          //  Padding(padding: EdgeInsets.only(left:89),child: Icon(Icons.arrow_circle_right_outlined,color:Colors.blue))
           ],),)),),
       
            SizedBox(height: 30,)

@@ -191,6 +191,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           readOnly: true,
           
           decoration: InputDecoration(
+            prefixIcon: Icon(Icons.numbers_sharp),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),
             
              hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
@@ -215,7 +217,9 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.person),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),
+            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -237,7 +241,32 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.dtrate.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_2),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),
+            hintText:'    ${widget.dtrate.toUpperCase()}' ,hintStyle: TextStyle(
+          fontFamily: 'Lato-Regular',
+          color: Colors.white, 
+          
+        ),
+            border: InputBorder.none),
+        ),
+
+        
+      )),
+      SizedBox(height: 10,),
+
+      Padding(padding: EdgeInsets.all(10),child:Container(
+        
+
+        decoration: BoxDecoration(
+          
+          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
+        child:TextField(readOnly: true,
+          
+          
+          
+          decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_3),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.grp.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -258,28 +287,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.grp.toUpperCase()}' ,hintStyle: TextStyle(
-          fontFamily: 'Lato-Regular',
-          color: Colors.white, 
-        ),
-            border: InputBorder.none),
-        ),
-
-        
-      )),
-      SizedBox(height: 10,),
-
-      Padding(padding: EdgeInsets.all(10),child:Container(
-        
-
-        decoration: BoxDecoration(
-          
-          color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
-        child:TextField(readOnly: true,
-          
-          
-          
-          decoration: InputDecoration(hintText:'    ${widget.btn.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.groups),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.btn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -327,7 +336,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           color:Colors.white.withOpacity(0.2),borderRadius: BorderRadius.circular(10),),
         child:TextField(readOnly: true,
          
-          decoration: InputDecoration(hintText:'    ${widget.DOB}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.date_range),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.DOB}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -354,7 +364,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'   +91 ${widget.phn}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.phone),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'   +91 ${widget.phn}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -377,7 +388,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         maxLines: null, 
         style: TextStyle(overflow: TextOverflow.visible,),
       
-          decoration: InputDecoration(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.location_pin),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),
             contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             hintStyle: TextStyle(
           fontFamily: 'Lato',
@@ -402,7 +414,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.ftname.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.person_4_outlined),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.ftname.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -423,7 +436,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'   +91 ${widget.ftphn.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.phone_android),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'   +91 ${widget.ftphn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -444,7 +458,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.ftocc.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.work),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.ftocc.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -465,7 +480,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.mtname.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.person_3_outlined),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.mtname.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -486,7 +502,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'   +91 ${widget.mtphn.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.phone_android),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'   +91 ${widget.mtphn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -507,7 +524,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.mtocc.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.work),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.mtocc.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -558,7 +576,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.accnum.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.account_balance),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.accnum.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -581,7 +600,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.accbrnch.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.account_tree_outlined),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.accbrnch.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -602,7 +622,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.ifsc.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.code),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.ifsc.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -622,7 +643,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           readOnly: true,
           
           
-          decoration: InputDecoration(hintText:'    ${widget.adh.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(prefixIcon: Icon(Icons.attach_file),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.adh.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -675,7 +697,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.bats.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_right),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.bats.toUpperCase()}' ,
           hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -703,7 +726,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.bate.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.arrow_circle_left),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.bate.toUpperCase()}' ,
           contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
@@ -734,7 +758,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'${widget.clg.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.school),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'${widget.clg.toUpperCase()}' ,
           contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
@@ -759,7 +784,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.deg.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.book),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.deg.toUpperCase()}' ,
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -782,7 +808,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(hintText:'    ${widget.dpt.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.sell_sharp),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.dpt.toUpperCase()}' ,
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -805,7 +832,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           readOnly: true,
           
           
-          decoration: InputDecoration(hintText:'    ${widget.bl.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.bloodtype),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.bl.toUpperCase()}' ,
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -827,7 +855,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           readOnly: true,
           
           
-          decoration: InputDecoration(hintText:'    ${widget.com.toUpperCase()}' ,
+          decoration: InputDecoration(prefixIcon: Icon(Icons.people),
+             prefixIconColor: Color.fromARGB(255, 29, 2, 110),hintText:'    ${widget.com.toUpperCase()}' ,
            hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color:Colors.white, 

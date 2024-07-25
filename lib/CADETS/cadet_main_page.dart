@@ -108,8 +108,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
                             child:
            Padding(padding: EdgeInsets.only(left: 20),child: Text('UPDATE PROFILE',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
            
-            SizedBox(width: 100,),
-            Padding(padding: EdgeInsets.only(left:7 ),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
+            
+            //Padding(padding: EdgeInsets.only(left:7 ),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
 
           GestureDetector(onTap:(){
@@ -142,7 +142,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
            Padding(padding: EdgeInsets.only(left: 20),child: Text('UPLOAD ACHIEVEMENTS',style:TextStyle(fontWeight: FontWeight.bold,color:Colors.blue)),),),
             
             
-          Padding(padding: EdgeInsets.only(left: 63),child:Icon(Icons.chevron_right,size: 30,color: Colors.blue,)),
+          //Padding(padding: EdgeInsets.only(left: 63),child:Icon(Icons.chevron_right,size: 30,color: Colors.blue,)),
           ],),)),),
 
            GestureDetector(onTap:(){
@@ -173,8 +173,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 
            Padding(padding:EdgeInsets.only(left:20),child: Text('VIEW EVENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
             
-            SizedBox(width: 145,),
-            Padding(padding:EdgeInsets.only(left:11),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
+           
+           // Padding(padding:EdgeInsets.only(left:11),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
           GestureDetector(onTap:(){
 
@@ -208,8 +208,8 @@ class _cadet_main_pageState extends State<cadet_main_page> {
 
             Padding(padding: EdgeInsets.only(left:20),child:Text('VIEW ACHIEVEMENTS',style:TextStyle(color:Colors.blue,fontWeight: FontWeight.bold)),),),
   
-            SizedBox(width: 85,),
-           Padding(padding: EdgeInsets.only(left:4),child: Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
+            
+          // Padding(padding: EdgeInsets.only(left:4),child: Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
           ],),)),),
          
           SizedBox(height: 30,),   

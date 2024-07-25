@@ -374,7 +374,8 @@ _mothername_controller .clear();
 
 
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.numbers_sharp),
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.numbers_sharp),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
 
             
@@ -395,7 +396,8 @@ _mothername_controller .clear();
                     return null;
                   },
             keyboardType: TextInputType.name,
-            decoration: InputDecoration(prefixIcon: Icon(Icons.person),
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.person),
              prefixIconColor: Color.fromARGB(255, 29, 2, 110),
              
 
