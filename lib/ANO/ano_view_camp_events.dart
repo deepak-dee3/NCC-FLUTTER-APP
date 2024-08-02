@@ -22,11 +22,21 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
       final ListResult result = await ref.listAll();
 
       // Iterate through each item and fetch download URL
-      for (var imageRef in result.items) {
+     /* for (var imageRef in result.items) {
         final url = await imageRef.getDownloadURL();
         final title = imageRef.name; // Use image name as title
         imageList.add({'url': url, 'title': title});
+      }*/
+       for (var imageRef in result.items) {
+        final url = await imageRef.getDownloadURL();
+        final title = imageRef.name ?? null; // Use image name as title
+        final metadata = await imageRef.getMetadata();
+        final timeCreated = metadata.timeCreated;
+        imageList.add({'url': url, 'title': title, 'timeCreated': timeCreated});
       }
+
+      // Sort images by creation date, most recent first
+      imageList.sort((a, b) => b['timeCreated'].compareTo(a['timeCreated']));
     } catch (e) {
       print('Error fetching images: $e');
       // Handle error as needed
@@ -119,7 +129,12 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
         future: _fetchImageUrlsWithTitles(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return Center(child:  Container(alignment: Alignment.center,
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 2.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1722269088878.json')),),);
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
@@ -130,6 +145,10 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
               itemBuilder: (context, index) {
                 final imageUrl = snapshot.data![index]['url'];
                 final title = snapshot.data![index]['title'];
+
+                 final timeCreated = snapshot.data![index]['timeCreated'];
+                          final now = DateTime.now();
+                          final isNew = now.difference(timeCreated).inHours < 48;
 
                 return GestureDetector(
                   onTap: () {
@@ -156,6 +175,25 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
                         ),
                         child: Stack(
                           children: [
+                            if (isNew)
+                                        Positioned(
+                                          top: 8,
+                                          right: 8,
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                            decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadius.circular(5),
+                                            ),
+                                            child: Text(
+                                              'NEW',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                             Positioned(
                               bottom: 0,
                               left: 0,

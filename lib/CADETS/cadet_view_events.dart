@@ -25,6 +25,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
         final title = imageRef.name; // Use image name as title
         imageList.add({'url': url, 'title': title});
       }
+      
     } catch (e) {
       print('Error fetching images: $e');
       // Handle error as needed
@@ -60,6 +61,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
               itemBuilder: (context, index) {
                 final imageUrl = snapshot.data![index]['url'];
                 final title = snapshot.data![index]['title'];
+                 
 
                 return Padding(
                   padding: const EdgeInsets.all(20.0),

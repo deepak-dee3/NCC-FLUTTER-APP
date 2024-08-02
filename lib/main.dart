@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ncc/ANO/ano_view_details.dart';
@@ -25,6 +25,7 @@ import 'package:metaballs/metaballs.dart';
 import 'package:ncc/sign_in.dart';
 import 'package:flutter/services.dart';
 import 'package:ncc/Notification/main_page_notification.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 
@@ -108,9 +109,12 @@ class _HomeState extends State<Home> {
 
  
       userlogin() async {
+        
     try {
+      
       if (login_email.isNotEmpty && login_pass.isNotEmpty ) { // Check if both email and password are provided
         await FirebaseAuth.instance.signInWithEmailAndPassword(email: login_email, password: login_pass);
+       
         Navigator.push(
           context,
           PageRouteBuilder(
@@ -147,10 +151,15 @@ class _HomeState extends State<Home> {
           content: Text('Wrong Password provided by user',
               style: TextStyle(fontSize: 20))));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.red,
-          content: Text('Error in your mail and password',
-              style: TextStyle(fontSize: 15))));
+      Fluttertoast.showToast(
+  msg: "Error in your mail and password",
+  toastLength: Toast.LENGTH_SHORT,
+  gravity: ToastGravity.TOP,
+  timeInSecForIosWeb: 1,
+  backgroundColor: Colors.red,
+  textColor: Colors.white,
+  fontSize: 15.0
+);
     }
   } catch (e) {
     print('Exception: $e'); // Logging the general error for debugging
