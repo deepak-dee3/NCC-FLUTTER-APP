@@ -26,7 +26,7 @@ import 'package:ncc/sign_in.dart';
 import 'package:flutter/services.dart';
 import 'package:ncc/Notification/main_page_notification.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 
 
@@ -43,6 +43,9 @@ void main() async
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
+OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
+  OneSignal.initialize("a0fd7f6e-7fa9-401a-98c5-2649325e457c");
+  OneSignal.Notifications.requestPermission(true);
   runApp(NCC());
 }
 

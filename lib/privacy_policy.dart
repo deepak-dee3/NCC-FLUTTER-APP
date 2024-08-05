@@ -19,7 +19,7 @@ class privacypolicy extends StatelessWidget{
 
               Expanded(flex: 1,
                 child:Align(alignment: Alignment.centerLeft,child: Container(
-                  child: Text('Privacy Policy :',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color: Color.fromARGB(255, 229, 7, 18)),),
+                  child: Text('Privacy Policy :',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w900,color: Color.fromARGB(255, 229, 7, 18)),),
                 )
                 
                   ),),
