@@ -154,11 +154,1337 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           },
                         ),),
                       ),
-              ),),
+              ),
+              ),
             ),
 
     SizedBox(height:40),
-    Padding(padding: EdgeInsets.all(10),
+    SizedBox(height:50),
+
+     Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('NCC DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
+
+        SizedBox(height: 50,),
+    Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Regimental Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.numbers_sharp),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.regg_no.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.person),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Directorate",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                   //  controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                        
+            
+                          prefixIcon: Icon(Icons.diversity_2),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.dtrate.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Group",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.diversity_3),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.grp.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Battalion",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.group),
+                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.btn.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height:50),
+    
+     Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('PERSONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
+
+        SizedBox(height: 50,),
+   
+
+         
+    
+    
+    Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Date Of Birth",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.date_range),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.DOB}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mobile Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.phone),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.phn.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Address",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                   //  controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                        
+            
+                          prefixIcon: Icon(Icons.location_pin),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.adrs.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Father's Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person_4_outlined),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.ftname.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Father Mobile Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.phone_android),
+                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.ftphn.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height:20),
+               Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Father Occupation",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.work),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.ftocc.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother's Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.person_3_outlined),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.mtname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                   //  controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                        
+            
+                          prefixIcon: Icon(Icons.phone_android),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.mtphn.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother Occupation",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.work),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.mtocc.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 50,),
+                Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
+
+        SizedBox(height: 50,),
+    Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Account Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.account_balance),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.accnum.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Bank Branch",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.account_tree_outlined),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.accbrnch.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "IFSC Code",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                   //  controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                        
+            
+                          prefixIcon: Icon(Icons.code),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.ifsc.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Adhar Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock_person),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.adh.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+                 SizedBox(height:50),
+    
+     Padding(padding: EdgeInsets.all(10),
+    child:Shimmer.fromColors(
+        baseColor: Colors.black,
+        highlightColor: Colors.white,
+        child:Text('ADDITIONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
+
+        SizedBox(height: 50,),
+   
+
+         
+    
+    
+    Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Batch Starts",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.arrow_circle_right),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.bats.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Batch Ends",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.arrow_circle_left),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.bate.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "College Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                        maxLines: null, 
+        
+        
+                   //  controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                        overflow: TextOverflow.visible,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                        
+            
+                          prefixIcon: Icon(Icons.school),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.clg.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Degree",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.book),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.deg.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+               SizedBox(height: 20,),
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Department",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                    // controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.sell_sharp),
+                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.dpt.toUpperCase()}' ,
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height:20),
+               Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Blood Group",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                           color: Color.fromARGB(255, 149, 135, 5),
+                          ),
+                    ),
+                    TextField(
+                       readOnly: true,
+                     //controller: login_emailcontroller,
+               
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                      decoration: InputDecoration(
+                         
+                          prefixIcon: Icon(Icons.bloodtype),
+                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.bl.toUpperCase()}',
+                           hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: 20,),
+
+
+              Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Community",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: Color.fromARGB(255, 149, 135, 5),
+                       
+                          ),
+                    ),
+                    TextField( readOnly: true,
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.people),
+                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          hintText: '${widget.com.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    ]))));
+  }
+}
+
+/* Padding(padding: EdgeInsets.all(10),
     child:Shimmer.fromColors(
         baseColor: Colors.black,
         highlightColor: Colors.white,
@@ -181,7 +1507,8 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
     child:Column(children: [
       SizedBox(height: 19,),
 
-      Padding(padding: EdgeInsets.all(10),child:Container(
+      Padding(padding: EdgeInsets.all(10),child:
+      Container(
         
 
         decoration: BoxDecoration(
@@ -241,7 +1568,9 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_2),
+          decoration: InputDecoration(
+            
+            prefixIcon: Icon(Icons.diversity_2),
             prefixIconColor: Color.fromARGB(255, 187, 168, 2),
             hintText:'${widget.dtrate.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
@@ -265,8 +1594,10 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(prefixIcon: Icon(Icons.diversity_3),
-             prefixIconColor: Color.fromARGB(255, 187, 168, 2),hintText:'${widget.grp.toUpperCase()}' ,hintStyle: TextStyle(
+          decoration: InputDecoration(
+            
+            prefixIcon: Icon(Icons.diversity_3),
+             prefixIconColor: Color.fromARGB(255, 187, 168, 2),hintText:'${widget.grp.toUpperCase()}' '${widget.btn.toUpperCase()}' '${widget.dtrate.toUpperCase()}' '${widget.cadetname.toUpperCase()}',hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
         ),
@@ -287,7 +1618,9 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
           
           
           
-          decoration: InputDecoration(prefixIcon: Icon(Icons.groups),
+          decoration: InputDecoration(
+            
+            prefixIcon: Icon(Icons.groups),
              prefixIconColor: Color.fromARGB(255, 187, 168, 2),hintText:'${widget.btn.toUpperCase()}' ,hintStyle: TextStyle(
           fontFamily: 'Lato-Regular',
           color: Colors.white, 
@@ -298,6 +1631,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
         
       )),
       SizedBox(height: 10,),
+
 
       
           
@@ -749,6 +2083,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
          maxLines: null, 
         style: TextStyle(overflow: TextOverflow.visible,),
         
+        
           
           
           
@@ -862,9 +2197,4 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
       )),
 
     ],)
-    ),
-    
-
-    ]))));
-  }
-}
+    ), ]))));*/

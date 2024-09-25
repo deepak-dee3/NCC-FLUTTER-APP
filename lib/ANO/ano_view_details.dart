@@ -21,6 +21,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
   @override
   Widget build(BuildContext context) {
     
+    
     return 
 WillPopScope(
       onWillPop: () async {

@@ -98,7 +98,7 @@ class _cadet_up2State extends State<cadet_up2> {
       },
       child:
     Scaffold(
-
+      
       body:
       /*Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),

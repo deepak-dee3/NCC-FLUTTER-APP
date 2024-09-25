@@ -62,7 +62,8 @@ class NCC extends StatelessWidget{
       pageTransitionType:PageTransitionType.leftToRight,
      
      
-    ));}
+    ));
+    }
 
 }
 

@@ -51,7 +51,7 @@ Future<void> pickimage() async {
     }
   }
 
-  Future<File> compressImage(XFile image) async {
+  /*Future<File> compressImage(XFile image) async {
   final compressedImageData = await FlutterImageCompress.compressWithFile(
     image.path,
     minWidth: 900,
@@ -68,7 +68,43 @@ Future<void> pickimage() async {
   final compressedImageFile = File(tempFilePath)..writeAsBytesSync(compressedImageData);
 
   return compressedImageFile;
-}
+}*/
+  Future<File> compressImage(XFile image) async {
+    final tempDir = await getTemporaryDirectory();
+    final tempFilePath = '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
+  
+    int minWidth = 200;
+    int minHeight = 200;
+    int quality = 95;
+
+    File compressedFile;
+
+    do {
+      final compressedImageData = await FlutterImageCompress.compressWithFile(
+        image.path,
+        minWidth: minWidth,
+        minHeight: minHeight,
+        quality: quality,
+      );
+
+      if (compressedImageData == null) {
+        throw Exception("Error compressing image");
+      }
+
+      compressedFile = File(tempFilePath)..writeAsBytesSync(compressedImageData);
+
+      // Reduce quality and dimensions incrementally if the size is still greater than 200 KB
+      if (compressedFile.lengthSync() > 200 * 1024) {
+        quality -= 10; // Decrease quality by 10%
+        minWidth = (minWidth * 0.2).round(); // Decrease width by 10%
+        minHeight = (minHeight * 0.2).round(); // Decrease height by 10%
+      }
+    } while (compressedFile.lengthSync() > 200 * 1024 && quality > 10);
+
+    return compressedFile;
+  }
+
+
 
   Future<void> uploadfirebase() async {
     try {

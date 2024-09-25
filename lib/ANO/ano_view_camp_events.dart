@@ -3,7 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 class ano_camp_view_details extends StatefulWidget {
   @override
   State<ano_camp_view_details> createState() => _ano_camp_view_detailsState();
@@ -56,7 +56,7 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
                 itemCount: images.length,
                 builder: (context, index) {
                   return PhotoViewGalleryPageOptions(
-                    imageProvider: NetworkImage(images[index]['url']),
+                    imageProvider:  CachedNetworkImageProvider(images[index]['url']),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                     heroAttributes: PhotoViewHeroAttributes(tag: images[index]['url']),
@@ -169,7 +169,8 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.blue,
                           image: DecorationImage(
-                            image: NetworkImage(imageUrl),
+                            image: CachedNetworkImageProvider(
+                              imageUrl),
                             fit: BoxFit.cover,
                           ),
                         ),

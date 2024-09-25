@@ -94,13 +94,19 @@ class _cadet_main_pageState extends State<cadet_main_page> {
          },
           child:Padding(padding: EdgeInsets.only(top:30),
           child:Container(
+            
+            
             width:330,
             height: 100,
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 2)
+            decoration: BoxDecoration(
+              //image: DecorationImage(image: NetworkImage('',),fit: BoxFit.cover,),
+              boxShadow: [
+              BoxShadow(color: Colors.white,spreadRadius: 2,blurRadius: 2)
             ],
               color: Color.fromARGB(255, 39, 3, 116),borderRadius: BorderRadius.circular(20)),
             child: Row(children: [
+
+             // Image.network('https://th.bing.com/th/id/OIP.CV6RfdJ6o-gx80x5ZV2dLQHaE8?w=265&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7',fit: BoxFit.fill,),
              
               Shimmer.fromColors(
                             baseColor: Colors.blue,
@@ -110,7 +116,11 @@ class _cadet_main_pageState extends State<cadet_main_page> {
            
             
             //Padding(padding: EdgeInsets.only(left:7 ),child:Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
-          ],),)),),
+          ],)
+         // Image.network("https://th.bing.com/th/id/OIP.CV6RfdJ6o-gx80x5ZV2dLQHaE8?w=265&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",fit: BoxFit.contain,)
+         
+
+          )),),
 
           GestureDetector(onTap:(){
             Navigator.push(context,PageRouteBuilder(
