@@ -82,7 +82,7 @@ class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
       
       pages: [
         
-        Home1(),
+        Home(),
         contents(), 
         privacypolicy(),
        

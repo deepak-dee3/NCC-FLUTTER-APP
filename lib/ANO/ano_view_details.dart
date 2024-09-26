@@ -9,7 +9,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
 
-
+/*
 class ano_view_details extends StatefulWidget
 {
   @override
@@ -206,5 +206,189 @@ WillPopScope(
           
         ],)
       )   ))));
+  }
+}*/
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
+
+
+class ano_view_details extends StatefulWidget{
+  @override
+  State<ano_view_details> createState() => _ano_view_detailsState();
+}
+
+class _ano_view_detailsState extends State<ano_view_details> {
+  @override
+  Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.width;
+    var screenWidth = MediaQuery.of(context).size.height;
+
+   return  WillPopScope(
+      onWillPop: () async {
+        // Handle back button press
+        Navigator.pop(context);
+        return true;
+      },
+      child:  Scaffold(
+    backgroundColor: Colors.white,
+    
+
+    body:Container(child:Center(
+      child:Column(
+        children: [
+          SizedBox(height: screenHeight*0.1,),
+           Center(child: Container(
+            height: 250,
+            width: 100,child:Transform.scale(
+            scale: 2.0, 
+   
+            child:Lottie.asset('assets/animation/Animation - 1721312169152.json'),
+            ),),
+          ),
+
+          SizedBox(height: screenHeight*0.08,),
+
+          Container(
+  height: 430,
+  width: 330,
+  //color: Colors.grey,
+  child: GridView(
+    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      maxCrossAxisExtent: 150, // Adjusted for 2 columns, each item taking up max 150 width
+      crossAxisSpacing: 30,
+      mainAxisSpacing: 30,
+    ),
+    children: [
+      GestureDetector(onTap:(){
+        //Navigator.push(context, MaterialPageRoute(builder: (context) => EventsListPagess_admin()));
+        Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ccadet_details(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+      },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue),
+      child:Column(children:[
+        SizedBox(height: screenHeight*0.09,),
+        Icon(Icons.group,color:  const Color.fromARGB(255, 113, 9, 2),size: 30,),
+          SizedBox(height: screenHeight*0.04,),
+        Align(alignment: Alignment.centerLeft,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+          SizedBox(height: screenHeight*0.01,),
+                    Text("Cadet's",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))])
+      ),),
+
+      GestureDetector(onTap:(){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => EventsListPages()));
+         Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => upload_camp_detailss(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+        
+      },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child:Column( children:[
+         SizedBox(height: screenHeight*0.09,),
+        Icon(Icons.upload,color: const Color.fromARGB(255, 113, 9, 2),size: 30,),
+         SizedBox(height: screenHeight*0.04,),
+ Align(alignment: Alignment.centerLeft,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("Upload",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+          SizedBox(height: screenHeight*0.01,),
+                    Text("Camps",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))        ])),),
+
+       GestureDetector(onTap:(){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalList()));
+         Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details() ,
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);   
+
+       },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child: Column(children:[
+         SizedBox(height: screenHeight*0.09,),
+        Icon(Icons.remove_red_eye_sharp,color: const Color.fromARGB(255, 113, 9, 2),size: 30,),
+         SizedBox(height: screenHeight*0.04,),
+         Align(alignment: Alignment.centerLeft,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+          SizedBox(height: screenHeight*0.01,),
+                    Text("Camps",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+
+         
+
+        ],))
+        ]))
+        ),
+
+GestureDetector(onTap:(){
+ // Navigator.push(context, MaterialPageRoute(builder: (context) => new_event()));
+  Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+},
+  child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child:Column(children:[ 
+         SizedBox(height: screenHeight*0.09,),
+        Icon(Icons.remove_red_eye_sharp,color: const Color.fromARGB(255, 113, 9, 2),size: 30,), //const Color.fromARGB(255, 36, 1, 113)
+         SizedBox(height: screenHeight*0.04,),
+        Align(alignment: Alignment.centerLeft,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+          SizedBox(height: screenHeight*0.01,),
+                    Text("Achievements",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))
+        ]))),
+    ],
+  ),
+)
+        ],
+      )
+    ),)
+   ));
   }
 }
