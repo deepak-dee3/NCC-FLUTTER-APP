@@ -8,6 +8,7 @@ class privacypolicy extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
 
       body:Container(
           child: Padding(padding: EdgeInsets.all(20),child:Column(

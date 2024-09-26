@@ -1,4 +1,3 @@
-import 'package:ncc/new.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -31,76 +30,13 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 
 
-void main() async
-{
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(systemNavigationBarColor: Colors.white,
-    statusBarIconBrightness: Brightness.dark,
-    statusBarColor: Colors.transparent));
-  WidgetsFlutterBinding.ensureInitialized();
-  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
-  await NotificationService.init();
-  tz.initializeTimeZones();
- 
-  await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
-OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
-  OneSignal.initialize("a0fd7f6e-7fa9-401a-98c5-2649325e457c");
-  OneSignal.Notifications.requestPermission(true);
-  runApp(NCC());
-}
 
-class NCC extends StatelessWidget{
+class Home1 extends StatefulWidget{
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-       debugShowCheckedModeBanner: false,
-      home:AnimatedSplashScreen(nextScreen: LiquidSwipeScreen() ,
-      splash:Text('UNITY AND DISCIPLINE',style:TextStyle(fontWeight: FontWeight.bold ,fontSize: 15)),
-      duration: 3000,
-     
-      backgroundColor: Colors.white,
-      pageTransitionType:PageTransitionType.leftToRight,
-     
-     
-    ));
-    }
-
+  State<Home1> createState() => _Home1State();
 }
 
-class LiquidSwipeScreen extends StatefulWidget {
-  @override
-  State<LiquidSwipeScreen> createState() => _LiquidSwipeScreenState();
-}
-
-class _LiquidSwipeScreenState extends State<LiquidSwipeScreen> {
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return LiquidSwipe(
-      
-      pages: [
-        
-        Home1(),
-        contents(), 
-        privacypolicy(),
-       
-      ],
-      initialPage: 0,
-      slideIconWidget: Icon(Icons.arrow_back_ios, color: Colors.red),
-      
-    );
-  }
-}
-
-
-class Home extends StatefulWidget{
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class _Home1State extends State<Home1> {
 
    String login_email = ' ', login_pass = ' '; 
    final String passkey = '123';
@@ -216,7 +152,15 @@ class _HomeState extends State<Home> {
 
       SizedBox(height:screenHeight * 0.09),
 
-      Center(
+     /* Center(
+      child: 
+          Image(
+            image: AssetImage('assets/ncclogo-removebg-preview.png'),
+            width: 120,
+            height: 120,
+          ),
+    ),*/
+     Center(
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -241,41 +185,9 @@ class _HomeState extends State<Home> {
       ),
     ),
    // Center(child:Image.asset('assets/ncc_app-removebg-preview.png',)),
-      SizedBox(height: screenHeight * 0.08,),
+      SizedBox(height: screenHeight * 0.06,),
 
-     /* Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.only(left:20),
-      //color: Colors.red,
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
-         boxShadow: [
-            BoxShadow(
-              color: Colors.red,
-              blurRadius: 3,
-            )
-          ]
-      
-      ),
-      child:TextFormField(
-        controller: login_emailcontroller,
-                validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your user email";
-                    }
-                    return null;
-                  },
-        decoration: InputDecoration(border: InputBorder.none,
-           // focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 29, 2, 110))),
-        hintText: '     Enter your email',
-        ),  
-      )
-      
-      ),*/
+  
       Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -390,44 +302,6 @@ class _HomeState extends State<Home> {
               ),
 
 
-      /*Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.only(left:20),
-      //color: Colors.red,
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.red.shade500,
-         boxShadow: [
-            BoxShadow(
-              color: Colors.red,
-              blurRadius: 3,
-            )
-          ]
-      
-      ),
-      
-      child:
-        TextFormField(
-         controller: login_passcontroller,
-                validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your user password";
-                    }
-                    return null;
-                  },
-        decoration: InputDecoration(border: InputBorder.none,
-
-        hintText: '     Enter your password',
-        ),
-        
-        textAlign: TextAlign.start,
-        
-        
-      )
-      ),*/
       SizedBox(height:screenHeight * 0.03,),
       
       GestureDetector(
@@ -436,7 +310,7 @@ class _HomeState extends State<Home> {
            Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
          
         },
-        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
+        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 24, 4, 135),fontWeight: FontWeight.bold,fontSize: 12)),),),
       
       SizedBox(height:screenHeight * 0.035),
       GestureDetector(
@@ -461,7 +335,7 @@ class _HomeState extends State<Home> {
       //color: Colors.red,
 
       decoration: BoxDecoration(
-         boxShadow: [
+        /* boxShadow: [
                   BoxShadow(
                     color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
                     blurRadius: 5,
@@ -470,173 +344,30 @@ class _HomeState extends State<Home> {
                   ),
                  
                   
-                ],
-        borderRadius: BorderRadius.circular(40),
-        color: Color.fromARGB(255, 19, 4, 104),
+                ],*/
+        borderRadius: BorderRadius.circular(15),
+        //color: Color.fromARGB(255, 19, 4, 104),
+        color:const Color.fromARGB(255, 7, 128, 227)
        
       
       ),child:
       
-        Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.blue,
-          child:Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,)))
+        Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.w900,fontSize: 17,))
       
       )),
-      SizedBox(height:screenHeight*0.02),
-      Text("(Or)",style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(255, 103, 41, 237)),),
-      
+      SizedBox(height:screenHeight*0.03),
+       GestureDetector(
+              onTap:(){
 
-      Padding(padding: EdgeInsets.all(20),child: Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-        children: [
-          
-          Expanded(child: 
-
-          GestureDetector(
-            onTap:()
-            {
-              
-
-               showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        String? passkeyError;
-        return StatefulBuilder(
-          builder: (context, setState) {
-            return AlertDialog(
-              shadowColor: Colors.blue.shade900,
-              backgroundColor: Color.fromARGB(255, 10, 138, 243),
-              title: Row(children: [
-
-                Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
-                SizedBox(width: 10,),
-                Text('Secure Key',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-
-              ],),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextField(
-                    style: TextStyle(color:Colors.white),
-                    controller: passkeyController,
-                    keyboardAppearance: Brightness.light,
-                   
-                    decoration: InputDecoration(
-                     
-                      hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.white)),
-                  ),
-                  if (passkeyError != null)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        passkeyError!,
-                        style: TextStyle(color: Colors.red, fontSize: 16,fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                ],
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),),
-                  onPressed: () {
-                    if (passkeyController.text.trim() == passkey) {
-                      passkeyController.clear(); // Clear the passkey field
-                      Navigator.of(context).pop(); // Close the dialog
-                      Navigator.push(
-                        context,
-                         PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                          const begin = 0.0;
-                          const end = 1.0;
-                          const curve = Curves.elasticIn;
-
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                          var opacityAnimation = animation.drive(tween);
-
-                          return FadeTransition(
-                            opacity: opacityAnimation,
-                            child: child,
-                          );
-                        },
-                      ),
-                      );
-                    } else {
-                      passkeyController.clear();
-                      setState(() {
-                        passkeyError = 'Enter correct pass key';
-                      });
-                    }
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      },
-    );
-
-            },
-            child:Container(
-            width: 150,height: 60,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 21, 3, 123),
-                borderRadius: BorderRadius.circular(40),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
-                    blurRadius: 5,
-                    spreadRadius: 1,
-                    offset: Offset(0, 0),
-                  ),
-                  
-                  
-                ],
-              ),
-              child: Center(child:
-              Shimmer.fromColors(
                
-               
-                
-                            baseColor: Colors.white,
-                            highlightColor: Colors.blue,
-                            child:Text(
-                  'ANO ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                  ),
-                ),)),
+              },child:Container(alignment: Alignment.center,
+      height:  screenHeight * 0.08,
+      width:double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      //color: Colors.red,
 
-          ),),),
-          SizedBox(width: screenWidth * 0.1,),
-
-          Expanded(child: 
-          
-           GestureDetector(
-            onTap:(){
-
-               showModalBottomSheet(context: context, builder: (BuildContext context) {
-          return ncc_sign();
-               },
-               // backgroundColor: Colors.transparent, // Set background color to transparent
-      isScrollControlled: true,
-      transitionAnimationController: AnimationController(
-        vsync: Navigator.of(context),
-        duration: Duration(milliseconds: 300),
-      )..forward(),
-               );
-
-            },
-            child:Container(
-            width: 150,height: 60,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 31, 9, 122),
-               
-                borderRadius: BorderRadius.circular(40),
-                boxShadow: [
+      decoration: BoxDecoration(
+        /* boxShadow: [
                   BoxShadow(
                     color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
                     blurRadius: 5,
@@ -644,29 +375,30 @@ class _HomeState extends State<Home> {
                     offset: Offset(0, 0),
                   ),
                  
-                ],
-              ),
-              child: Center(
-               child:
-              Shimmer.fromColors(
-                         baseColor: Colors.white,
-                            highlightColor: Colors.blue,
-                            child:Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                   // letterSpacing: 1.5,
-                  ),),
-                ),
+                  
+                ],*/
+        borderRadius: BorderRadius.circular(15),
+      //  color: Color.fromARGB(255, 19, 4, 104),
+      //color:Colors.blue
+      color:const Color.fromARGB(255, 7, 128, 227)
+       
+      
+      ),child:
+      
+       Text("Don't have an account ? Register",style:TextStyle(color: Color.fromARGB(255, 19, 4, 104),fontWeight: FontWeight.bold,fontSize: 12,))
+      
+      )),
+      SizedBox(height: screenHeight*0.05,),
 
-          )),),
-
-      )],
-      ),),
-
-        SizedBox(height: screenHeight * 0.01),
+     Center(child: Row(mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           SizedBox(width: screenWidth*0.05,),
+        
+        Text("ANO ' s Click Here To Continue",style: TextStyle( color:Color.fromARGB(255, 24, 4, 135),fontSize: 15,fontWeight: FontWeight.w900),),
+         Icon(Icons.arrow_right,size: 35,),
+      
+      ],)),
+  
 
          ],),  
     )))),

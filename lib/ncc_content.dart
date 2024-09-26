@@ -8,6 +8,7 @@ class contents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
 
       body:/*Metaballs(
   color: const Color.fromARGB(255, 66, 133, 244),
