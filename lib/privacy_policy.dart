@@ -7,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 class privacypolicy extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: Colors.white,
 
@@ -16,7 +17,7 @@ class privacypolicy extends StatelessWidget{
 
             children: [
 
-              SizedBox(height: 50,),
+              SizedBox(height: screenHeight*0.05,),
 
               Expanded(flex: 1,
                 child:Align(alignment: Alignment.centerLeft,child: Container(

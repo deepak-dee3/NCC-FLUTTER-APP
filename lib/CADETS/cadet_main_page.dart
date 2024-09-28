@@ -22,6 +22,10 @@ class _cadet_main_pageState extends State<cadet_main_page> {
  
   @override
   Widget build(BuildContext context) {
+    
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
    
    return
     WillPopScope(
@@ -31,37 +35,15 @@ class _cadet_main_pageState extends State<cadet_main_page> {
        return false;
       },
       child:Scaffold(
+        backgroundColor: Colors.white,
       body:
-     /* Metaballs(
-  color: const Color.fromARGB(255, 66, 133, 244),
-  effect: MetaballsEffect.follow(
-    growthFactor: 1,
-    smoothing: 1,
-    radius: 0.5,
-  ),
-  gradient: LinearGradient(
-    colors: [
-      const Color.fromARGB(255, 90, 60, 255),
-      const Color.fromARGB(255, 120, 255, 255),
-    ],
-    begin: Alignment.bottomRight,
-    end: Alignment.topLeft
-  ),
-  metaballs: 40,
-  animationDuration: const Duration(milliseconds: 200),
-  speedMultiplier: 1,
-  bounceStiffness: 3,
-  minBallRadius: 15,
-  maxBallRadius: 40,
-  glowRadius: 0.7,
-  glowIntensity: 0.6,
-  child: */SingleChildScrollView(scrollDirection: Axis.vertical,
+     SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(child:Center(
           //padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
 
         child:Column(children: [
 
-         SizedBox(height: 60),
+         SizedBox(height: screenHeight*0.065),
 
            Center(child:Container(
             height: 250,
@@ -69,11 +51,156 @@ class _cadet_main_pageState extends State<cadet_main_page> {
             scale: 3.0, 
    
             child:Lottie.asset('assets/animation/Animation - 1721310404627.json')),),),
+            SizedBox(height: screenHeight*0.05,),
+
+            Container(
+  height: screenHeight*0.46,//430,
+  width: screenWidth*0.86,
+  //color: Colors.grey,
+  child: GridView(
+    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      maxCrossAxisExtent: 150, // Adjusted for 2 columns, each item taking up max 150 width
+      crossAxisSpacing: 30,
+      mainAxisSpacing: 30,
+    ),
+    children: [
+      GestureDetector(onTap:(){
+        //Navigator.push(context, MaterialPageRoute(builder: (context) => EventsListPagess_admin()));
+        Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_up2(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+      },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue),
+      child:Column(children:[
+        SizedBox(height: screenHeight*0.04,),
+        Icon(Icons.manage_accounts_outlined,color:  const Color.fromARGB(255, 113, 9, 2),size: 30,),
+          SizedBox(height: screenHeight*0.02,),
+        Align(alignment: Alignment.center,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("Update",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+         // SizedBox(height: screenHeight*0.01,),
+                    Text("Profile",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))])
+      ),),
+
+      GestureDetector(onTap:(){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => EventsListPages()));
+         Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_upload_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+        
+      },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child:Column( children:[
+         SizedBox(height: screenHeight*0.04,),
+        Icon(Icons.arrow_circle_up_outlined,color: const Color.fromARGB(255, 113, 9, 2),size: 30,),
+         SizedBox(height: screenHeight*0.02,),
+ Align(alignment: Alignment.center,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("Upload",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+        //  SizedBox(height: screenHeight*0.01,),
+                    Text("Achievements",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))        ])),),
+
+       GestureDetector(onTap:(){
+        // Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalList()));
+         Navigator.push(context,PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details() ,
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);   
+
+       },
+        child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child: Column(children:[
+         SizedBox(height: screenHeight*0.04,),
+        Icon(Icons.arrow_circle_left_outlined,color: const Color.fromARGB(255, 113, 9, 2),size: 30,),
+         SizedBox(height: screenHeight*0.02,),
+         Align(alignment: Alignment.center,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+        //  SizedBox(height: screenHeight*0.01,),
+                    Text("Activities",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+
+         
+
+        ],))
+        ]))
+        ),
+
+GestureDetector(onTap:(){
+ // Navigator.push(context, MaterialPageRoute(builder: (context) => new_event()));
+  Navigator.push(context, PageRouteBuilder(
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements(),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  },
+)
+);
+},
+  child:
+      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.blue), child:Column(children:[ 
+         SizedBox(height: screenHeight*0.04,),
+        Icon(Icons.arrow_circle_right_outlined,color: const Color.fromARGB(255, 113, 9, 2),size: 30,), //const Color.fromARGB(255, 36, 1, 113)
+         SizedBox(height: screenHeight*0.02,),
+        Align(alignment: Alignment.center,
+          child:Column(children: [
+            SizedBox(width: screenWidth*0.2,),
+          Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+        //  SizedBox(height: screenHeight*0.01,),
+                    Text("Achievements",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+
+         
+
+        ],))
+        ]))),
+    ],
+  ),
+),
+SizedBox(height: screenHeight*0.035), 
+ ],)
+      )
+    ))
+   ));
+  }
+}
 
            
 
 
-         GestureDetector(onTap:(){
+      /*   GestureDetector(onTap:(){
 
           Navigator.push(context, PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) => cadet_up2(),
@@ -220,12 +347,7 @@ class _cadet_main_pageState extends State<cadet_main_page> {
   
             
           // Padding(padding: EdgeInsets.only(left:4),child: Icon(Icons.chevron_right,size: 30,color:Colors.blue)),
-          ],),)),),
+          ],),)),),*/
          
-          SizedBox(height: 30,),   
-        ],)
-      )
-    ))
-   ));
-  }
-}
+           
+       

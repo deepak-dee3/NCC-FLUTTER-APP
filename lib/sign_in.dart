@@ -67,6 +67,8 @@ class _ncc_signState extends State<ncc_sign> {
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     
     return  WillPopScope(
       onWillPop: () async{
@@ -125,7 +127,7 @@ class _ncc_signState extends State<ncc_sign> {
       
       child:Column(children: [
 
-      SizedBox(height:50),
+      SizedBox(height:screenHeight*0.055),
 
 
      Shimmer.fromColors(
@@ -142,7 +144,7 @@ class _ncc_signState extends State<ncc_sign> {
             child:Lottie.asset('assets/animation/Animation - 1721316481945.json')),),
           ),
 
-      SizedBox(height: 30,),
+      SizedBox(height: screenHeight*0.035,),
 
             Container(
               width: double.infinity,
@@ -167,9 +169,10 @@ class _ncc_signState extends State<ncc_sign> {
                     Text(
                       "Enter your name *",
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                          color: Color(0xff67727d)),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13, color: Colors.black
+                          //color: Color(0xff67727d)
+                          ),
                     ),
                     TextFormField(
                       controller: namecontroller,
@@ -194,7 +197,7 @@ class _ncc_signState extends State<ncc_sign> {
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           prefixIconColor: Colors.black,
-                          hintText: "Name",
+                          hintText: "Your Name",
                           
                           border: InputBorder.none),
                     ),
@@ -202,7 +205,7 @@ class _ncc_signState extends State<ncc_sign> {
                 ),
               )
               ),
-      SizedBox(height: 30,),
+      SizedBox(height: screenHeight*0.035),
 
       
 
@@ -263,9 +266,10 @@ class _ncc_signState extends State<ncc_sign> {
                     Text(
                       "Enter your correct mail *",
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                          color: Color(0xff67727d)),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13, color: Colors.black
+                         // color: Color(0xff67727d)
+                          ),
                     ),
                     TextFormField(
                      controller: emailcontroller,
@@ -292,7 +296,7 @@ class _ncc_signState extends State<ncc_sign> {
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.mail_lock_outlined),
                           prefixIconColor: Colors.black,
-                          hintText: "Mail",
+                          hintText: "Your Mail",
                           border: InputBorder.none),
                     ),
                   ],
@@ -300,7 +304,7 @@ class _ncc_signState extends State<ncc_sign> {
               )
               ),
 
-      SizedBox(height: 30,),
+      SizedBox(height: screenHeight*0.035),
 
      /* Container(alignment: Alignment.center,
       height: 70,
@@ -364,9 +368,11 @@ class _ncc_signState extends State<ncc_sign> {
                     Text(
                       "Enter your password *",
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.bold,color: Colors.black,
                           fontSize: 13,
-                          color: Color(0xff67727d)),
+                          //color: Color(0xff67727d)
+                          
+                          ),
                     ),
                     TextFormField(
                      controller: passcontroller,
@@ -389,14 +395,14 @@ class _ncc_signState extends State<ncc_sign> {
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.password_rounded),
                           prefixIconColor: Colors.black,
-                          hintText: "Password",
+                          hintText: "Set Your Password",
                           border: InputBorder.none),
                     ),
                   ],
                 ),
               )
               ),
-      SizedBox(height:30),
+      SizedBox(height:screenHeight*0.035),
 
      /* GestureDetector(onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
@@ -425,7 +431,7 @@ class _ncc_signState extends State<ncc_sign> {
         ),
             child: Text('Click here to continue'))),*/
 
-            SizedBox(height: 30,),
+            SizedBox(height: screenHeight*0.035,),
       GestureDetector(onTap:(){
 
               if(_formkey.currentState!.validate())
@@ -459,7 +465,7 @@ class _ncc_signState extends State<ncc_sign> {
        // Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
       ),),
-      SizedBox(height:30),
+      SizedBox(height:screenHeight*0.035),
  ],),)
     ))));
   }

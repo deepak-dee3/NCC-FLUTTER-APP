@@ -1539,8 +1539,7 @@ Container(
       
       ),child:
       
-        Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.black,
-          child:Text('Delete Details',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,)))
+        Text('Delete Details',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,))
       
       )),
       SizedBox(height: screenHeight*0.05,),

@@ -302,9 +302,10 @@ class _HomeState extends State<Home> {
                     Text(
                       "Email Address",
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold,color: Colors.black,
                           fontSize: 13,
-                          color: Color(0xff67727d)),
+                         // color: Color(0xff67727d)
+                          ),
                     ),
                     TextFormField(
                      controller: login_emailcontroller,
@@ -324,7 +325,7 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                       decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.email_outlined),
+                          prefixIcon: Icon(Icons.email_rounded),
                           prefixIconColor: Colors.black,
                           hintText: "Email",
                           border: InputBorder.none),
@@ -359,9 +360,10 @@ class _HomeState extends State<Home> {
                     Text(
                       "Password",
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                           fontWeight: FontWeight.bold,color: Colors.black,
                           fontSize: 13,
-                          color: Color(0xff67727d)),
+                          //color: Color(0xff67727d)
+                          ),
                     ),
                     TextFormField(
                       obscureText: true,
@@ -384,7 +386,7 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                       decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.password_outlined),
+                          prefixIcon: Icon(Icons.password_rounded),
                           prefixIconColor: Colors.black,
                           hintText: "Password",
                           border: InputBorder.none),

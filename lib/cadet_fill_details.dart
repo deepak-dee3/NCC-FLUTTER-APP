@@ -311,6 +311,7 @@ _mothername_controller .clear();
   @override
 
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
     
     return  
      WillPopScope(
@@ -322,13 +323,14 @@ _mothername_controller .clear();
       child: 
     Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
 
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child:Container(
          // color: Colors.blue.withOpacity(0.2),
         child:Column(children: [
-          SizedBox(height: 80,),
+           SizedBox(height: screenHeight*0.083,),
 
        /*   Align(alignment: Alignment.topLeft,
             child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Color.fromARGB(255, 6, 6, 184))),),*/
@@ -348,16 +350,139 @@ _mothername_controller .clear();
             child:Shimmer.fromColors(baseColor: Color.fromARGB(255, 6, 6, 184),highlightColor: Colors.white,
               child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Color.fromARGB(255, 6, 6, 184))),),),
 
-            SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.023,),
 
             Form(
                   key: _formKey, // **Added Form widget with formKey**
                   child: Column(
                     children: [
+                      Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Regimental Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _regi_controller,
+
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else if (!RegExp(r'^TN\d{2}(SDA|SWA|JDA|JWA)\d+$').hasMatch(value)) {
+        return 'Please enter a valid regimental number (e.g., TN23SDA824605)';
+      }
+                    return null;
+                  },
+
+                    
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.numbers_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                        //  hintText: '${widget.com.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                    
+                  ],
+                ),
+              )),
+               SizedBox(height: screenHeight*0.023,),
 
             
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+       
+           Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Rank & Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _name,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    return null;
+                  },
+                    // controller: login_emailcontroller,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.person_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+               /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _regi_controller,
 
@@ -384,8 +509,8 @@ _mothername_controller .clear();
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _name,
              validator: (value){
@@ -429,9 +554,69 @@ _mothername_controller .clear();
               hintText: 'DIRECTORATE',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Directorate *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _dir_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The directorate name should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.diversity_2_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _group_controller,
              validator: (value){
@@ -452,8 +637,68 @@ _mothername_controller .clear();
               hintText: 'GROUP',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Group *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _group_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The group name should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.diversity_3_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+        /*   Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _battalion_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -473,9 +718,69 @@ _mothername_controller .clear();
               hintText: 'BATTALION',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Battalion *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _battalion_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                     else if (RegExp(r'\d').hasMatch(value)) {
+        return 'The battalion name should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.groups_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _fnamecontroller,
              validator: (value){
@@ -500,9 +805,69 @@ _mothername_controller .clear();
                 
                 borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "First Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _fnamecontroller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The first name should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.person_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _lnamecontroller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -526,9 +891,69 @@ _mothername_controller .clear();
               hintText: 'LAST NAME',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Last Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _lnamecontroller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'The last name should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+prefixIcon: Icon(Icons.person_2_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _gender_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -552,9 +977,69 @@ _mothername_controller .clear();
               hintText: 'JD / JW / SD / SW',hintStyle: TextStyle(fontSize: 13,color: Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "JD / JW / SD /SW *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _gender_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Should not contain numbers';
+      }
+                    return null;
+                  },
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.post_add_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _mobile_controller,
              validator: (value) {
   if (value == null || value.isEmpty) {
@@ -576,10 +1061,69 @@ _mothername_controller .clear();
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mobile Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _mobile_controller,
+             validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter your mobile number';
+  } else if (value.length != 10) {
+    return 'Mobile number must be exactly 10 digits';
+  } else if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+    return 'Please enter a valid mobile number';
+  }
+  return null;
+},
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.phone_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _dob_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -600,8 +1144,67 @@ _mothername_controller .clear();
               },
               
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Date Of Birth *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       onTap:(){
+               _selectdate();
+              },
+                       controller: _dob_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    return null;
+                  },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.date_range_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _batchstarts_controller,
             validator: (value) {
@@ -620,9 +1223,67 @@ _mothername_controller .clear();
               hintText: 'BATCH STARTS',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Batch Starts *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _batchstarts_controller,
+            validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Fill this required field';
+  } else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
+  return null;
+},
+            keyboardType: TextInputType.number,
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.arrow_circle_right_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _batchends_controller,
             validator: (value) {
   if (value == null || value.isEmpty) {
@@ -640,9 +1301,68 @@ _mothername_controller .clear();
               hintText: 'BATCH ENDS',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Batch Ends *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _batchends_controller,
+            validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Fill this required field';
+  } else if (!RegExp(r'^\d{4}$').hasMatch(value)) {
+    return 'Please enter exactly four digits';
+  }
+  return null;
+},
+            keyboardType: TextInputType.number,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.arrow_circle_left_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _fathername_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -662,8 +1382,69 @@ _mothername_controller .clear();
               hintText: 'FATHER\'S NAME',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Father's Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _fathername_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                     else if (RegExp(r'\d').hasMatch(value)) {
+        return 'Father Name should not contain numbers';
+      }
+                    return null;
+                  },
+            keyboardType: TextInputType.name,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.person_4_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+          /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _fathermobile_controller,
              validator: (value) {
       if (value == null || value.isEmpty) {
@@ -683,10 +1464,69 @@ _mothername_controller .clear();
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "father's Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _fathermobile_controller,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
+      return null;
+    },
+            keyboardType: TextInputType.number,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                        prefixIcon: Icon(Icons.phone_android_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _fatheroccupation_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -706,9 +1546,70 @@ _mothername_controller .clear();
               hintText: 'FATHER\'S OCCUPATION',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Father's Occupation *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _fatheroccupation_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Occupation should not contain numbers';
+      }
+                    return null;
+                  },
+            keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.work_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _mothername_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -728,8 +1629,69 @@ _mothername_controller .clear();
               hintText: 'MOTHER\'S NAME',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother's Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _mothername_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Name should not contain numbers';
+      }
+                    return null;
+                  },
+            keyboardType: TextInputType.name,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.person_3_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+          /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _mothernumber_controller,
               validator: (value) {
       if (value == null || value.isEmpty) {
@@ -749,9 +1711,68 @@ _mothername_controller .clear();
               
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother's  Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _mothernumber_controller,
+              validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{10}$').hasMatch(value)) {
+        return 'Please enter exactly 10 digits';
+      }
+      return null;
+    },
+            keyboardType: TextInputType.number,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                        prefixIcon: Icon(Icons.phone_android_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
      
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /* Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _motheroccupation_controller,
             validator: (value) {
       if (value == null || value.isEmpty) {
@@ -769,9 +1790,68 @@ _mothername_controller .clear();
               hintText: 'MOTHER\'S OCCUPATION',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Mother's Occupation *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _motheroccupation_controller,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }  if (RegExp(r'\d').hasMatch(value)) {
+        return 'Mother Occupation should not contain numbers';
+      }
+      return null;
+    },
+            keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.work_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
 
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _address_controller,
              validator: (value) {
       if (value == null || value.isEmpty) {
@@ -795,9 +1875,74 @@ _mothername_controller .clear();
               hintText: 'ADDRESS',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Address *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+ controller: _address_controller,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }
 
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+      // Regex pattern to check if the address contains a pin code at the end
+      final pinCodePattern = RegExp(r'\b\d{6}\b$');
+      if (!pinCodePattern.hasMatch(value)) {
+        return 'Include 6-digit pin code at the end';
+      }
+
+      return null;
+    },
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                        prefixIcon: Icon(Icons.location_pin),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _blood_controller,
              validator: (value) {
       if (value == null || value.isEmpty) {
@@ -819,8 +1964,71 @@ _mothername_controller .clear();
               hintText: 'BLOOD GROUP',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Blood Group *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                        controller: _blood_controller,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      }
+      
+      
+      else if (!RegExp(r'^(A|B|AB|O)[+-]?$').hasMatch(value)) {
+        return 'Enter valid blood group (e.g., A+, B-, AB+, O-)';
+      }
+      
+      return null;
+    },
+    keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                        prefixIcon: Icon(Icons.bloodtype_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _aadhar_controller,
              validator: (value) {
       if (value == null || value.isEmpty) {
@@ -838,8 +2046,67 @@ _mothername_controller .clear();
               hintText: 'AADHAR NUMBER',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Aadhar Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _aadhar_controller,
+             validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^\d{12}$').hasMatch(value)) {
+        return 'Please enter a valid 12-digit Aadhar number';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.number,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.attach_file_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _community_controller,
             validator: (value) {
       if (value == null || value.isEmpty) {
@@ -857,8 +2124,67 @@ _mothername_controller .clear();
               hintText: 'COMMUNITY',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Community *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                        controller: _community_controller,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[a-zA-Z\s]+$').hasMatch(value)) {
+        return 'Please enter only alphabetic characters and spaces';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.people_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*   Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _college_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -880,10 +2206,73 @@ _mothername_controller .clear();
               hintText: 'COLLEGE / UNIVERSITY',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "College / University *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                        controller: _college_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                     else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
+                    
+                    return null;
+                  },
+            keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.school_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
            
 
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+         /*   Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _degree_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -904,8 +2293,70 @@ _mothername_controller .clear();
               hintText: 'DEGREE ',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-           Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Degree *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _degree_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
+                    return null;
+                  },
+            keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                        prefixIcon: Icon(Icons.book_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*   Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _dept_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -926,8 +2377,70 @@ _mothername_controller .clear();
               hintText: 'DEPARTMENT',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Department *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _dept_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else if(!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value))
+                    {
+                      return 'Only alphabetics are allowed';
+                    }
+                    return null;
+                  },
+            keyboardType: TextInputType.name,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.sell_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _bank_controller,
             validator: (value) {
       if (value == null || value.isEmpty) {
@@ -945,8 +2458,67 @@ _mothername_controller .clear();
               hintText: 'BANK ACCOUNT NUMBER',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Bank Account Number *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                       controller: _bank_controller,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[0-9\s\-]+$').hasMatch(value)) {
+        return 'Please enter a valid bank account number';
+      }
+      return null;
+    },
+    keyboardType: TextInputType.number,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                         prefixIcon: Icon(Icons.account_balance_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _branch_controller,
              validator: (value){
                     if(value == null || value.isEmpty)
@@ -966,8 +2538,69 @@ _mothername_controller .clear();
               hintText: 'BRANCH NAME',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          Padding(padding:EdgeInsets.all(15),child:TextFormField(
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Branch Name *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                     controller: _branch_controller,
+             validator: (value){
+                    if(value == null || value.isEmpty)
+                    {
+                      return "Fill this required field";
+                    }
+                    else if (!RegExp(r'^[a-zA-Z\s\-\.]+$').hasMatch(value)) {
+        return 'Please enter a valid branch name without numbers';
+      }
+                    return null;
+                  },
+            keyboardType: TextInputType.text,
+                
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.account_tree_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _ifsc_controller,
             keyboardType: TextInputType.text,
             validator: (value) {
@@ -985,8 +2618,66 @@ _mothername_controller .clear();
               hintText: 'IFSC CODE',hintStyle: TextStyle(fontSize: 13,color:Color.fromARGB(255, 29, 2, 110)),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
-          )),
-          SizedBox(height:15),
+          )),*/
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.03),
+                      spreadRadius: 10,
+                      blurRadius: 3,
+                      // changes position of shadow
+                    ),
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, top: 15, bottom: 5, right: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Ifsc Code *",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                         // color: Color(0xff67727d)
+                         color: const Color.fromARGB(255, 24, 4, 123),
+                       
+                          ),
+                    ),
+                    TextFormField( 
+                      controller: _ifsc_controller,
+            keyboardType: TextInputType.text,
+            validator: (value) {
+      if (value == null || value.isEmpty) {
+        return 'Fill this required field';
+      } else if (!RegExp(r'^[A-Z]{4}0[A-Z0-9]{6}$').hasMatch(value)) {
+        return 'Please enter valid IFSC code';
+      }
+      return null;
+    },
+                      cursorColor: Colors.black,
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          ),
+                      decoration: InputDecoration(
+                        
+                          prefixIcon: Icon(Icons.code_rounded),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+                         // hintText: '${widget.cadetname.toUpperCase()}',
+                          hintStyle: TextStyle(color: Colors.black),
+                          border: InputBorder.none),
+                    ),
+                  ],
+                ),
+              )),
+              SizedBox(height: screenHeight*0.023,),
+         
 
          Row(
           mainAxisSize: MainAxisSize.min,
