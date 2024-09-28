@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:ncc/firebase_imp.dart/imp.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:metaballs/metaballs.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class ImageFromFirebase extends StatefulWidget {
@@ -1502,6 +1504,46 @@ Container(
                 ),
               )),
                SizedBox(height: screenHeight*0.05,),
+                GestureDetector(
+                  onTap: ()
+                  {
+                    Fluttertoast.showToast(msg: 'Double Tap to Delete All Details');
+                  },
+
+              onDoubleTap:(){
+
+                delete('CADETS',widget.regg_no);
+
+
+               
+              },child:Container(alignment: Alignment.center,
+      height:  screenHeight * 0.08,
+      width:double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      //color: Colors.red,
+
+      decoration: BoxDecoration(
+         boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                    blurRadius: 5,
+                    spreadRadius: 1,
+                    offset: Offset(0, 0),
+                  ),
+                 
+                  
+                ],
+        borderRadius: BorderRadius.circular(40),
+        color: const Color.fromARGB(255, 195, 20, 8),
+       
+      
+      ),child:
+      
+        Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.black,
+          child:Text('Delete Details',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,)))
+      
+      )),
+      SizedBox(height: screenHeight*0.05,),
 
     ]))])));
   }

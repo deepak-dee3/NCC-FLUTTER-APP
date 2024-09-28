@@ -316,7 +316,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
             SizedBox(width: screenWidth*0.2,),
           Text("Upload",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
           SizedBox(height: screenHeight*0.01,),
-                    Text("Camps",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+                    Text("Activities",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
 
          
 
@@ -325,7 +325,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
        GestureDetector(onTap:(){
         // Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalList()));
          Navigator.push(context,PageRouteBuilder(
-  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details() ,
+  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements() ,
   transitionsBuilder: (context, animation, secondaryAnimation, child) {
     return FadeTransition(
       opacity: animation,
@@ -346,7 +346,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
             SizedBox(width: screenWidth*0.2,),
           Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
           SizedBox(height: screenHeight*0.01,),
-                    Text("Camps",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
+                    Text("Achievements",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
 
          
 
@@ -357,7 +357,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
 GestureDetector(onTap:(){
  // Navigator.push(context, MaterialPageRoute(builder: (context) => new_event()));
   Navigator.push(context, PageRouteBuilder(
-  pageBuilder: (context, animation, secondaryAnimation) => cadet_view_achievements(),
+  pageBuilder: (context, animation, secondaryAnimation) => ano_camp_view_details(),
   transitionsBuilder: (context, animation, secondaryAnimation, child) {
     return FadeTransition(
       opacity: animation,
@@ -377,7 +377,7 @@ GestureDetector(onTap:(){
             SizedBox(width: screenWidth*0.2,),
           Text("View",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17)),
           SizedBox(height: screenHeight*0.01,),
-                    Text("Achievements",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
+                    Text("Activities",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,)),
 
          
 
