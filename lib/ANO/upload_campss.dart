@@ -179,6 +179,7 @@ Future<void> pickimage() async {
         return true;
       },
       child:Scaffold(
+        backgroundColor: Colors.white,
         
       body: (SingleChildScrollView(scrollDirection: Axis.vertical,
         child:Container(

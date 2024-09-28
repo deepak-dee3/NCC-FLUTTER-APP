@@ -76,7 +76,7 @@ class _ncc_signState extends State<ncc_sign> {
       },
       child:
     Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white,
     
       resizeToAvoidBottomInset: false,
     body:/*Metaballs(

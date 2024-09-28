@@ -183,17 +183,20 @@ class _HomeState extends State<Home> {
     return  WillPopScope(
     onWillPop: () async {
       return await showDialog(
+        
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Confirm Exit'),
-          content: Text('Are you sure you want to exit?'),
+          backgroundColor: Colors.red.shade900,
+          
+          title: Text('Confirm Exit !!',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+          content: Text('Are you sure you want to exit?',style: TextStyle(color: Colors.white),),
           actions: <Widget>[
             TextButton(
-              child: Text('No'),
+              child: Text('No',style: TextStyle(color: Colors.blue),),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             TextButton(
-              child: Text('Yes'),
+              child: Text('Yes',style: TextStyle(color: Colors.blue)),
               onPressed: () => Navigator.of(context).pop(true),
             ),
           ],
@@ -361,6 +364,8 @@ class _HomeState extends State<Home> {
                           color: Color(0xff67727d)),
                     ),
                     TextFormField(
+                      obscureText: true,
+                      obscuringCharacter: '*',
                      controller: login_passcontroller,
                 validator: (value){
                     if(value == null || value.isEmpty)

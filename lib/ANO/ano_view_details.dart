@@ -240,11 +240,11 @@ class _ano_view_detailsState extends State<ano_view_details> {
         children: [
           SizedBox(height: screenHeight*0.1,),
            Center(child: Container(
-            height: 250,
-            width: 100,child:Transform.scale(
+            height: 300,
+            width: 150,child:Transform.scale(
             scale: 2.0, 
    
-            child:Lottie.asset('assets/animation/Animation - 1721312169152.json'),
+            child:Lottie.asset('assets/animation/2QsQCoEqkP.json'),
             ),),
           ),
 

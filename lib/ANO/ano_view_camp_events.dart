@@ -109,6 +109,7 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
         return true;
       },
       child:Scaffold(
+        backgroundColor: Colors.white,
      // backgroundColor: Color.fromARGB(255, 167, 212, 248),
       
       body:Column(children:[
@@ -134,7 +135,7 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
             width: 100,child:Transform.scale(
             scale: 2.0, 
    
-            child:Lottie.asset('assets/animation/Animation - 1722269088878.json')),),);
+            child:Lottie.asset('assets/animation/kIH3jrOxWn.json')),),);
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

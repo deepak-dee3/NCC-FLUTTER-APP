@@ -73,14 +73,18 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
 
   @override
   Widget build(BuildContext context) {
+    
+    var screenHeight = MediaQuery.of(context).size.height;
     return  WillPopScope(
+      
       onWillPop: () async {
         // Handle back button press
         Navigator.pop(context);
         return true;
       },
       child:Scaffold(
-      //backgroundColor: Colors.blue.shade100,
+        
+      backgroundColor: Colors.white,
       body: /*Metaballs(
   color: Color.fromARGB(255, 37, 3, 226),
   effect: MetaballsEffect.follow(
@@ -105,61 +109,94 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
   glowRadius: 0.7,
   glowIntensity: 0.6,
   child: */
-    SingleChildScrollView(
-        child: Column(
+    Stack(
+      children: [
+        // Background Image
+       Align(alignment: Alignment.center,
+        child: Container(
+         
+          height: 200,
+          width: 100,
+          
+          decoration: BoxDecoration(
+            
+           
+            image: DecorationImage(
+              image: AssetImage('assets/ncclogo-removebg-preview.png'), // Use your image path here
+              fit: BoxFit.contain, // Adjusts the image to cover the entire background
+            ),
+          ),
+        )),SingleChildScrollView(
+        child:
+         Column(
           children: [
             SizedBox(height: 100),
-            Center(child:Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                BoxShadow(color: Color.fromARGB(255, 29, 8, 97),blurRadius: 10),
-
-              ]),
-              child:CircleAvatar(
-              
-
-               radius: 100,
-                child: imageUrl.isEmpty
-                    ? Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            
-                            color: Colors.white,
-                          ),
-                        )
-                    : ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: InteractiveViewer(maxScale: 5,
-                          child:
-                        Image.network(
-                          imageUrl,
-                          width: 300,
-                          height: 200,
-                          fit: BoxFit.cover,
-                          loadingBuilder: (context, child, progress) {
-                            return progress == null
-                                ? child
-                                :Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            color: Colors.white,
-                          ),
-                        );
-                          },
-                          errorBuilder: (context, error, stackTrace) {
-                            return Text('Error loading image');
-                          },
-                        ),),
-                      ),
-              ),
+      GestureDetector(
+  onTap: () {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        child: Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(28),color:Colors.blue.withOpacity(0.3)),
+         // color: Colors.blue.withOpacity(0.3),
+          child: InteractiveViewer(
+            panEnabled: true, // Enables panning (dragging)
+            minScale: 1.0,
+            maxScale: 4.0, // Allows zooming up to 4x
+            child: ClipOval(
+              child: Image.network(
+                imageUrl.isNotEmpty ? imageUrl : '',
+                fit: BoxFit.contain, // Ensures the entire image is seen without cropping
+                width: 200,
+                height: 200,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  color: Colors.grey[300], 
+                  child: Icon(Icons.person, size: 100, color: Colors.white),
+                ),
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  },
+  child: CircleAvatar(
+    radius: 100, // Adjust radius as needed
+    backgroundColor: Colors.blue[50], // Background color
+    child: ClipOval(
+      child: imageUrl.isNotEmpty
+          ? Image.network(
+              imageUrl,
+              fit: BoxFit.cover, // Use BoxFit.cover to fill the CircleAvatar properly
+              width: 200,
+              height: 200,
+              errorBuilder: (context, error, stackTrace) => Container(
+                color: Colors.grey[300],
+                child: Icon(Icons.person, size: 100, color: Colors.white),
+              ),
+            )
+          : Shimmer.fromColors(
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+                width: 200,
+                height: 200,
+              ),
+            ),
+    ),
+  ),
+)
 
-    SizedBox(height:40),
-    SizedBox(height:50),
+,
+SizedBox(height: screenHeight*0.04,),
+
+   
 
      Padding(padding: EdgeInsets.all(10),
     child:Shimmer.fromColors(
@@ -193,7 +230,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -208,7 +245,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.numbers_sharp),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.regg_no.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -216,7 +253,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -245,7 +282,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -260,7 +297,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.person),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.cadetname.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -268,7 +305,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -296,7 +333,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -312,7 +349,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                         
             
                           prefixIcon: Icon(Icons.diversity_2),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.dtrate.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -320,7 +357,7 @@ class _ImageFromFirebaseState extends State<ImageFromFirebase> {
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 Container(
               width: double.infinity,
@@ -347,7 +384,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -361,7 +398,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.diversity_3),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.grp.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -369,7 +406,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.022,),
 
               Container(
               width: double.infinity,
@@ -396,7 +433,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -410,7 +447,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.group),
-                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.btn.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -418,7 +455,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height:50),
+              SizedBox(height: screenHeight*0.052,),
     
      Padding(padding: EdgeInsets.all(10),
     child:Shimmer.fromColors(
@@ -426,7 +463,7 @@ Container(
         highlightColor: Colors.white,
         child:Text('PERSONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
-        SizedBox(height: 50,),
+         SizedBox(height: screenHeight*0.052,),
    
 
          
@@ -457,7 +494,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -472,7 +509,7 @@ Container(
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.date_range),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.DOB}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -480,7 +517,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -509,7 +546,7 @@ Container(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -524,7 +561,7 @@ Container(
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.phone),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.phn.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -532,7 +569,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+                SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -560,7 +597,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -576,7 +613,7 @@ Container(
                         
             
                           prefixIcon: Icon(Icons.location_pin),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.adrs.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -584,7 +621,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+           SizedBox(height: screenHeight*0.022,),
 
 Container(
               width: double.infinity,
@@ -611,7 +648,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -625,7 +662,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person_4_outlined),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.ftname.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -633,7 +670,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+               SizedBox(height: screenHeight*0.022,),
 
               Container(
               width: double.infinity,
@@ -660,7 +697,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -674,7 +711,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.phone_android),
-                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.ftphn.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -682,7 +719,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height:20),
+               SizedBox(height: screenHeight*0.022,),
                Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -708,7 +745,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -723,7 +760,7 @@ Container(
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.work),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.ftocc.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -731,7 +768,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -760,7 +797,7 @@ Container(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -775,7 +812,7 @@ Container(
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.person_3_outlined),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.mtname.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -783,7 +820,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -811,7 +848,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -827,7 +864,7 @@ Container(
                         
             
                           prefixIcon: Icon(Icons.phone_android),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.mtphn.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -835,7 +872,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 Container(
               width: double.infinity,
@@ -862,7 +899,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -876,7 +913,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.work),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.mtocc.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -884,14 +921,14 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 50,),
+               SizedBox(height: screenHeight*0.052,),
                 Padding(padding: EdgeInsets.all(10),
     child:Shimmer.fromColors(
         baseColor: Colors.black,
         highlightColor: Colors.white,
         child:Text('ACCOUNT DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
-        SizedBox(height: 50,),
+        SizedBox(height: screenHeight*0.052,),
     Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -917,7 +954,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -932,7 +969,7 @@ Container(
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.account_balance),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.accnum.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -940,7 +977,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -969,7 +1006,7 @@ Container(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -984,7 +1021,7 @@ Container(
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.account_tree_outlined),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.accbrnch.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -992,7 +1029,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+           SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -1020,7 +1057,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1036,7 +1073,7 @@ Container(
                         
             
                           prefixIcon: Icon(Icons.code),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.ifsc.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1044,7 +1081,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+                SizedBox(height: screenHeight*0.022,),
 
 Container(
               width: double.infinity,
@@ -1071,7 +1108,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1085,7 +1122,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_person),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.adh.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1093,7 +1130,7 @@ Container(
                   ],
                 ),
               )),
-                 SizedBox(height:50),
+                SizedBox(height: screenHeight*0.052,),
     
      Padding(padding: EdgeInsets.all(10),
     child:Shimmer.fromColors(
@@ -1101,7 +1138,7 @@ Container(
         highlightColor: Colors.white,
         child:Text('ADDITIONAL DETAILS',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)),),
 
-        SizedBox(height: 50,),
+         SizedBox(height: screenHeight*0.052,),
    
 
          
@@ -1132,7 +1169,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1147,7 +1184,7 @@ Container(
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.arrow_circle_right),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.bats.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1155,7 +1192,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -1184,7 +1221,7 @@ Container(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -1199,7 +1236,7 @@ Container(
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.arrow_circle_left),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.bate.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1207,7 +1244,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -1235,7 +1272,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1256,7 +1293,7 @@ Container(
                         
             
                           prefixIcon: Icon(Icons.school),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.clg.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1264,7 +1301,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+               SizedBox(height: screenHeight*0.022,),
 
 Container(
               width: double.infinity,
@@ -1291,7 +1328,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1305,7 +1342,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.book),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.deg.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1313,7 +1350,7 @@ Container(
                   ],
                 ),
               )),
-               SizedBox(height: 20,),
+              SizedBox(height: screenHeight*0.022,),
 
               Container(
               width: double.infinity,
@@ -1340,7 +1377,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                          color: Color.fromARGB(255, 149, 135, 5),
+                          color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1354,7 +1391,7 @@ Container(
                           color: Colors.black),
                       decoration: InputDecoration(
                           prefixIcon: Icon(Icons.sell_sharp),
-                          prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                          prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.dpt.toUpperCase()}' ,
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1362,7 +1399,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height:20),
+              SizedBox(height: screenHeight*0.022,),
                Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -1388,7 +1425,7 @@ Container(
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
-                           color: Color.fromARGB(255, 149, 135, 5),
+                           color: const Color.fromARGB(255, 24, 4, 123),
                           ),
                     ),
                     TextField(
@@ -1403,7 +1440,7 @@ Container(
                       decoration: InputDecoration(
                          
                           prefixIcon: Icon(Icons.bloodtype),
-                            prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.bl.toUpperCase()}',
                            hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
@@ -1411,7 +1448,7 @@ Container(
                   ],
                 ),
               )),
-              SizedBox(height: 20,),
+             SizedBox(height: screenHeight*0.022,),
 
 
               Container(
@@ -1440,7 +1477,7 @@ Container(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
                          // color: Color(0xff67727d)
-                         color: Color.fromARGB(255, 149, 135, 5),
+                         color: const Color.fromARGB(255, 24, 4, 123),
                        
                           ),
                     ),
@@ -1455,32 +1492,18 @@ Container(
                       decoration: InputDecoration(
                         
                           prefixIcon: Icon(Icons.people),
-                           prefixIconColor: Color.fromARGB(255, 149, 135, 5),
+                           prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
                           hintText: '${widget.com.toUpperCase()}',
                           hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none),
                     ),
+                    
                   ],
                 ),
               )),
+               SizedBox(height: screenHeight*0.05,),
 
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    ]))));
+    ]))])));
   }
 }
 

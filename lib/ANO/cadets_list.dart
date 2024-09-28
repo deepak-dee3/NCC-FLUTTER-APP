@@ -169,6 +169,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:lottie/lottie.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 import 'package:ncc/ANO/cadets_all_details.dart.dart';
 
@@ -181,6 +182,32 @@ class _ccadet_detailsState extends State<ccadet_details> {
   TextEditingController searchController = TextEditingController();
   FocusNode searchFocusNode = FocusNode();
   String searchQuery = '';
+  String imageUrl1 = ' ';
+   Future<void> getImageUrl1(String programName1) async {
+    String imagePath1 = 'Images/$programName1.jpeg'; // Construct image path dynamically
+
+    try {
+      final ref1 = firebase_storage.FirebaseStorage.instance.ref(imagePath1);
+      final url1 = await ref1.getDownloadURL();
+      setState(() {
+        imageUrl1 = url1;
+      });
+      print('Image URL: $url1');
+    } catch (e) {
+      print('Error getting image URL: $e');
+      if (e is firebase_storage.FirebaseException) {
+        print('Firebase Storage Error: ${e.code}');
+        print('Message: ${e.message}');
+      } else {
+        print('Unknown Error: $e');
+      }
+      // Provide a placeholder or default image if the image is not found
+      setState(() {
+        imageUrl1 = ''; // Optionally set a placeholder image URL here
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -213,11 +240,14 @@ class _ccadet_detailsState extends State<ccadet_details> {
                   decoration: InputDecoration(
                     fillColor: const Color.fromARGB(255, 24, 4, 123),
                     filled: true,
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    //floatingLabelAlignment: FloatingLabelAlignment.,
+                   
                     labelText: "Search by Regimental Number or Name",
-                    labelStyle: TextStyle(color: Colors.white),
-                    prefixIcon: Icon(Icons.search, color: Colors.white),
+                    labelStyle: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 13),
+                    prefixIcon: Icon(Icons.search, size:33,weight: 100,color: const Color.fromARGB(255, 113, 9, 2)),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(20.0),
                       borderSide: BorderSide.none,
                     ),
                   ),
@@ -295,19 +325,24 @@ class _ccadet_detailsState extends State<ccadet_details> {
                               return Column(
                                 children: [
                                   Card(
+                                    shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+  ),
+                                   
                                     elevation: 10,
                                     shadowColor: Colors.black,
                                     child: Container(
                                       height: 130,
-                                      decoration: BoxDecoration(color: Colors.blue),
+                                      decoration: BoxDecoration(color: Colors.blue,borderRadius: BorderRadius.circular(20)),
                                       child: ListTile(
+                                       
                                         contentPadding: EdgeInsets.all(20),
                                         title: Text(
                                           regg_no,
                                           style: GoogleFonts.blackOpsOne(
                                             textStyle: TextStyle(
                                               fontFamily: 'Prompt',
-                                              color: Colors.black,
+                                              color: const Color.fromARGB(255, 24, 4, 123),
                                             ),
                                           ),
                                         ),
@@ -316,10 +351,12 @@ class _ccadet_detailsState extends State<ccadet_details> {
                                           style: GoogleFonts.acme(
                                             textStyle: TextStyle(
                                               fontFamily: 'Prompt',
-                                              color: Colors.black,
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),
+                                    
+
                                         trailing: GestureDetector(
                                           child: Shimmer.fromColors(
                                             baseColor: const Color.fromARGB(255, 113, 9, 2),
