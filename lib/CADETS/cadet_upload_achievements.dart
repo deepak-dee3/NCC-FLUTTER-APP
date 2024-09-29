@@ -145,6 +145,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
       },
       child:
      Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child:Container(

@@ -411,9 +411,10 @@ _mothername_controller .clear();
                         
                           prefixIcon: Icon(Icons.numbers_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                        //  hintText: '${widget.com.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                        hintText:"Enter your Regimental Number",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
+                          //hintText:"Enter your Regimental Number",
                     ),
                     
                   ],
@@ -474,8 +475,8 @@ _mothername_controller .clear();
                         
                           prefixIcon: Icon(Icons.person_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                            hintText:"Enter your Rank & Name",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -607,8 +608,8 @@ _mothername_controller .clear();
                         
                           prefixIcon: Icon(Icons.diversity_2_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                            hintText:"Enter your Directorate ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -690,8 +691,8 @@ _mothername_controller .clear();
                         
                          prefixIcon: Icon(Icons.diversity_3_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Group ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -771,8 +772,8 @@ _mothername_controller .clear();
                         
                          prefixIcon: Icon(Icons.groups_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                        hintText:"Enter your Battalion ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -858,8 +859,8 @@ _mothername_controller .clear();
                         
                           prefixIcon: Icon(Icons.person_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your First Name ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -944,8 +945,8 @@ _mothername_controller .clear();
                         
 prefixIcon: Icon(Icons.person_2_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your last Name ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -978,7 +979,68 @@ prefixIcon: Icon(Icons.person_2_rounded),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),*/
-            Container(
+          Container(
+  width: double.infinity,
+  margin: EdgeInsets.symmetric(horizontal: 20),
+  decoration: BoxDecoration(
+    color: Colors.blue.withOpacity(0.2),
+    borderRadius: BorderRadius.circular(25),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.03),
+        spreadRadius: 10,
+        blurRadius: 3,
+      ),
+    ],
+  ),
+  child: Padding(
+    padding: const EdgeInsets.only(
+        left: 20, top: 15, bottom: 5, right: 20),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "JD / JW / SD / SW *",
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 13,
+            color: const Color.fromARGB(255, 24, 4, 123),
+          ),
+        ),
+        DropdownButtonFormField<String>(
+          value: null,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Fill this required field";
+            }
+            return null;
+          },
+          onChanged: (String? newValue) {
+            // Handle dropdown value change
+            setState(() {
+              _gender_controller.text = newValue!;
+            });
+          },
+          items: ['JD', 'JW', 'SD', 'SW'].map((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.post_add_rounded),
+            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+            hintText: "Select JD / JW / SD / SW",
+            hintStyle: TextStyle(color: Color(0xff67727d), fontSize: 13),
+            border: InputBorder.none,
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+,
+           /*//// Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -1030,13 +1092,13 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.post_add_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"JD / JW / SD / SW  ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
                 ),
-              )),
+              )),*/
               SizedBox(height: screenHeight*0.023,),
 
           /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -1113,8 +1175,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.phone_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Mobile Number ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1196,8 +1258,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.date_range_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Select your DOB ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1274,8 +1336,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.arrow_circle_right_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter the year ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1353,8 +1415,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.arrow_circle_left_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter the year  ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1436,8 +1498,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.person_4_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Father's Name ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1486,7 +1548,7 @@ prefixIcon: Icon(Icons.person_2_rounded),
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "father's Number *",
+                      "Father's Number *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -1516,8 +1578,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                         prefixIcon: Icon(Icons.phone_android_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Father's Number  ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1600,8 +1662,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.work_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Father's Occupation ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1683,8 +1745,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.person_3_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Mother's Name ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1763,8 +1825,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                         prefixIcon: Icon(Icons.phone_android_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Mother's Number ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1842,8 +1904,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.work_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Mother's Occupation ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1933,8 +1995,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                         prefixIcon: Icon(Icons.location_pin),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Permanent Address ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -1965,7 +2027,68 @@ prefixIcon: Icon(Icons.person_2_rounded),
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),*/
-            Container(
+          Container(
+  width: double.infinity,
+  margin: EdgeInsets.symmetric(horizontal: 20),
+  decoration: BoxDecoration(
+    color: Colors.blue.withOpacity(0.2),
+    borderRadius: BorderRadius.circular(25),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.03),
+        spreadRadius: 10,
+        blurRadius: 3,
+      ),
+    ],
+  ),
+  child: Padding(
+    padding: const EdgeInsets.only(
+        left: 20, top: 15, bottom: 5, right: 20),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Blood Group *",
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 13,
+            color: const Color.fromARGB(255, 24, 4, 123),
+          ),
+        ),
+        DropdownButtonFormField<String>(
+          value: null,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Fill this required field';
+            }
+            return null;
+          },
+          onChanged: (String? newValue) {
+            setState(() {
+              _blood_controller.text = newValue!;
+            });
+          },
+          items: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+              .map((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.bloodtype_rounded),
+            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
+            hintText: "Select your Blood Group",
+            hintStyle: TextStyle(color: Color(0xff67727d), fontSize: 13),
+            border: InputBorder.none,
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+,
+           /*///// Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -2020,13 +2143,13 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                         prefixIcon: Icon(Icons.bloodtype_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Blood Group ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
                 ),
-              )),
+              )),*/
               SizedBox(height: screenHeight*0.023,),
          /*  Padding(padding:EdgeInsets.all(15),child:TextFormField(
             controller: _aadhar_controller,
@@ -2098,8 +2221,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.attach_file_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Aadhar Number ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2176,8 +2299,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.people_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Community ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2262,8 +2385,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.school_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your College / University Name ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2348,8 +2471,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                         prefixIcon: Icon(Icons.book_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Degree ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2432,8 +2555,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.sell_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Department ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2510,8 +2633,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                          prefixIcon: Icon(Icons.account_balance_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your Account Number ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2592,8 +2715,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.account_tree_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                          hintText:"Enter your Branch  ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
@@ -2640,7 +2763,7 @@ prefixIcon: Icon(Icons.person_2_rounded),
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Ifsc Code *",
+                      "IFSC Code *",
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 13,
@@ -2669,8 +2792,8 @@ prefixIcon: Icon(Icons.person_2_rounded),
                         
                           prefixIcon: Icon(Icons.code_rounded),
                            prefixIconColor: const Color.fromARGB(255, 24, 4, 123),
-                         // hintText: '${widget.cadetname.toUpperCase()}',
-                          hintStyle: TextStyle(color: Colors.black),
+                         hintText:"Enter your IFSC Code ",
+                          hintStyle: TextStyle(color: Color(0xff67727d),fontSize:13),
                           border: InputBorder.none),
                     ),
                   ],
