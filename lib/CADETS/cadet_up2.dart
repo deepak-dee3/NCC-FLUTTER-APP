@@ -88,8 +88,13 @@ class _cadet_up2State extends State<cadet_up2> {
  TextEditingController _update_blood_controller = TextEditingController();
  TextEditingController _update_comm_controller = TextEditingController();
 
+ final _formKey_update_cadet = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
+        var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
     return  WillPopScope(
       onWillPop: () async {
         // Handle back button press
@@ -129,10 +134,11 @@ class _cadet_up2State extends State<cadet_up2> {
         scrollDirection: Axis.vertical,
 
         child:Container(
-          child:Column(
+          child:Form(key: _formKey_update_cadet,
+            child:Column(
             children: [
 
-              SizedBox(height:90),
+              SizedBox(height:screenHeight*0.096),
 
                 Container(
             height: 250,
@@ -143,7 +149,7 @@ class _cadet_up2State extends State<cadet_up2> {
 
              
 
-              SizedBox(height: 50,),
+             SizedBox(height:screenHeight*0.056),
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -172,7 +178,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+          SizedBox(height:screenHeight*0.016),
 
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -200,7 +206,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+          SizedBox(height:screenHeight*0.016),
 
            Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -228,7 +234,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -257,7 +263,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -285,7 +291,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height: 20,),
+            SizedBox(height:screenHeight*0.016),
 
 
 
@@ -314,7 +320,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+            SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -347,7 +353,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -376,7 +382,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -405,7 +411,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -435,7 +441,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -465,7 +471,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+            SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -494,7 +500,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+          SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -526,7 +532,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height: 20,),
+           SizedBox(height:screenHeight*0.016),
 
              Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -551,8 +557,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
-
+           SizedBox(height:screenHeight*0.016),
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -576,7 +581,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+         SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -605,8 +610,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
-
+          SizedBox(height:screenHeight*0.016),
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -634,7 +638,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height: 20,),
+           SizedBox(height:screenHeight*0.016),
           Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
             controller: _update_bats_controller,
@@ -661,7 +665,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -690,7 +694,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -716,7 +720,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -741,7 +745,7 @@ class _cadet_up2State extends State<cadet_up2> {
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),),
             
           )),
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -769,7 +773,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
+           SizedBox(height:screenHeight*0.016),
 
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
@@ -799,8 +803,7 @@ class _cadet_up2State extends State<cadet_up2> {
             
           )),
 
-          SizedBox(height:10),
-
+           SizedBox(height:screenHeight*0.016),
 
               Padding(padding:EdgeInsets.all(15),child:TextFormField(
 
@@ -830,7 +833,7 @@ class _cadet_up2State extends State<cadet_up2> {
           )),
 
          
-          SizedBox(height: 20,),
+            SizedBox(height:screenHeight*0.026),
 
 
 
@@ -841,6 +844,10 @@ class _cadet_up2State extends State<cadet_up2> {
 
               // update('CADETS', 'update_regi_controller', 'Regimental_number', f1, f2, f3, f4)
                onTap: () {
+
+                 if (_formKey_update_cadet.currentState!.validate()){
+
+
                   update('CADETS', _update_regi_controller.text, {
                     'Name': _update_name_controller.text,
                     'Directorate': _update_dir_controller.text,
@@ -870,7 +877,7 @@ class _cadet_up2State extends State<cadet_up2> {
                   });
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => cadet_main_page()));
-                },
+               }},
               
               child: Container(
                 width: 220,
@@ -885,13 +892,13 @@ class _cadet_up2State extends State<cadet_up2> {
                 ),
               ),
             ),
-            SizedBox(height: 20,)
+             SizedBox(height:screenHeight*0.016),
 
             ],
 
           )
         )
       )
-    ));
+    )));
   }
 }

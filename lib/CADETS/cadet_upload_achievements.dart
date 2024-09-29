@@ -137,6 +137,8 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
 
   @override
   Widget build(BuildContext context) {
+     var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return   WillPopScope(
       onWillPop: () async {
         // Handle back button press
@@ -151,7 +153,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
         child:Container(
         child: Column(
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: screenHeight*0.046),
 
 
             Container(
@@ -160,7 +162,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
             scale: 1.5, 
    
             child:Lottie.asset('assets/animation/Animation - 1721312844095.json')),),
-            SizedBox(height: 30,),
+             SizedBox(height: screenHeight*0.036),
             Padding(
               padding: EdgeInsets.all(28),
               child: Container(
@@ -263,7 +265,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
                     ),
                     child: Center(child: Icon(Icons.camera)),
                   ),
-                  SizedBox(height: 8), // Add some spacing between icon and text
+                   SizedBox(height: screenHeight*0.008), // Add some spacing between icon and text
                   Text(
                     'Camera',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -297,7 +299,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
                     ),
                     child: Center(child: Icon(Icons.image)),
                   ),
-                  SizedBox(height: 8), // Add some spacing between icon and text
+                   SizedBox(height: screenHeight*0.008), // Add some spacing between icon and text
                   Text(
                     'Gallery',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -312,7 +314,7 @@ class _cadet_upload_achievementsState extends State<cadet_upload_achievements> {
   ),
 ),
 
-SizedBox(height: 20,),
+ SizedBox(height: screenHeight*0.026),
 
 
             GestureDetector(

@@ -100,6 +100,8 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
 
   @override
   Widget build(BuildContext context) {
+     var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
         // Handle back button press
@@ -112,7 +114,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              SizedBox(height: 25),
+              SizedBox(height: screenHeight*0.031),
 
               Container(
                 height: 200,
@@ -123,7 +125,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                 ),
               ),
 
-              SizedBox(height: 20),
+            SizedBox(height: screenHeight*0.026),
 
               FutureBuilder<List<Map<String, dynamic>>>(
                 future: _fetchImageUrlsWithTitles(),
@@ -236,7 +238,7 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
-                                              SizedBox(height: 20),
+                                            SizedBox(height: screenHeight*0.026),
                                             ],
                                           ),
                                         ),

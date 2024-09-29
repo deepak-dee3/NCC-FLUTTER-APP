@@ -345,7 +345,7 @@ _mothername_controller .clear();
             child:Lottie.asset('assets/animation/Animation - 1721493362106.json')),),
           ),
             
-            SizedBox(height: 10,),
+            SizedBox(height: screenHeight*0.016,),
             Align(alignment: Alignment.topLeft,
             child:Shimmer.fromColors(baseColor: Color.fromARGB(255, 6, 6, 184),highlightColor: Colors.white,
               child:Text('    CADET DETAILS',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 21,color: Color.fromARGB(255, 6, 6, 184))),),),

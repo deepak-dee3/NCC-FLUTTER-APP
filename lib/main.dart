@@ -516,7 +516,7 @@ class _HomeState extends State<Home> {
               title: Row(children: [
 
                 Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
-                SizedBox(width: 10,),
+                SizedBox(width: screenWidth*0.016,),
                 Text('Secure Key',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
 
               ],),

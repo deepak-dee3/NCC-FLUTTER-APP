@@ -7,6 +7,9 @@ import 'package:shimmer/shimmer.dart';
 class contents extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+        var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
         backgroundColor: Colors.white,
 
@@ -39,7 +42,7 @@ class contents extends StatelessWidget{
 
             children: [
 
-              SizedBox(height: 50,),
+              SizedBox(height: screenHeight*0.056),
 
                 
 

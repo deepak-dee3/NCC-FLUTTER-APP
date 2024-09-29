@@ -36,6 +36,8 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
 
   @override
   Widget build(BuildContext context) {
+     var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
         // Handle back button press
@@ -103,7 +105,7 @@ class _cadet_view_eventsState extends State<cadet_view_events> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 10),
+                                  SizedBox(height:screenHeight*0.16),
                                  ],),),),],),),),);},);}},),)));
   }
 }
