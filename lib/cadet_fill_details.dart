@@ -2691,7 +2691,7 @@ prefixIcon: Icon(Icons.person_2_rounded),
           ],
          ),
 
-         SizedBox(height: 30,),
+         SizedBox(height: screenHeight*0.033,),
 
           GestureDetector(onTap: (){
             pickimage();
@@ -2719,7 +2719,7 @@ prefixIcon: Icon(Icons.person_2_rounded),
           ],
         ),
             child: Text('Upload Image ',style: TextStyle(fontWeight: FontWeight.bold),))),
-          SizedBox(height:35),
+          SizedBox(height:screenHeight*0.033),
           
           GestureDetector(onTap:(){
 
