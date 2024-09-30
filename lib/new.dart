@@ -307,7 +307,7 @@ class _Home1State extends State<Home1> {
       GestureDetector(
         onTap: ()
         {
-           Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
+           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
          
         },
         child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 24, 4, 135),fontWeight: FontWeight.bold,fontSize: 12)),),),

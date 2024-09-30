@@ -395,6 +395,7 @@ class _HomeState extends State<Home> {
                 ),
               )
               ),
+              
 
 
       /*Container(alignment: Alignment.center,
@@ -440,7 +441,7 @@ class _HomeState extends State<Home> {
       GestureDetector(
         onTap: ()
         {
-           Navigator.push(context, MaterialPageRoute(builder: (context) => forgetpassword()));
+           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
          
         },
         child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
@@ -452,6 +453,7 @@ class _HomeState extends State<Home> {
                  if(login_formkey.currentState!.validate())
           {
             setState(() {
+              
               login_email = login_emailcontroller.text.trim();
               
               login_pass = login_passcontroller.text.trim();
@@ -680,3 +682,210 @@ class _HomeState extends State<Home> {
     );
   }
 }
+/*
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ncc/CADETS/cadet_main_page.dart';
+import 'package:ncc/FORGET%20PASSWORD/forgetpassword.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String loginEmail = '';
+  String loginPassword = '';
+
+  TextEditingController loginEmailController = TextEditingController();
+  TextEditingController loginPasswordController = TextEditingController();
+  final loginFormKey = GlobalKey<FormState>();
+
+  userLogin() async {
+    try {
+      if (loginEmail.isNotEmpty && loginPassword.isNotEmpty) {
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(
+                email: loginEmail, password: loginPassword)
+            .then((_) {
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => cadet_main_page(),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                var offsetAnimation = animation.drive(tween);
+
+                return SlideTransition(
+                  position: offsetAnimation,
+                  child: child,
+                );
+              },
+              transitionDuration: Duration(milliseconds: 500),
+            ),
+          );
+          loginEmailController.clear();
+          loginPasswordController.clear();
+        });
+      } else {
+        _showToast('Please enter email and password');
+      }
+    } on FirebaseAuthException catch (e) {
+      print('FirebaseAuthException: ${e.code}');
+      if (e.code == 'user-not-found') {
+        _showToast('No user found for that email');
+      } else if (e.code == 'wrong-password') {
+        _showToast('Wrong password provided');
+      } else {
+        _showToast("Error in your email and password");
+      }
+    } catch (e) {
+      print('Exception: $e');
+      _showToast('An error occurred. Please try again.');
+    }
+  }
+
+  void _showToast(String message) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.TOP,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 15.0,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Welcome Back!',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent,
+                ),
+              ),
+              SizedBox(height: 20),
+              Form(
+                key: loginFormKey,
+                child: Column(
+                  children: [
+                    // Email TextField
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 6,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        controller: loginEmailController,
+                        onChanged: (value) {
+                          setState(() {
+                            loginEmail = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          prefixIcon: Icon(Icons.email, color: Colors.blueAccent),
+                          contentPadding: EdgeInsets.symmetric(vertical: 15),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    // Password TextField
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 6,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: TextFormField(
+                        controller: loginPasswordController,
+                        onChanged: (value) {
+                          setState(() {
+                            loginPassword = value;
+                          });
+                        },
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          prefixIcon: Icon(Icons.lock, color: Colors.blueAccent),
+                          contentPadding: EdgeInsets.symmetric(vertical: 15),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    // Login Button
+                    ElevatedButton(
+                      onPressed: userLogin,
+                      style: ElevatedButton.styleFrom(
+                      //  primary: Colors.blueAccent,
+                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              // Shimmer effect for the logo (example)
+              Shimmer.fromColors(
+                baseColor: Colors.grey[400]!,
+                highlightColor: Colors.white,
+                child: Text(
+                  'Your Logo Here',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blueAccent,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}*/
+
