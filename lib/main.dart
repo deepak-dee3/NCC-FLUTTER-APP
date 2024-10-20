@@ -1,4 +1,5 @@
 import 'package:ncc/new.dart';
+import 'package:ncc/new2.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -37,7 +38,7 @@ void main() async
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
-  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+  //await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
   tz.initializeTimeZones();
  
@@ -192,11 +193,11 @@ class _HomeState extends State<Home> {
           content: Text('Are you sure you want to exit?',style: TextStyle(color: Colors.white),),
           actions: <Widget>[
             TextButton(
-              child: Text('No',style: TextStyle(color: Colors.blue),),
+              child: Text('No',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
               onPressed: () => Navigator.of(context).pop(false),
             ),
             TextButton(
-              child: Text('Yes',style: TextStyle(color: Colors.blue)),
+              child: Text('Yes',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
               onPressed: () => Navigator.of(context).pop(true),
             ),
           ],
@@ -237,8 +238,8 @@ class _HomeState extends State<Home> {
           ),
           Image(
             image: AssetImage('assets/ncclogo-removebg-preview.png'),
-            width: 120,
-            height: 120,
+            width: 110,
+            height: 110,
           ),
         ],
       ),
@@ -436,18 +437,9 @@ class _HomeState extends State<Home> {
         
       )
       ),*/
-      SizedBox(height:screenHeight * 0.03,),
-      
-      GestureDetector(
-        onTap: ()
-        {
-           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
-         
-        },
-        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
-      
-      SizedBox(height:screenHeight * 0.035),
-      GestureDetector(
+      SizedBox(height:screenHeight * 0.05,),
+
+        GestureDetector(
               onTap:(){
 
                  if(login_formkey.currentState!.validate())
@@ -464,7 +456,7 @@ class _HomeState extends State<Home> {
 
          // userlogin();
               },child:Container(alignment: Alignment.center,
-      height:  screenHeight * 0.08,
+      height:  screenHeight * 0.07,
       width:double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 20),
       //color: Colors.red,
@@ -473,6 +465,7 @@ class _HomeState extends State<Home> {
          boxShadow: [
                   BoxShadow(
                     color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                  // color:Colors.blue,
                     blurRadius: 5,
                     spreadRadius: 1,
                     offset: Offset(0, 0),
@@ -480,29 +473,115 @@ class _HomeState extends State<Home> {
                  
                   
                 ],
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(20),
         color: Color.fromARGB(255, 19, 4, 104),
+       //color: const Color.fromARGB(255, 157, 21, 11)
+      // color: Colors.black
+      //color:Colors.blue.shade900,
        
       
       ),child:
       
-        Shimmer.fromColors(baseColor: Colors.white,highlightColor: Colors.blue,
-          child:Text('Log In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17,)))
+        Text('Log In to your Account',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 14,))
       
       )),
-      SizedBox(height:screenHeight*0.02),
-      Text("(Or)",style: TextStyle(fontWeight: FontWeight.bold,color:Color.fromARGB(255, 103, 41, 237)),),
+      SizedBox(height:screenHeight*0.04),
       
+      Center(
+        child:Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children:[
+        GestureDetector(
+        onTap: ()
+        {
+           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
+         
+        },
+        child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
 
-      Padding(padding: EdgeInsets.all(20),child: Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        
-        children: [
-          
-          Expanded(child: 
+         GestureDetector(
+        onTap:(){
 
-          GestureDetector(
-            onTap:()
+               showModalBottomSheet(context: context, builder: (BuildContext context) {
+          return ncc_sign();
+               },
+               // backgroundColor: Colors.transparent, // Set background color to transparent
+      isScrollControlled: true,
+      transitionAnimationController: AnimationController(
+        vsync: Navigator.of(context),
+        duration: Duration(milliseconds: 300),
+      )..forward(),
+               );
+
+            },
+        child:Center(child:Text('Create New Account ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
+
+      ]),),
+      
+      SizedBox(height:screenHeight * 0.045),
+      // GestureDetector(
+      //         onTap:(){
+
+      //            if(login_formkey.currentState!.validate())
+      //     {
+      //       setState(() {
+              
+      //         login_email = login_emailcontroller.text.trim();
+              
+      //         login_pass = login_passcontroller.text.trim();
+
+      //       });
+      //       userlogin();
+      //     }
+
+      //    // userlogin();
+      //         },child:Container(alignment: Alignment.center,
+      // height:  screenHeight * 0.07,
+      // width:double.infinity,
+      // margin: EdgeInsets.symmetric(horizontal: 20),
+      // //color: Colors.red,
+
+      // decoration: BoxDecoration(
+      //    boxShadow: [
+      //             BoxShadow(
+      //               color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+      //               blurRadius: 5,
+      //               spreadRadius: 1,
+      //               offset: Offset(0, 0),
+      //             ),
+                 
+                  
+      //           ],
+      //   borderRadius: BorderRadius.circular(20),
+      //   color: Color.fromARGB(255, 19, 4, 104),
+      //  //color: const Color.fromARGB(255, 157, 21, 11)
+      // // color: Colors.black
+       
+      
+      // ),child:
+      
+      //   Text('Log In to your Account',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 14,))
+      
+      // )),
+      // SizedBox(height:screenHeight*0.04),
+      // GestureDetector( onTap:(){
+
+      //          showModalBottomSheet(context: context, builder: (BuildContext context) {
+      //     return ncc_sign();
+      //          },
+      //          // backgroundColor: Colors.transparent, // Set background color to transparent
+      // isScrollControlled: true,
+      // transitionAnimationController: AnimationController(
+      //   vsync: Navigator.of(context),
+      //   duration: Duration(milliseconds: 300),
+      // )..forward(),
+      //          );
+
+      //       },
+      //   child:Text("Create new account ?",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.grey,fontSize: 12 ),)),
+
+        GestureDetector(
+           onTap:()
             {
               
 
@@ -586,94 +665,220 @@ class _HomeState extends State<Home> {
     );
 
             },
-            child:Container(
-            width: 150,height: 60,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 21, 3, 123),
-                borderRadius: BorderRadius.circular(40),
-                boxShadow: [
+
+
+              child:Container(alignment: Alignment.center,
+      height:  screenHeight * 0.07,
+      width:double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      //color: Colors.red,
+
+      decoration: BoxDecoration(
+         boxShadow: [
                   BoxShadow(
-                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
-                    blurRadius: 5,
-                    spreadRadius: 1,
-                    offset: Offset(0, 0),
-                  ),
-                  
-                  
-                ],
-              ),
-              child: Center(child:
-              Shimmer.fromColors(
-               
-               
-                
-                            baseColor: Colors.white,
-                            highlightColor: Colors.blue,
-                            child:Text(
-                  'ANO ',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                  ),
-                ),)),
-
-          ),),),
-          SizedBox(width: screenWidth * 0.1,),
-
-          Expanded(child: 
-          
-           GestureDetector(
-            onTap:(){
-
-               showModalBottomSheet(context: context, builder: (BuildContext context) {
-          return ncc_sign();
-               },
-               // backgroundColor: Colors.transparent, // Set background color to transparent
-      isScrollControlled: true,
-      transitionAnimationController: AnimationController(
-        vsync: Navigator.of(context),
-        duration: Duration(milliseconds: 300),
-      )..forward(),
-               );
-
-            },
-            child:Container(
-            width: 150,height: 60,
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 31, 9, 122),
-               
-                borderRadius: BorderRadius.circular(40),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
-                    blurRadius: 5,
+                  //  color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+                  color: Colors.blue,
+                    blurRadius: 3,
                     spreadRadius: 1,
                     offset: Offset(0, 0),
                   ),
                  
+                  
                 ],
-              ),
-              child: Center(
-               child:
-              Shimmer.fromColors(
-                         baseColor: Colors.white,
-                            highlightColor: Colors.blue,
-                            child:Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                   // letterSpacing: 1.5,
-                  ),),
-                ),
+        borderRadius: BorderRadius.circular(20),
+       // color: Color.fromARGB(255, 19, 4, 104),
+       // color: Colors.grey.shade600
+      // color: Colors.blue[200]
+        color: Colors.blue.withOpacity(0.6),
+       
+      
+      ),child:
+      
+       Text("ANO's View",style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 14,))
+      
+      )),
+      
 
-          )),),
+    //   Padding(padding: EdgeInsets.all(20),child: Row(
+    //      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        
+    //     children: [
+          
+    //       Expanded(child: 
 
-      )],
-      ),),
+    //       GestureDetector(
+    //         onTap:()
+    //         {
+              
+
+    //            showDialog(
+    //   context: context,
+    //   builder: (BuildContext context) {
+    //     String? passkeyError;
+    //     return StatefulBuilder(
+    //       builder: (context, setState) {
+    //         return AlertDialog(
+    //           shadowColor: Colors.blue.shade900,
+    //           backgroundColor: Color.fromARGB(255, 10, 138, 243),
+    //           title: Row(children: [
+
+    //             Shimmer.fromColors( baseColor:Colors.black, highlightColor: Colors.white,child:Icon(Icons.lock,size: 30,),),
+    //             SizedBox(width: screenWidth*0.016,),
+    //             Text('Secure Key',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+
+    //           ],),
+    //           content: Column(
+    //             mainAxisSize: MainAxisSize.min,
+    //             children: [
+    //               TextField(
+    //                 style: TextStyle(color:Colors.white),
+    //                 controller: passkeyController,
+    //                 keyboardAppearance: Brightness.light,
+                   
+    //                 decoration: InputDecoration(
+                     
+    //                   hintText: 'Enter the pass key',hintStyle: TextStyle(color: Colors.white)),
+    //               ),
+    //               if (passkeyError != null)
+    //                 Padding(
+    //                   padding: const EdgeInsets.only(top: 8.0),
+    //                   child: Text(
+    //                     passkeyError!,
+    //                     style: TextStyle(color: Colors.red, fontSize: 16,fontWeight: FontWeight.bold),
+    //                   ),
+    //                 ),
+    //             ],
+    //           ),
+    //           actions: <Widget>[
+    //             TextButton(
+    //               child: Shimmer.fromColors(baseColor: Colors.black, highlightColor: Colors.white,child:Text('Submit',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),),
+    //               onPressed: () {
+    //                 if (passkeyController.text.trim() == passkey) {
+    //                   passkeyController.clear(); // Clear the passkey field
+    //                   Navigator.of(context).pop(); // Close the dialog
+    //                   Navigator.push(
+    //                     context,
+    //                      PageRouteBuilder(
+    //                     pageBuilder: (context, animation, secondaryAnimation) => ano_view_details(),
+    //                     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    //                       const begin = 0.0;
+    //                       const end = 1.0;
+    //                       const curve = Curves.elasticIn;
+
+    //                       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+    //                       var opacityAnimation = animation.drive(tween);
+
+    //                       return FadeTransition(
+    //                         opacity: opacityAnimation,
+    //                         child: child,
+    //                       );
+    //                     },
+    //                   ),
+    //                   );
+    //                 } else {
+    //                   passkeyController.clear();
+    //                   setState(() {
+    //                     passkeyError = 'Enter correct pass key';
+    //                   });
+    //                 }
+    //               },
+    //             ),
+    //           ],
+    //         );
+    //       },
+    //     );
+    //   },
+    // );
+
+    //         },
+    //         child:Container(
+    //         width: 150,height: 60,
+    //         decoration: BoxDecoration(
+    //             color: Color.fromARGB(255, 21, 3, 123),
+    //             borderRadius: BorderRadius.circular(40),
+    //             boxShadow: [
+    //               BoxShadow(
+    //                 color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+    //                 blurRadius: 5,
+    //                 spreadRadius: 1,
+    //                 offset: Offset(0, 0),
+    //               ),
+                  
+                  
+    //             ],
+    //           ),
+    //           child: Center(child:
+    //           Shimmer.fromColors(
+               
+               
+                
+    //                         baseColor: Colors.white,
+    //                         highlightColor: Colors.blue,
+    //                         child:Text(
+    //               'ANO ',
+    //               style: TextStyle(
+    //                 fontSize: 14,
+    //                 color: Colors.white,
+    //                 fontWeight: FontWeight.bold,
+    //                 letterSpacing: 1.5,
+    //               ),
+    //             ),)),
+
+    //       ),),),
+    //       SizedBox(width: screenWidth * 0.1,),
+
+    //       Expanded(child: 
+          
+    //        GestureDetector(
+    //         onTap:(){
+
+    //            showModalBottomSheet(context: context, builder: (BuildContext context) {
+    //       return ncc_sign();
+    //            },
+    //            // backgroundColor: Colors.transparent, // Set background color to transparent
+    //   isScrollControlled: true,
+    //   transitionAnimationController: AnimationController(
+    //     vsync: Navigator.of(context),
+    //     duration: Duration(milliseconds: 300),
+    //   )..forward(),
+    //            );
+
+    //         },
+    //         child:Container(
+    //         width: 150,height: 60,
+    //         decoration: BoxDecoration(
+    //             color: Color.fromARGB(255, 31, 9, 122),
+               
+    //             borderRadius: BorderRadius.circular(40),
+    //             boxShadow: [
+    //               BoxShadow(
+    //                 color: Color.fromARGB(255, 18, 8, 88).withOpacity(0.6),
+    //                 blurRadius: 5,
+    //                 spreadRadius: 1,
+    //                 offset: Offset(0, 0),
+    //               ),
+                 
+    //             ],
+    //           ),
+    //           child: Center(
+    //            child:
+    //           Shimmer.fromColors(
+    //                      baseColor: Colors.white,
+    //                         highlightColor: Colors.blue,
+    //                         child:Text(
+    //               'Sign Up',
+    //               style: TextStyle(
+    //                 fontSize: 14,
+    //                 color: Colors.white,
+    //                 fontWeight: FontWeight.bold,
+    //                // letterSpacing: 1.5,
+    //               ),),
+    //             ),
+
+    //       )),),
+
+    //   )],
+    //   ),),
 
         SizedBox(height: screenHeight * 0.01),
 

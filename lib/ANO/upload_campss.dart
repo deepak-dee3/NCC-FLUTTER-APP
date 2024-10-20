@@ -148,7 +148,12 @@ Future<void> pickimage() async {
 
         _campeve_controller.clear();
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ano_view_details()));
+     // Navigator.push(context, MaterialPageRoute(builder: (context) => ano_view_details()));
+       Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => ano_view_details()),
+        (route) => false,
+      );
     
       });
 

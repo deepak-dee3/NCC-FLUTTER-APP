@@ -109,17 +109,18 @@ class _ncc_signState extends State<ncc_sign> {
       scrollDirection: Axis.vertical,
       child:Container(
         decoration: BoxDecoration(
-          color:Colors.red.withAlpha(15),
+         // color:Colors.red.withAlpha(15),
+         color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), // Highlight: Curved top-left corner
             topRight: Radius.circular(20), // Highlight: Curved top-right corner
           ),
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 144, 1, 169),
-            Colors.yellow,
-            Colors.green,
-            Colors.brown,
-          ]),
+          // gradient: LinearGradient(colors: [
+          //   Color.fromARGB(255, 144, 1, 169),
+          //   Colors.yellow,
+          //   Colors.green,
+          //   Colors.brown,
+          // ]),
          
         ),
         
@@ -402,7 +403,7 @@ class _ncc_signState extends State<ncc_sign> {
                 ),
               )
               ),
-      SizedBox(height:screenHeight*0.035),
+      SizedBox(height:screenHeight*0.030),
 
      /* GestureDetector(onTap: (){
            Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
@@ -449,22 +450,21 @@ class _ncc_signState extends State<ncc_sign> {
               //Navigator.push(context, MaterialPageRoute(builder: (context) => choosing_items()));
             },
         child:Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.all(10),
+     height:  screenHeight * 0.08,
+      width:double.infinity,
+       margin: EdgeInsets.symmetric(horizontal: 20),
+      //padding: EdgeInsets.all(10),
       //color: Colors.red,
 
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(20),
         color: Color.fromARGB(255, 19, 4, 104),
       
       ),
-      child:Shimmer.fromColors(
-        
-        child:  Text('Sign Up Here',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), baseColor: Colors.white, highlightColor: Colors.blue)
+      child: Text('Sign Up Here',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold)), )
        // Text('Sign In',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold))
       
-      ),),
+      ),
       SizedBox(height:screenHeight*0.035),
  ],),)
     ))));
