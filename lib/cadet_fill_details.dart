@@ -395,7 +395,7 @@ _mothername_controller .clear();
                       return "Fill this required field";
                     }
                     else if (!RegExp(r'^TN\d{2}(SDA|SWA|JDA|JWA)\d+$').hasMatch(value)) {
-        return 'Please enter a valid regimental number (e.g., TN23SDA824605)';
+        return 'Enter valid number (e.g., TN23SDA824600)';
       }
                     return null;
                   },
@@ -752,16 +752,17 @@ _mothername_controller .clear();
                     ),
                     TextFormField( 
                       controller: _battalion_controller,
-             validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Fill this required field";
-                    }
-                     else if (RegExp(r'\d').hasMatch(value)) {
-        return 'The battalion name should not contain numbers';
-      }
-                    return null;
-                  },
+             validator: (value) {
+  if (value == null || value.isEmpty) {
+    return "Fill this required field";
+  }
+  // Check if value contains both numbers and alphabets
+  else if (!RegExp(r'^(?=.*[0-9])(?=.*[a-zA-Z])').hasMatch(value)) {
+    return "eg : 15 BN , Erode";
+  }
+  return null; // Valid input
+}
+,
                 
                       cursorColor: Colors.black,
                       style: TextStyle(
@@ -1978,7 +1979,7 @@ prefixIcon: Icon(Icons.person_2_rounded),
       // Regex pattern to check if the address contains a pin code at the end
       final pinCodePattern = RegExp(r'\b\d{6}\b$');
       if (!pinCodePattern.hasMatch(value)) {
-        return 'Include 6-digit pin code at the end';
+        return 'Include "-" with 6 digit pin code at end';
       }
 
       return null;

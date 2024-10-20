@@ -9,6 +9,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:metaballs/metaballs.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:quickalert/quickalert.dart';
 
 class ncc_sign extends StatefulWidget{
   @override
@@ -36,17 +37,24 @@ class _ncc_signState extends State<ncc_sign> {
         //String? storedPassword = await storage.read(key: 'password');
        // await storage.delete(key: 'password');
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colors.red,
-        duration: Duration(seconds:  20),
-          content: Text("Attention : Don't exit this page ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold))));
+        duration: Duration(seconds:  30),
+          content: Text("Attention : Don't exit this page without finishing ",style:TextStyle(fontSize: 15,fontWeight: FontWeight.bold))));
 
-          Fluttertoast.showToast(
-        msg: "Attention : Don't exit this page",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.TOP,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      //     Fluttertoast.showToast(
+      //   msg: "Attention : Don't exit this page",
+      //   toastLength: Toast.LENGTH_LONG,
+      //   gravity: ToastGravity.TOP,
+      //   backgroundColor: Colors.red,
+      //   textColor: Colors.white,
+      //   fontSize: 16.0,
+      // );
+      //  QuickAlert.show(
+      //   context: context,
+      //   type: QuickAlertType.loading,
+      //   title: 'Loading',
+      //   text: 'Uploading your image',
+      //   confirmBtnText: 'okay'
+      // );
 
         Navigator.push(context, MaterialPageRoute(builder: (context) => fill_details(email: email)));
         emailcontroller.clear();
@@ -104,7 +112,45 @@ class _ncc_signState extends State<ncc_sign> {
   maxBallRadius: 40,
   glowRadius: 0.7,
   glowIntensity: 0.6,
-  child: */
+  child: */CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 300, // Height of the app bar
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue, // Background color of the AppBar
+                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                     
+                      // Lottie animation placed here
+                      Container(
+                        height: 250,
+                        width: 100,
+                        child: Transform.scale(
+                          scale: 2.0,
+                          child: Lottie.asset('assets/animation/Animation - 1721316481945.json'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),child:
     SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child:Container(
@@ -128,23 +174,14 @@ class _ncc_signState extends State<ncc_sign> {
       
       child:Column(children: [
 
-      SizedBox(height:screenHeight*0.055),
+      SizedBox(height:screenHeight*0.035),
 
 
      Shimmer.fromColors(
       baseColor: Colors.black,
       highlightColor: Colors.grey[100]!,
-      child: Text('Sign Up ',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),),
-     SizedBox(height: 20,),
-
-     Center(child: Container(
-            height: 250,
-            width: 100,child:Transform.scale(
-            scale: 2.0, 
-   
-            child:Lottie.asset('assets/animation/Animation - 1721316481945.json')),),
-          ),
-
+      child: Text('Sign Up Page ',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),),
+    
       SizedBox(height: screenHeight*0.035,),
 
             Container(
@@ -467,6 +504,6 @@ class _ncc_signState extends State<ncc_sign> {
       ),
       SizedBox(height:screenHeight*0.035),
  ],),)
-    ))));
+    ))))])));
   }
 }

@@ -38,7 +38,7 @@ void main() async
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
-  //await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+  await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
   await NotificationService.init();
   tz.initializeTimeZones();
  
@@ -207,8 +207,50 @@ class _HomeState extends State<Home> {
     child: Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
-
-    body: SingleChildScrollView(
+     
+    body:CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 230, // Set the height of the AppBar
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                background: ClipRRect(
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)), // Set border radius
+                  child: Container(
+                    color: Colors.blue, // Background color of the AppBar
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Shimmer.fromColors(
+                          baseColor: Colors.transparent,
+                          highlightColor: Colors.black,
+                          child: Container(
+                            width: 150,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white.withOpacity(0.2),
+                            ),
+                          ),
+                        ),
+                        Image(
+                          image: AssetImage('assets/ncclogo-removebg-preview.png'),
+                          width: 110,
+                          height: 110,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+              //  padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+      
+     SingleChildScrollView(
       
         child:Container(
          padding: EdgeInsets.all(16.0),
@@ -218,34 +260,34 @@ class _HomeState extends State<Home> {
      
       child:Column(children: [
 
-      SizedBox(height:screenHeight * 0.09),
+      SizedBox(height:screenHeight * 0.07),
 
-      Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Shimmer.fromColors(
-            baseColor: Colors.transparent,
-            highlightColor: Colors.black.withOpacity(0.5),
-            child: Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
-              ),
-            ),
-          ),
-          Image(
-            image: AssetImage('assets/ncclogo-removebg-preview.png'),
-            width: 110,
-            height: 110,
-          ),
-        ],
-      ),
-    ),
+    //   Center(
+    //   child: Stack(
+    //     alignment: Alignment.center,
+    //     children: [
+    //       Shimmer.fromColors(
+    //         baseColor: Colors.transparent,
+    //         highlightColor: Colors.black.withOpacity(0.5),
+    //         child: Container(
+    //           width: 150,
+    //           height: 150,
+    //           decoration: BoxDecoration(
+    //             shape: BoxShape.circle,
+    //             color: Colors.white.withOpacity(0.2), // This makes the shimmer effect visible around the image
+    //           ),
+    //         ),
+    //       ),
+    //       Image(
+    //         image: AssetImage('assets/ncclogo-removebg-preview.png'),
+    //         width: 110,
+    //         height: 110,
+    //       ),
+    //     ],
+    //   ),
+    // ),
    // Center(child:Image.asset('assets/ncc_app-removebg-preview.png',)),
-      SizedBox(height: screenHeight * 0.08,),
+     // SizedBox(height: screenHeight * 0.08,),
 
      /* Container(alignment: Alignment.center,
       height: 70,
@@ -689,7 +731,7 @@ class _HomeState extends State<Home> {
        // color: Color.fromARGB(255, 19, 4, 104),
        // color: Colors.grey.shade600
       // color: Colors.blue[200]
-        color: Colors.blue.withOpacity(0.6),
+        color: const Color.fromARGB(255, 22, 125, 209),
        
       
       ),child:
@@ -883,7 +925,12 @@ class _HomeState extends State<Home> {
         SizedBox(height: screenHeight * 0.01),
 
          ],),  
-    )))),
+    )))],
+                ),
+              ),
+            ),
+          ],
+        ),),
     );
   }
 }
