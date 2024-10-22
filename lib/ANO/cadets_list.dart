@@ -241,6 +241,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
                     fillColor: const Color.fromARGB(255, 24, 4, 123),
                     filled: true,
                     floatingLabelBehavior: FloatingLabelBehavior.never,
+                    
                     //floatingLabelAlignment: FloatingLabelAlignment.,
                    
                     labelText: "Search by Regimental Number or Name",
@@ -251,6 +252,7 @@ class _ccadet_detailsState extends State<ccadet_details> {
                       borderSide: BorderSide.none,
                     ),
                   ),
+                   style: TextStyle(color: Colors.white),
                 ),
               ),
             ),

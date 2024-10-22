@@ -99,6 +99,8 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.width;
     return WillPopScope(
       onWillPop: () async {
         // Handle back button press
@@ -111,14 +113,15 @@ class _ano_camp_view_detailsState extends State<ano_camp_view_details> {
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.10),
             Container(
-              height: 250,
-              width: 100,
+              height: screenHeight*0.25,
+              width: screenWidth*0.2,
+              
               child: Transform.scale(
                 scale: 2.0,
                 child: Lottie.asset('assets/animation/Animation - 1721542924636.json'),
               ),
             ),
-            SizedBox(height: 20),
+          //  SizedBox(height: 20),
             FutureBuilder<List<Map<String, dynamic>>>(
               future: _fetchImageUrlsWithTitles(),
               builder: (context, snapshot) {

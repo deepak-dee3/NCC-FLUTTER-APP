@@ -117,8 +117,8 @@ class _cadet_view_achievementsState extends State<cadet_view_achievements> {
               SizedBox(height: screenHeight*0.031),
 
               Container(
-                height: 200,
-                width: 100,
+                 height: screenHeight*0.25,
+              width: screenWidth*0.2,
                 child: Transform.scale(
                   scale: 2,
                   child: Lottie.asset('assets/animation/Animation - 1721314505334.json'),
