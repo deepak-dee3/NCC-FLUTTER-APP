@@ -121,7 +121,7 @@ class _ncc_signState extends State<ncc_sign> {
                 background: Container(
                   decoration: BoxDecoration(
                     color: Colors.blue, // Background color of the AppBar
-                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+                    borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
                   ),
                   child: Stack(
                     alignment: Alignment.center,
@@ -494,6 +494,15 @@ class _ncc_signState extends State<ncc_sign> {
       //color: Colors.red,
 
       decoration: BoxDecoration(
+        boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 19, 4, 104),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+            
+          ],
         borderRadius: BorderRadius.circular(20),
         color: Color.fromARGB(255, 19, 4, 104),
       

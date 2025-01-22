@@ -215,7 +215,7 @@ class _HomeState extends State<Home> {
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 background: ClipRRect(
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)), // Set border radius
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)), // Set border radius
                   child: Container(
                     color: Colors.blue, // Background color of the AppBar
                     child: Stack(

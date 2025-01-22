@@ -233,6 +233,7 @@ class _ano_view_detailsState extends State<ano_view_details> {
       },
       child:  Scaffold(
     backgroundColor: Colors.white,
+    resizeToAvoidBottomInset: false,
     
 
     body:Container(child:Center(
