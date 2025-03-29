@@ -1,5 +1,6 @@
 import 'package:ncc/new.dart';
 import 'package:ncc/new2.dart';
+import 'package:ncc/uuu.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -536,7 +537,8 @@ class _HomeState extends State<Home> {
         GestureDetector(
         onTap: ()
         {
-           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => UploadImagePage()));
+           //Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword()));
          
         },
         child:Center(child:Text('Forgot Password ? ',style:TextStyle(color: Color.fromARGB(255, 47, 19, 203,),fontWeight: FontWeight.bold,fontSize: 12)),),),
