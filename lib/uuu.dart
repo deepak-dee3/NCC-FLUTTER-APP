@@ -29,7 +29,6 @@ class _UploadImagePageState extends State<UploadImagePage> {
     String fileName = DateTime.now().millisecondsSinceEpoch.toString();
     Reference storageRef =
         FirebaseStorage.instance.ref().child('uploads/$fileName.jpg');
-
     try {
       await storageRef.putFile(_image!);
       String downloadURL = await storageRef.getDownloadURL();

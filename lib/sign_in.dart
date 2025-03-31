@@ -89,30 +89,8 @@ class _ncc_signState extends State<ncc_sign> {
       backgroundColor: Colors.white,
     
       resizeToAvoidBottomInset: false,
-    body:/*Metaballs(
-  color: Color.fromARGB(255, 235, 86, 98),
-  effect: MetaballsEffect.follow(
-    growthFactor: 1,
-    smoothing: 1,
-    radius: 0.5,
-  ),
-  gradient: LinearGradient(
-    colors: [
-      Color.fromARGB(255, 184, 8, 26),
-      Color.fromARGB(255, 222, 16, 33),
-    ],
-    begin: Alignment.bottomRight,
-    end: Alignment.topLeft
-  ),
-  metaballs: 40,
-  animationDuration: const Duration(milliseconds: 200),
-  speedMultiplier: 1,
-  bounceStiffness: 3,
-  minBallRadius: 15,
-  maxBallRadius: 40,
-  glowRadius: 0.7,
-  glowIntensity: 0.6,
-  child: */CustomScrollView(
+    body:
+  CustomScrollView(
           slivers: [
             SliverAppBar(
               expandedHeight: 300, // Height of the app bar
@@ -246,42 +224,7 @@ class _ncc_signState extends State<ncc_sign> {
       SizedBox(height: screenHeight*0.035),
 
       
-
-     /* Container(alignment: Alignment.center,
-     
-      width:330,
-      padding: EdgeInsets.only(left:20),
-      //color: Colors.red,
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-         color: Colors.red.shade500,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.brown,
-              blurRadius: 10,
-            )
-          ]
-      
-      ),
-      child:TextFormField(
-      
-        decoration: InputDecoration(border: InputBorder.none,
-        hintText: '     Enter your email',
-         errorStyle: TextStyle(color: Color.fromARGB(255, 32, 1, 144),fontSize: 12),
-        ),
-        validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your user email";
-                    }
-                    return null;
-                  },
-                  
-        controller: emailcontroller,       
-      )
-      
-      ),*/      Container(
+    Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
@@ -344,45 +287,7 @@ class _ncc_signState extends State<ncc_sign> {
 
       SizedBox(height: screenHeight*0.035),
 
-     /* Container(alignment: Alignment.center,
-      height: 70,
-      width:330,
-      padding: EdgeInsets.only(left:20),
-      //color: Colors.red,
-
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-         color: Colors.red.shade500,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.brown,
-              blurRadius: 10,
-            )
-          ]
-      
-      ),
-      child:
-        TextFormField(
-          
-        decoration: InputDecoration(border: InputBorder.none,
-        hintText: '     Enter your password',
-         errorStyle: TextStyle(color: Color.fromARGB(255, 32, 1, 144),fontSize: 12),
-
-        ),
-        validator: (value){
-                    if(value == null || value.isEmpty)
-                    {
-                      return "Enter your user password";
-                    }
-                    return null;
-                  },
-        controller: passcontroller,
-        
-        textAlign: TextAlign.start,
-        
-      )
-      
-      ),*/
+    
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -442,33 +347,7 @@ class _ncc_signState extends State<ncc_sign> {
               ),
       SizedBox(height:screenHeight*0.030),
 
-     /* GestureDetector(onTap: (){
-           Navigator.push(context,MaterialPageRoute(builder: (context) => fill_details()));
-          }, child:Container(padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 12.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-          gradient: LinearGradient(
-            colors: [Colors.blueAccent, Colors.lightBlueAccent],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.blueAccent.withOpacity(0.6),
-              spreadRadius: 1,
-              blurRadius: 15,
-              offset: Offset(0, 0), // changes position of shadow
-            ),
-            BoxShadow(
-              color: Colors.lightBlueAccent.withOpacity(0.6),
-              spreadRadius: 1,
-              blurRadius: 15,
-              offset: Offset(0, 0), // changes position of shadow
-            ),
-          ],
-        ),
-            child: Text('Click here to continue'))),*/
-
+   
             SizedBox(height: screenHeight*0.035,),
       GestureDetector(onTap:(){
 
