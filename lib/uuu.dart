@@ -38,7 +38,6 @@ class _UploadImagePageState extends State<UploadImagePage> {
         'url': downloadURL,
         'timestamp': FieldValue.serverTimestamp(),
       });
-
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Upload successful!')));
     } catch (e) {
       print("Error: $e");
