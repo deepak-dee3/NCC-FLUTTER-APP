@@ -287,7 +287,6 @@ class _ncc_signState extends State<ncc_sign> {
 
       SizedBox(height: screenHeight*0.035),
 
-    
             Container(
               width: double.infinity,
               margin: EdgeInsets.symmetric(horizontal: 20),
