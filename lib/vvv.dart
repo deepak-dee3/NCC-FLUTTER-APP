@@ -15,7 +15,6 @@ class RetrieveImagesPage extends StatelessWidget {
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
             return Center(child: Text("No images found."));
           }
-
           return GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 5, mainAxisSpacing: 5),
             itemCount: snapshot.data!.docs.length,
