@@ -11,7 +11,7 @@ class RetrieveImagesPage extends StatelessWidget {
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
-          }
+       }
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
             return Center(child: Text("No images found."));
           }
